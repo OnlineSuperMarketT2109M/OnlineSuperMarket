@@ -1,0 +1,763 @@
+﻿using Microsoft.EntityFrameworkCore;
+using System.Data;
+using System;
+using OnlineSuperMarket.Models;
+
+namespace OnlineSuperMarket.Data.SeedData
+{
+    public class SeedData
+    {
+        public static void Initialize(IServiceProvider serviceprovider)
+        {
+            using (var context = new OnlineSuperMarketDbContext(
+            serviceprovider.GetRequiredService<
+                DbContextOptions<OnlineSuperMarketDbContext>>()))
+            {
+                if (context.Categories.Any())
+                {
+                    /*return;*/
+                }
+
+                // Category 
+                var categories = new Category[]
+                {
+                    new Category { categoryName = "Houseware"},
+                    new Category { categoryName = "Clothes" },
+                    new Category { categoryName = "Footwear" },
+                    new Category { categoryName = "Laptops & Computers" },
+                    new Category { categoryName = "Mobilephones & Tablets" },
+                    new Category { categoryName = "Cameras" },
+                    new Category { categoryName = "Televisions" },
+                    new Category { categoryName = "Refrigerator" },
+                    new Category { categoryName = "Furniture" },
+                    new Category { categoryName = "Gaming & Accessories" },
+                    new Category { categoryName = "Audio & Video" },
+                    new Category { categoryName = "Phone Accessories" },
+                };
+                foreach (var category in categories)
+                {
+                    context.Add(category);
+                }
+                context.SaveChanges();
+
+
+                // Brand
+                var brands = new Brand[]
+                {
+                    new Brand { brandName = "Canon" },
+                    new Brand { brandName = "Kodak" },
+                    new Brand { brandName = "Toshiba" },
+                    new Brand { brandName = "Dell" },
+                    new Brand { brandName = "HP"},
+                    new Brand { brandName = "ASUS" },
+                    new Brand { brandName = "Sony" },
+                    new Brand { brandName = "Apple" },
+                    new Brand { brandName = "Samsung" },
+                    new Brand { brandName = "Levi's" },
+                    new Brand { brandName = "Adidas" },
+                    new Brand { brandName = "Nike" },
+                    new Brand { brandName = "New Balance" },
+                    new Brand { brandName = "Converse" },
+                    new Brand { brandName = "Louis Vuiton" },
+                    new Brand { brandName = "GUCCI" },
+                    new Brand { brandName = "Chanel" },
+                    new Brand { brandName = "Chefman"},
+                    new Brand { brandName = "Visual Comfort & Co"},
+                    new Brand { brandName = "Intro Lifestyle Products Pvt Ltd"},
+                    new Brand { brandName = "Sunhouse"},
+                    new Brand { brandName = "Goldsun"},
+                    new Brand { brandName = "Philips"}
+                };
+                foreach (var brand in brands)
+                {
+                    context.Add(brand);
+                }
+                context.SaveChanges();
+
+                // Product
+                var products = new Product[]
+                {
+                    // Houseware
+                    new Product
+                    {
+                        productName = "Stainless steel kitchen stand",
+                        unitCost = 5,
+                        quantity = 186,
+                        totalAmount = 2320,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Chefman").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Houseware").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "WOODEN TABLE BRUSH",
+                        unitCost = 2,
+                        quantity = 186,
+                        totalAmount = 2320,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Goldsun").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Houseware").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "STAINLESS ALUMINIUM 3-LAYER STEEL SAUCEPOT",
+                        unitCost = 15.99,
+                        quantity = 186,
+                        totalAmount = 2320,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Sunhouse").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Houseware").categoryId
+                    },
+                    
+                    // Clothes
+                        // GUCCI Clothes
+                    new Product
+                    {
+                        productName = "Gucci Web and Interlocking G",
+                        unitCost = 266,
+                        quantity = 78,
+                        totalAmount = 800,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "GUCCI").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "Gucci Jacquard Striped Cotton",
+                        unitCost = 322,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "GUCCI").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "Gucci Cream GG-striped Cotton Polo Shirt",
+                        unitCost = 342,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "GUCCI").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
+                    },
+
+                        // Louis Vuiton Clothes
+                    new Product
+                    {
+                        productName = "LV Printed Leaf Regular Shirt",
+                        unitCost = 389,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Louis Vuiton").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "Monogram Hoodie",
+                        unitCost = 509,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Louis Vuiton").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "DNA Leaf Denim Jacket",
+                        unitCost = 599,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Louis Vuiton").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "Evening Blouson",
+                        unitCost = 599,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Louis Vuiton").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
+                    },
+                        // Adidas clothes
+                    new Product
+                    {
+                        productName = "ADIDAS ADVENTURE MOUNTAIN BACK TEE",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Adidas").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "OWN THE RUN TEE",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Adidas").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "CLUB 3-STRIPES TENNIS TEE",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Adidas").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
+                    },
+                        // Nike Clothes
+                    new Product
+                    {
+                        productName = "Nike Dri-FIT UV Hyverse",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Nike").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "Nike Culture of Basketball",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Nike").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "Nike Sportswear",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Nike").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
+                    },
+                        // Levi's
+                    new Product
+                    {
+                        productName = "Barstow Western Denim Shirt",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Levi's").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "Relaxed Fit Short Sleeve T-Shirt",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Levi's").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "Housemark Polo Shirt",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Levi's").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
+                    },
+
+                    // Footwear
+                        // Adidas
+                    new Product
+                    {
+                        productName = "ULTRABOOST LIGHT SHOES",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Adidas").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "ULTRA ADIDAS 4D SHOES",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        brandId = brands.Single(brand => brand.brandName == "Adidas").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId,
+                    },
+                    new Product
+                    {
+                        productName = "STAN SMITH SHOES",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Adidas").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId
+                    },
+                        // Nike
+                    new Product
+                    {
+                        productName = "Air Jordan 1 Elevate Low",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Nike").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "Nike Dunk Low Retro SE",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Nike").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "Nike Free Metcon 4 Premium",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Nike").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId
+                    },
+                        // New Balance
+                    new Product
+                    {
+                        productName = "574 Core",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "New Balance").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "Fresh Foam X 1080v12",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "New Balance").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "MX608V5",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "New Balance").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId
+                    },
+                        // Converse
+                    new Product
+                    {
+                        productName = "Converse Chuck Taylor All Star Low Top",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Converse").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "Converse Chuck Taylor All Star High Top",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Converse").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "Chuck 70",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Converse").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId
+                    },
+                    // Laptops & Computers
+                        // Dell
+                    new Product
+                    {
+                        productName = "New Latitude 7640",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Dell").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Laptops & Computers").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "New Latitude 7340 Laptop or 2-in-1",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Dell").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Laptops & Computers").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "New Latitude 5340 Laptop or 2-in-1",
+                        unitCost = 199,
+                        quantity = 53,
+                        totalAmount = 890,
+                        brandId = brands.Single(brand => brand.brandName == "Dell").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Laptops & Computers").categoryId
+                    },
+                        // ASUS
+                    new Product
+                    {
+                        productName = "Asus TUF Gaming FX506LHB-HN188W i5 10300H",
+                        unitCost = 950,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "ASUS").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Laptops & Computers").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "Asus TUF Gaming FX506HC-HN144W i5 11400H",
+                        unitCost = 999,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "ASUS").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Laptops & Computers").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "Asus Vivobook M1403QA-LY022W R5 5600H",
+                        unitCost = 759,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "ASUS").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Laptops & Computers").categoryId
+                    },
+                        // HP
+                    new Product
+                    {
+                        productName = "HP Pavilion 14-dv2035TU i5 1235U/6K771PA",
+                        unitCost = 650,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "HP").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Laptops & Computers").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "Laptop HP Gaming Victus 16-e1107AX R5-6600H",
+                        unitCost = 769,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "HP").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Laptops & Computers").categoryId
+                    },
+                        // Apple (Macbook)
+                    new Product
+                    {
+                        productName = "MacBook Pro M2 2022 13 inch 8CPU 10GPU 8GB 256GB",
+                        unitCost = 1299,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Apple").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Laptops & Computers").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "MacBook Pro 14 2023 M2 Pro 10CPU 16GPU 16GB/512GB",
+                        unitCost = 2500,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Apple").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Laptops & Computers").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "MacBook Pro 14 2023 M2 Pro 12CPU 19GPU 16GB/1TB",
+                        unitCost = 2999,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Apple").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Laptops & Computers").categoryId
+                    },
+                    // Mobilephones & Tablets
+                        // Appple (iPhone)
+                    new Product
+                    {
+                        productName = "iPhone 14 Pro Max 128GB",
+                        unitCost = 1200,
+                        quantity = 53,
+                        totalAmount = 890,
+                        brandId = brands.Single(brand => brand.brandName == "Apple").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Mobilephones & Tablets").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "iPhone 14 Pro Max 256GB",
+                        unitCost = 1350,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Apple").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Mobilephones & Tablets").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "iPhone 13 Pro 1TB",
+                        unitCost = 1250,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Apple").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Mobilephones & Tablets").categoryId
+                    },
+                        // Samsung
+                    new Product
+                    {
+                        productName = "Samsung Galaxy S23 Ultra 5G",
+                        unitCost = 1250,
+                        quantity = 53,
+                        totalAmount = 890,
+                        brandId = brands.Single(brand => brand.brandName == "Samsung").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Mobilephones & Tablets").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "Samsung Galaxy S23 5G",
+                        unitCost = 950,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Samsung").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Mobilephones & Tablets").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "Samsung Galaxy Z Fold4 5G",
+                        unitCost = 1550,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Samsung").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Mobilephones & Tablets").categoryId
+                    },
+                    // Cameras
+                        // Canon
+                    new Product
+                    {
+                        productName = "PowerShot G5 X Mark II",
+                        unitCost = 1550,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Canon").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Cameras").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "PowerShot G9 X Mark II",
+                        unitCost = 1750,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Canon").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Cameras").categoryId
+                    },
+                        // Kodak
+                    new Product
+                    {
+                        productName = "KODAK PIXPRO WPZ2 Digital Camera",
+                        unitCost = 1150,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Kodak").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Cameras").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "KODAK PIXPRO ORBIT360 4K VR Camera",
+                        unitCost = 1350,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Kodak").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Cameras").categoryId
+                    },
+                    // Televisions
+                        // Toshiba
+                    new Product
+                    {
+                        productName = "Ultra HD Smart TV",
+                        unitCost = 950,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Toshiba").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Televisions").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "Ultra HD Android TV",
+                        unitCost = 1250,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Toshiba").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Televisions").categoryId
+                    },
+                        // Sony
+                    new Product
+                    {
+                        productName = "Z9J Series",
+                        unitCost = 2550,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Sony").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Televisions").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "X95K Series",
+                        unitCost = 1550,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Sony").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Televisions").categoryId
+                    },
+                        // Samsung
+                    new Product
+                    {
+                        productName = "55 inch Neo QLED 4K QN85C",
+                        unitCost = 2150,
+                        quantity = 53,
+                        totalAmount = 890,
+                        brandId = brands.Single(brand => brand.brandName == "Samsung").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Televisions").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "65 inch Neo QLED 8K QN800C",
+                        unitCost = 3750,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Samsung").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Televisions").categoryId
+                    },
+                    // Refrigerator
+                        // Toshiba
+                    new Product
+                    {
+                        productName = "GR-RS508WE-PMI",
+                        unitCost = 3750,
+                        quantity = 53,
+                        totalAmount = 890,
+                        brandId = brands.Single(brand => brand.brandName == "Toshiba").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Refrigerator").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "GR-AG66INA(GG)",
+                        unitCost = 4250,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Toshiba").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Refrigerator").categoryId
+                    },
+                        // Sony
+                    new Product
+                    {
+                        productName = "SER-240TS",
+                        unitCost = 2250,
+                        quantity = 53,
+                        totalAmount = 890,
+                        brandId = brands.Single(brand => brand.brandName == "Sony").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Refrigerator").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "SER-305TS",
+                        unitCost = 3250,
+                        quantity = 53,
+                        totalAmount = 890,
+                        brandId = brands.Single(brand => brand.brandName == "Sony").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Refrigerator").categoryId
+                    },
+                        // Samsung
+                    new Product
+                    {
+                        productName = "Bespoke 4-Door French Door Refrigerator (29 cu. ft.) with Beverage Center™ in White Glass",
+                        unitCost = 3250,
+                        quantity = 53,
+                        totalAmount = 890,
+                        status = "sale 10%",
+                        brandId = brands.Single(brand => brand.brandName == "Samsung").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Refrigerator").categoryId
+                    },
+                    new Product
+                    {
+                        productName = "Bespoke 4-Door French Door Refrigerator (23 cu. ft.) with Beverage Center™ in Stainless Steel",
+                        unitCost = 4250,
+                        quantity = 53,
+                        totalAmount = 890,
+                        brandId = brands.Single(brand => brand.brandName == "Samsung").brandId,
+                        categoryId = categories.Single(category => category.categoryName == "Refrigerator").categoryId
+                    },
+                };
+                foreach (var product in products)
+                {
+                    context.Add(product);
+                }
+                context.SaveChanges();
+
+                //// Product Detais
+                //var productDetails = new ProductDetail[]
+                //{
+                //    new ProductDetail
+                //    {
+                //        //productId = products.Single()
+                //    }
+                //};
+            }
+        }
+    }
+}

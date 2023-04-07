@@ -1,0 +1,66 @@
+.breadcrumb--form {
+  display: grid;
+  grid-template-columns: auto auto;
+  width: 100%;
+}
+
+.breadcrumb--content {
+  display: inline-block;
+  float: none;
+  margin-right: 0.25rem;
+  margin-top: 18px;
+  font-size: 14px;
+  color: gray;
+}
+
+.breadcumb--form--inputItems {
+  width: 95%;
+  padding: 15px;
+}
+
+.breadcumb--form--inputItems input {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 40px;
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.label label {
+  color: #202020;
+  font-weight: 520;
+}
+
+#required {
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  text-transform: capitalize;
+  margin: 0;
+  color: #b4b4b4;
+}
+
+.submitButton button {
+  padding: 10px 20px;
+  height: 48px;
+  background: #0a6cdc;
+  border: 1px solid #0a6cdc;
+  border-radius: 40px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  width: 40%;
+  margin: 15px;
+}
+
+.submitButton button:hover {
+  background: #161880;
+  transition: ease-in-out 0.25s;
+}

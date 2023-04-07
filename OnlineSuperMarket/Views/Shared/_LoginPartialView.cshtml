@@ -1,0 +1,32 @@
+﻿@model OnlineSuperMarket.Models.ViewModel.LoginViewModel
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<div class="loginForm">
+    <div class="loginForm--content">
+        <div id="closeLoginForm">
+            <p>X</p>
+        </div>
+        <div class="loginForm--heading">
+            <p class="loginForm--heading--title">Customer login</p>
+            <p class="loginForm--heading--subtitle">If you are already registered, please log in.</p>
+        </div>
+        <div class="loginForm--formInput">
+            <form asp-action="Login" asp-controller="Account">
+                <label asp-for="email">Email Address: *</label>
+                <input asp-for="email" type="email" required>
+                <label asp-for="password">Password: *</label>
+                <input asp-for="password" type="password" required>
+                <button type="submit">Sign In</button>
+                <a href="#">Forgot your password?</a>
+            </form>
+        </div>
+        <div class="loginForm--subtitle">
+            <p>Create your account and enjoy a new shopping experience.</p>
+        </div>
+        <div class="loginForm--createNew">
+            <button>Create A New Account</button>
+        </div>
+    </div>
+</div>

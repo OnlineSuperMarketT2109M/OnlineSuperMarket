@@ -1,49 +1,284 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - OnlineSuperMarket</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/OnlineSuperMarket.styles.css" asp-append-version="true" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Supermarket</title>
+    <link rel="shortcut icon" type="image/icon" href="~/ClientAssets/img/Premium Vector _ Supermarket logo concept.jpg" />
+    <link ref="stylesheet" href="~/ClientAssets/fontawesome-pro-6.1.0-web/css/all.min.css">
+    <script src="~/ClientAssets/fontawesome-pro-6.1.0-web/js/all.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+    <link rel="stylesheet" href="~/ClientAssets/style/footer-header.css">
+    <link rel="stylesheet" href="~/ClientAssets/style/home-page.css">
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">OnlineSuperMarket</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+    <div id="overlay"></div>
+
+    <!-- Newsletter Popup -->
+    <div class="newsletterPopup">
+        <div class="newsletterPopup--container">
+            <div class="newsletterPopup--inner">
+                <button type="button" class="closePopup"><i class="fa-solid fa-xmark"></i></button>
+                <div class="newsletterPopup--image">
+                    <img src="~/ClientAssets/img/newsletter-bg.jpg" alt="Newsletter Pop Up Image">
+                </div>
+                <div class="newsletterPopup--content">
+                    <h2 class="newsletterPopup--content--title">Be the first to know</h2>
+                    <span class="newsletterPopup--content--message">
+                        Get the latest updates on new products and upcoming
+                        sales
+                    </span>
+                    <form class="newsletterPopup--content--form">
+                        <input class="newsletterPopup--content--form--input" type="email" placeholder="Your email address">
+                        <button class="newsletterPopup--content--form--button" type="button">Subscribe</button>
+                    </form>
+                    <div class="noThanks">
+                        <p>No, thanks!</p>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        </div>
     </div>
+    <!-- End  -->
+    <!-- Log in form  -->
+    <partial name="_LoginPartialView"></partial>
+    
+    
+    <!-- End  -->
+    <!-- Header 2 -->
+    <div class="hiddenHeader">
+        <div class="hiddenNavbar">
+            <div class="hiddenNavbar--left">
+                <ul>
+                    <li><img src="~/ClientAssets/img/superkart-logo-white-n-yellow_1631269889__17681.original.png" width="120px;"></li>
+                    <li>Appliances</li>
+                    <li>Category</li>
+                    <li>About Us</li>
+                    <li>Contact</li>
+                    <li>Registered Brand</li>
+                    <li>Registration Shop</li>
+                </ul>
+            </div>
+            <div class="hiddenNavbar--right">
+                <ul>
+                    <li><i class="fa-light fa-magnifying-glass hiddenHeader--icon"></i></li>
+                    <li><i class="fa-light fa-cart-shopping hiddenHeader--icon"></i><span class="amountCart">1</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End  -->
+    <!-- Header Start  -->
+    <header>
+        <div class="header">
+            <div class="header--headerTop container">
+                <div class="headerTop--logo">
+                    <img src="~/ClientAssets/img/superkart-logo-white-n-yellow_1631269889__17681.original.png" width="180px" alt="logo image">
+                </div>
+                <div class="headerTop--search">
+                    <form class="form">
+                        <div class="search_category">
+                            <select name="category" class="select_category">
+                                <option selected>All</option>
+                                <option>A</option>
+                                <option>A</option>
+                                <option>A</option>
+                                <option>A</option>
+                            </select>
+                        </div>
+                        <input class="form_input" placeholder="Search the store" />
+                        <button class="button_submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </div>
+                <div class="headerTop--list">
+                    <div class="item headerTop--list--phone">
+                        <p>Available 24/7 at</p>
+                        <h3>(+84) 987-729-543</h3>
+                    </div>
+                    <div class="item headerTop--list--wishlist">
+                        <i class="icon fa-thin fa-heart"></i>
+                        <p>Wish Lists</p>
+                    </div>
+                    <div class="item headerTop--list--signin">
+                        <i class="icon fa-thin fa-user"></i>
+                        <p>Sign in</p>
+                    </div>
+                    <div class="item headerTop--list--cart">
+                        <span class="headerAmount">1</span>
+                        <i class="icon fa-thin fa-cart-shopping"></i>
+                        <p>Cart</p>
+                    </div>
+                </div>
+            </div>
+            <div class="header--headerBottom container">
+                <div class="header--headerBottom--navbar">
+                    <div class="header--headerBottom--navbar--navbarItem">
+                        <div class="new">New</div>
+                        <div class="navbarItem">
+                            Appliances
+                        </div>
+                    </div>
+                    <div class="header--headerBottom--navbar--navbarItem">
+                        <div class="space"></div>
+                        <div class="navbarItem">
+                            Category
+                        </div>
+                    </div>
+                    <div class="header--headerBottom--navbar--navbarItem">
+                        <div class="sale">Sale</div>
+                        <div class="navbarItem">
+                            About Us
+                        </div>
+                    </div>
+                    <div class="header--headerBottom--navbar--navbarItem">
+                        <div class="space"></div>
+                        <div class="navbarItem">
+                            Contact
+                        </div>
+                    </div>
+                    <div class="header--headerBottom--navbar--navbarItem">
+                        <div class="sp[ac]"></div>
+                        <div class="navbarItem">
+                            Registered Brand
+                        </div>
+                    </div>
+                    <div class="header--headerBottom--navbar--navbarItem">
+                        <div class="hot">Hot</div>
+                        <div class="navbarItem">
+                            Registration Shop
+                        </div>
+                    </div>
+                </div>
+                <div class="header--headerBottom--help">
+                    <div class="header--headerBottom--help--helpItem">
+                        <div class="helpItem">
+                            <i class="fa-solid fa-user-headset iconHeadset"></i>
+                            <p>Help</p>
+                        </div>
+                        <span class="line"></span>
+                        <div class="helpItem">
+                            <img src="~/ClientAssets/img/usa-flag.jpg" width="20px;" height="16px;" alt="flag">
+                            <p>USA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="notification">
+        <div class="space"></div>
+        <div class="content">
+            <a>BUY NOW, PAY LATER STARTING AT 0% APR</a>
+            <span class="learnmore">Learn more</span>
+        </div>
+        <div id="closeBtn"><i class="fa-solid fa-xmark"></i></div>
+    </div>
+    <!-- Header End  -->
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - OnlineSuperMarket - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+    @RenderBody()
+
+
+    <!-- Footer Start  -->
+    <footer>
+        <div class="footerTop">
+            <div class="footerTop--content container">
+                <ul>
+                    <li><strong>Categories</strong></li>
+                    <li><a href="#">Appliances</a></li>
+                    <li><a href="#">Computer & Laptops</a></li>
+                    <li><a href="#">Cameras</a></li>
+                    <li><a href="#">Mobilephones & Tablets</a></li>
+                </ul>
+                <ul>
+                    <li><strong>Brand</strong></li>
+                    <li><a href="#">Benjamin Button</a></li>
+                    <li><a href="#">Arm & Hammer</a></li>
+                    <li><a href="#">BisTech</a></li>
+                    <li><a href="#">OFS</a></li>
+                    <li><a href="#">Alera</a></li>
+                    <li><a href="#">Anna</a></li>
+                </ul>
+                <ul>
+                    <li><strong>Further Info</strong></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Theme Styles</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Gift Certificates</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Brands</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
+                <ul>
+                    <li><strong>Customer Service</strong></li>
+                    <li><a href="#">Help & FAQs</a></li>
+                    <li><a href="#">Terms of Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Online Returns Policy</a></li>
+                    <li><a href="#">Rewards Program</a></li>
+                    <li><a href="#">Rebate Center</a></li>
+                    <li><a href="#">Partners</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footerMiddle container">
+            <div class="footerMiddle--newsletter">
+                <strong>Subscribe to our newsletter</strong>
+                <p>Get the latest updates on new products and upcoming sales</p>
+                <form>
+                    <input class="formInput" type="email" name="email" placeholder="Your email address">
+                    <button class="formBtn">Subscribe</button>
+                </form>
+            </div>
+            <div class="footerMiddle--storeInfo">
+                <ul>
+                    <li><strong>Store Info</strong></li>
+                    <li>
+                        <p>8A - Ton That Thuyet, My Dinh</p>
+                    </li>
+                    <li>
+                        <p>Call us at (+84) 987-729-543</p>
+                    </li>
+                    <li>
+                        <p>Email: superkart.04@gmail.com</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="footerMiddle--connectUs">
+                <strong>Connect with us</strong>
+                <ul>
+                    <li>#</li>
+                    <li>#</li>
+                    <li>#</li>
+                    <li>#</li>
+                    <li>#</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footerBottom">
+            <div class="space"></div>
+            <div class="credit">
+                <ul>
+                    <li><img src="#" alt="credit image"></li>
+                    <li><img src="#" alt="credit image"></li>
+                    <li><img src="#" alt="credit image"></li>
+                    <li><img src="#" alt="credit image"></li>
+                    <li><img src="#" alt="credit image"></li>
+                    <li><img src="#" alt="credit image"></li>
+                    <li><img src="#" alt="credit image"></li>
+                </ul>
+            </div>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <!-- Footer End  -->
+    <script src="~/ClientAssets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="~/ClientAssets/js/swipper.js"></script>
 </body>
+
 </html>
