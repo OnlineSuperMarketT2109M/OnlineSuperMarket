@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "opXh1XQ5m9oA9m65/O15d3c7I939A7+U+ndXHuIaIYYuvLTmJrX15fj/JqR8sTNejGhCyQFLqrtn87tvn/tFbg==",
+  "dgSpecHash": "WkHXcVC5xpiMC/hXein8jkOCJGjvliFsByyoA6S1ygC8Ex1asF4VdV60PStqDpIswQv4sHSX8+3nWrtRGqXxBg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\OnlineSuperMarket\\OnlineSuperMarket\\OnlineSuperMarket\\OnlineSuperMarket.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Documents\\GitHub\\OnlineSuperMarket\\OnlineSuperMarket\\OnlineSuperMarket.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
