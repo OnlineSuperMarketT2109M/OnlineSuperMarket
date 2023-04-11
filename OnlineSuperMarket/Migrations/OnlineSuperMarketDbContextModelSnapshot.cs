@@ -517,7 +517,6 @@ namespace OnlineSuperMarket.Migrations
                         .HasColumnName("address");
 
                     b.Property<string>("Avatar")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -550,7 +549,6 @@ namespace OnlineSuperMarket.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("MiddleName")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
                         .HasColumnName("middleName");
@@ -601,18 +599,21 @@ namespace OnlineSuperMarket.Migrations
                             AccessFailedCount = 0,
                             Address = "Ninh Binh",
                             Avatar = "default.png",
-                            ConcurrencyStamp = "bffa492c-5127-4345-94c1-1abdd7875982",
+                            ConcurrencyStamp = "73d6b7ab-fa0c-45af-854e-3e6635077810",
                             Email = "anhdqth2109005@fpt.edu.vn",
-                            EmailConfirmed = false,
+                            EmailConfirmed = true,
                             FirstName = "Dinh",
                             LastName = "Anh",
                             LockoutEnabled = false,
                             MiddleName = "Quang",
-                            PasswordHash = "12345",
+                            NormalizedEmail = "anhdqth2109005@fpt.edu.vn",
+                            NormalizedUserName = "anhdinh",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIfeN82pAQRJnePvxUUO9nRq157vQYANDogsmqDVI7+dA8SnnWaIzXTNxBo4rK4aFA==",
                             PhoneNumber = "0395100761",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "44c27fec-777d-4d77-906b-d37de21e9279",
-                            TwoFactorEnabled = false
+                            SecurityStamp = "ce0d8239-1b97-46ca-9d35-97144952f44b",
+                            TwoFactorEnabled = false,
+                            UserName = "AnhDinh"
                         },
                         new
                         {
@@ -620,18 +621,21 @@ namespace OnlineSuperMarket.Migrations
                             AccessFailedCount = 0,
                             Address = "Ha Noi",
                             Avatar = "default.png",
-                            ConcurrencyStamp = "1ebe89ef-2ba0-4c2e-a0a0-4d8becb7be24",
+                            ConcurrencyStamp = "f18b9beb-13d7-47ea-a055-d3caa9065c38",
                             Email = "khanhnb08112003@gmail.com",
-                            EmailConfirmed = false,
+                            EmailConfirmed = true,
                             FirstName = "Nguyen",
                             LastName = "Khanh",
                             LockoutEnabled = false,
                             MiddleName = "Ba",
-                            PasswordHash = "12345",
+                            NormalizedEmail = "khanhnb08112003@gmail.com",
+                            NormalizedUserName = "khanhnguyen",
+                            PasswordHash = "AQAAAAIAAYagAAAAEA7KqcExRJb46feNuULmsRS5rY37wPB6N4xnaaU6oFZq79rGz+dzjjUYS2/0rCHrEQ==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7c1b4d63-038f-4fd5-ad8f-10d5eca86a29",
-                            TwoFactorEnabled = false
+                            SecurityStamp = "d8374bcf-0ca3-4959-b6cc-d625b8dd7c2f",
+                            TwoFactorEnabled = false,
+                            UserName = "KhanhNguyen"
                         },
                         new
                         {
@@ -639,18 +643,21 @@ namespace OnlineSuperMarket.Migrations
                             AccessFailedCount = 0,
                             Address = "Ha Long",
                             Avatar = "default.png",
-                            ConcurrencyStamp = "04dd332f-4b6b-424f-88e1-b976b107cf90",
+                            ConcurrencyStamp = "22b29c19-64b9-4843-bf79-4b59db69e60b",
                             Email = "hoanglt123@gmail.com",
-                            EmailConfirmed = false,
+                            EmailConfirmed = true,
                             FirstName = "Luong",
                             LastName = "Hoang",
                             LockoutEnabled = false,
                             MiddleName = "Viet",
-                            PasswordHash = "12345",
+                            NormalizedEmail = "hoanglt123@gmail.com",
+                            NormalizedUserName = "hoangluong",
+                            PasswordHash = "AQAAAAIAAYagAAAAEH9zAKthzMApc0DkQH2+QS2sm/jNDWdVVw9qin+7x1a6kvViKvtuATWplvgiOABiug==",
                             PhoneNumber = "1234567890",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "65e896be-2ab9-4840-854f-65f295ecd5ec",
-                            TwoFactorEnabled = false
+                            SecurityStamp = "78b0cb42-d71a-4fc1-9fd9-df58c81e0e98",
+                            TwoFactorEnabled = false,
+                            UserName = "HoangLuong"
                         });
                 });
 

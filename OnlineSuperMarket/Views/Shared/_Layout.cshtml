@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -14,6 +18,7 @@
     <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
     <link rel="stylesheet" href="~/ClientAssets/style/footer-header.css">
     <link rel="stylesheet" href="~/ClientAssets/style/home-page.css">
+    <link rel="stylesheet" href="~/ClientAssets/style/signUp.css">
 </head>
 
 <body>
@@ -46,7 +51,7 @@
     </div>
     <!-- End  -->
     <!-- Log in form  -->
-    <partial name="_LoginPartialView"></partial>
+    @await Html.PartialAsync("~/Views/Account/Login.cshtml")
     
     
     <!-- End  -->
@@ -100,19 +105,40 @@
                         <p>Available 24/7 at</p>
                         <h3>(+84) 987-729-543</h3>
                     </div>
-                    <div class="item headerTop--list--wishlist">
-                        <i class="icon fa-thin fa-heart"></i>
-                        <p>Wish Lists</p>
-                    </div>
-                    <div class="item headerTop--list--signin">
-                        <i class="icon fa-thin fa-user"></i>
-                        <p>Sign in</p>
-                    </div>
-                    <div class="item headerTop--list--cart">
-                        <span class="headerAmount">1</span>
-                        <i class="icon fa-thin fa-cart-shopping"></i>
-                        <p>Cart</p>
-                    </div>
+                    @TempData["mess"]
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <div class="item headerTop--list--wishlist">
+                            <i class="icon fa-thin fa-heart"></i>
+                            <p>Wish Lists</p>
+                        </div>
+                        <div class="item headerTop--list--signin">
+                            <i class="icon fa-thin fa-user"></i>
+                            <a asp-action="Logout" asp-controller="Account">Logout</a>
+                        </div>
+                        <div class="item headerTop--list--cart">
+                            <span class="headerAmount">1</span>
+                            <i class="icon fa-thin fa-cart-shopping"></i>
+                            <p>Cart</p>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="item headerTop--list--wishlist">
+                            <i class="icon fa-thin fa-heart"></i>
+                            <p>Wish Lists</p>
+                        </div>
+                        <div class="item headerTop--list--signin">
+                            <i class="icon fa-thin fa-user"></i>
+                            <p>Sign in</p>
+                        </div>
+                        <div class="item headerTop--list--cart">
+                            @*<span class="headerAmount">1</span>*@
+                            <i class="icon fa-thin fa-cart-shopping"></i>
+                            <p>Cart</p>
+                        </div>
+                    }
+
                 </div>
             </div>
             <div class="header--headerBottom container">

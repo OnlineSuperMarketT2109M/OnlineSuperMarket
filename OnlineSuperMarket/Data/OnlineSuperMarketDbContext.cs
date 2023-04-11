@@ -54,6 +54,7 @@ namespace OnlineSuperMarket.Data
         }
         private void SeedUsers(ModelBuilder builder)
         {
+            var hasher = new PasswordHasher<User>();
             builder.Entity<User>().HasData(
                 new User
                 {
@@ -61,8 +62,12 @@ namespace OnlineSuperMarket.Data
                     FirstName = "Dinh",
                     MiddleName = "Quang",
                     LastName = "Anh",
+                    UserName = "AnhDinh",
+                    NormalizedUserName = "anhdinh",
                     Email = "anhdqth2109005@fpt.edu.vn",
-                    PasswordHash= "12345",
+                    NormalizedEmail ="anhdqth2109005@fpt.edu.vn",
+                    EmailConfirmed = true,
+                    PasswordHash= hasher.HashPassword(null, "123456"),
                     PhoneNumber = "0395100761",
                     Address = "Ninh Binh",
                     Avatar = "default.png",
@@ -75,8 +80,12 @@ namespace OnlineSuperMarket.Data
                     FirstName = "Nguyen",
                     MiddleName = "Ba",
                     LastName = "Khanh",
+                    UserName = "KhanhNguyen",
+                    NormalizedUserName = "khanhnguyen",
                     Email = "khanhnb08112003@gmail.com",
-                    PasswordHash= "12345",
+                    NormalizedEmail ="khanhnb08112003@gmail.com",
+                    EmailConfirmed = true,
+                    PasswordHash= hasher.HashPassword(null, "123456"),
                     PhoneNumber = "0123456789",
                     Address = "Ha Noi",
                     Avatar = "default.png",
@@ -89,8 +98,12 @@ namespace OnlineSuperMarket.Data
                     FirstName = "Luong",
                     MiddleName = "Viet",
                     LastName = "Hoang",
+                    UserName = "HoangLuong",
+                    NormalizedUserName = "hoangluong",
                     Email = "hoanglt123@gmail.com",
-                    PasswordHash= "12345",
+                    NormalizedEmail ="hoanglt123@gmail.com",
+                    EmailConfirmed = true,
+                    PasswordHash= hasher.HashPassword(null, "123456"),
                     PhoneNumber = "1234567890",
                     Address = "Ha Long",
                     Avatar = "default.png",

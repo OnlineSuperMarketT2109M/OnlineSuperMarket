@@ -1,0 +1,87 @@
+﻿@model OnlineSuperMarket.Models.ViewModel.RegisterViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="breadcrumb">
+        <div class="breadcrumb--content">
+            <p>Home / Create Account</p>
+        </div>
+        <div class="breadcrumb--title">
+            <h1>New Account</h1>
+        </div>
+        <form class="breadcrumb--form" asp-action="Register" asp-controller="Account" enctype="multipart/form-data">
+            <div class="breadcumb--form--inputItems">
+                <div class="label">
+                    <label asp-for="FirstName">First Name: *</label>
+                    <label id="required">Required</label>
+                </div>
+                <input type="text" asp-for="FirstName">
+            </div>
+            <div class="breadcumb--form--inputItems">
+                <div class="label">
+                    <label asp-for="MiddleName">Middle Name: </label>
+                    <label id="required">Optional</label>
+                </div>
+                <input type="text" asp-for="MiddleName">
+            </div>
+            <div class="breadcumb--form--inputItems">
+                <div class="label">
+                    <label asp-for="LastName">Last Name: *</label>
+                    <label id="required">Required</label>
+                </div>
+                <input type="text" asp-for="LastName">
+            </div>
+            <div class="breadcumb--form--inputItems">
+                <div class="label">
+                    <label asp-for="Username">Username: *</label>
+                    <label id="required">Required</label>
+                </div>
+                <input type="text" asp-for="Username">
+            </div>
+            <div class="breadcumb--form--inputItems">
+                <div class="label">
+                    <label asp-for="Email">Email Address: *</label>
+                    <label id="required">Required</label>
+                </div>
+                <input type="email" asp-for="Email">
+            </div>
+            <div class="breadcumb--form--inputItems">
+                <div class="label">
+                    <label asp-for="Password">Password: *</label>
+                    <label id="required">Required</label>
+                </div>
+                <input type="password" asp-for="Password">
+            </div>
+            <div class="breadcumb--form--inputItems">
+                <div class="label">
+                    <label asp-for="PasswordConfirm">Confirm Password: *</label>
+                    <label id="required">Required</label>
+                </div>
+                <input type="password" asp-for="PasswordConfirm">
+            </div>
+            
+            <div class="breadcumb--form--inputItems">
+                <div class="label">
+                    <label asp-for="PhoneNumber">Phone Number: *</label>
+                    <label id="required">Required</label>
+                </div>
+                <input type="text" asp-for="PhoneNumber">
+            </div>
+            <div class="breadcumb--form--inputItems">
+                <div class="label">
+                    <label asp-for="Address">Address: *</label>
+                    <label id="required">Required</label>
+                </div>
+                <input type="text" asp-for="Address">
+            </div>
+            
+            <div class="space"></div>
+            <div class="submitButton">
+                <button type="submit">Create Account</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -12,7 +12,7 @@ namespace OnlineSuperMarket.Models
         public string FirstName { get; set; }
         [PersonalData]
         [Column("middleName"), StringLength(255)]
-        public string MiddleName { get; set; }
+        public string? MiddleName { get; set; }
         [PersonalData]
         [Column("lastName"), StringLength(255)]
         public string LastName { get; set; }
@@ -20,7 +20,7 @@ namespace OnlineSuperMarket.Models
         [Column("address"), StringLength(255)]
         public string Address { get; set; }
         [PersonalData]
-        public string Avatar { get; set; }
+        public string? Avatar { get; set; }
 
         [NotMapped]
         [DisplayName("Upload Avatar")]
