@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AspNetCoreHero.ToastNotification.Abstractions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MimeKit;
 using OnlineSuperMarket.Data;
 using OnlineSuperMarket.Migrations;
 using OnlineSuperMarket.Models;
@@ -16,12 +18,17 @@ namespace OnlineSuperMarket.Controllers
         private UserManager<User> _userManager;
         private RoleManager<IdentityRole> _roleManager;
         private SignInManager<User> _signInManager;
+        private INotyfService _notifyService;
 
-        public AccountController(UserManager<User> userManager, RoleManager<IdentityRole> roleManager, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> userManager,
+            RoleManager<IdentityRole> roleManager,
+            SignInManager<User> signInManager,
+            INotyfService notyfService)
         {
             this._userManager = userManager;
             this._roleManager = roleManager;
             this._signInManager = signInManager;
+            this._notifyService= notyfService;
         }
         
         public async Task<ActionResult> Login(LoginViewModel model)
@@ -34,7 +41,7 @@ namespace OnlineSuperMarket.Controllers
             
             if (user == null)
             {
-                TempData["mess"] = "Sai email";
+                _notifyService.Error("Incorrect email!");
                 return RedirectToAction("Index", "Home");
             }
 
@@ -46,7 +53,7 @@ namespace OnlineSuperMarket.Controllers
 
             if (result.Succeeded)
             {
-                TempData["mess"] = "Dang nhap thanh cong";
+                _notifyService.Success("Signin Successfully!");
                 if (role.FirstOrDefault() == "Admin")
                 {
                     return RedirectToAction("Index", "Home", new { area = "Admin" });
@@ -59,17 +66,16 @@ namespace OnlineSuperMarket.Controllers
             else if (result.IsLockedOut)
             {
                 // user is locked out
-                TempData["mess"] = "Tai khoan bi khoa";
+                _notifyService.Error("Your account is locked out!");
             }
             else if (result.IsNotAllowed)
             {
-                TempData["mess"] = "Tai khoan chua xac minh";
+                _notifyService.Error("Your account is not verified!");
             }
             else
             {
-                Console.WriteLine(result.ToString());
                 // authentication failed
-                TempData["mess"] = "Sai tk hoac mk";
+                _notifyService.Error("Incorrect Email or Password!");
             }
             return RedirectToAction("Index", "Home");
         }
@@ -104,6 +110,7 @@ namespace OnlineSuperMarket.Controllers
                 {
                     await _userManager.AddToRoleAsync(user, "Customer");
                     await _signInManager.SignInAsync(user, isPersistent: false);
+                    _notifyService.Success("Successfully! Welcome to OnlineSuperMarket!");
                     return RedirectToAction("Index", "Home");
                 }
                 else

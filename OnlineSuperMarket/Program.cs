@@ -1,8 +1,13 @@
+﻿using AspNetCoreHero.ToastNotification;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using OnlineSuperMarket.Data;
 using OnlineSuperMarket.Data.SeedData;
+using OnlineSuperMarket.Mail;
 using OnlineSuperMarket.Models;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +19,7 @@ builder.Services.AddDbContext<OnlineSuperMarketDbContext>(options =>
 
 builder.Services.AddIdentity<User, IdentityRole>(options =>
 {
-    options.SignIn.RequireConfirmedAccount = true; // X�c minh email = true
+    options.SignIn.RequireConfirmedAccount = true; // Xác minh email = true
 })
     .AddEntityFrameworkStores<OnlineSuperMarketDbContext>()
     .AddDefaultTokenProviders();
@@ -41,6 +46,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 });
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddNotyf(config => { config.DurationInSeconds = 3; config.IsDismissable = true; config.Position = NotyfPosition.TopRight; });
 
 var app = builder.Build();
 
@@ -51,6 +57,12 @@ using (var scope = app.Services.CreateScope())
 
     SeedData.Initialize(services);
 }
+
+//// Mail
+//builder.Services.AddOptions();                                        // Kích hoạt Options
+//var mailsettings = Configuration.GetSection("MailSettings");            // đọc config
+//builder.Services.Configure<MailSettings>(mailsettings);               // đăng ký để Inject
+//builder.Services.AddTransient<IEmailSender, SendMailService>();        // Đăng ký dịch vụ Mail
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "opXh1XQ5m9oA9m65/O15d3c7I939A7+U+ndXHuIaIYYuvLTmJrX15fj/JqR8sTNejGhCyQFLqrtn87tvn/tFbg==",
+  "dgSpecHash": "VJM/MwGXTJyl1VjqQlXg7spPT0AXN+6+TQQMpnodRGlkBbSnAQ4C0H3BLYJE/sr/Hwy1tT81GwQwfU/DqIsthA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\source\\repos\\OnlineSuperMarket\\OnlineSuperMarket\\OnlineSuperMarket\\OnlineSuperMarket.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

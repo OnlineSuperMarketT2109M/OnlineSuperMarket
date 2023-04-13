@@ -105,7 +105,6 @@
                         <p>Available 24/7 at</p>
                         <h3>(+84) 987-729-543</h3>
                     </div>
-                    @TempData["mess"]
                     @if (SignInManager.IsSignedIn(User))
                     {
                         <div class="item headerTop--list--wishlist">
@@ -305,6 +304,9 @@
     <script src="~/ClientAssets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="~/ClientAssets/js/swipper.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @await Component.InvokeAsync("Notyf")
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 
 </html>
