@@ -1,6 +1,9 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
+@{
+    var username = UserManager.GetUserName(User);
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -109,17 +112,18 @@
                     {
                         <div class="item headerTop--list--wishlist">
                             <i class="icon fa-thin fa-heart"></i>
-                            <p>Wish Lists</p>
-                        </div>
-                        <div class="item headerTop--list--signin">
-                            <i class="icon fa-thin fa-user"></i>
-                            <a asp-action="Logout" asp-controller="Account">Logout</a>
                         </div>
                         <div class="item headerTop--list--cart">
+                            <i class="icon fa-thin fa-cart-shopping">
+                            </i>
                             <span class="headerAmount">1</span>
-                            <i class="icon fa-thin fa-cart-shopping"></i>
-                            <p>Cart</p>
                         </div>
+                        <div class="item headerTop--list--signin">
+                            <a asp-action="Logout" asp-controller="Account">
+                                <img src="~/ClientAssets/img/avt.jpg">
+                            </a>
+                        </div>
+                        
                     }
                     else
                     {
@@ -132,8 +136,8 @@
                             <p>Sign in</p>
                         </div>
                         <div class="item headerTop--list--cart">
-                            @*<span class="headerAmount">1</span>*@
                             <i class="icon fa-thin fa-cart-shopping"></i>
+
                             <p>Cart</p>
                         </div>
                     }

@@ -3,6 +3,10 @@ body {
   font-family: "DM Sans", Arial, Helvetica, sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 .line {
   background: rgba(255, 255, 255, 0.3);
   width: 0.5px;
@@ -21,6 +25,17 @@ body {
   font-weight: 200;
   color: #fdc525;
 }
+
+item a{
+    color: #fff;
+}
+
+.item img{
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+}
+
 .item p {
   margin: 8px;
 }
@@ -119,7 +134,7 @@ body {
 }
 
 .item {
-  margin-right: 30px;
+  margin-right: 28px;
   text-align: center;
   margin-top: 18px;
 }
@@ -130,8 +145,18 @@ body {
   margin-top: 18px;
 }
 
+.headerTop--list--cart{
+    position: relative;
+}
+
+.headerTop--list--cart span {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+}
+
 .headerTop--list--phone p {
-  margin: 8px;
+    margin: 8px;
 }
 
 /* Header bottom  */
