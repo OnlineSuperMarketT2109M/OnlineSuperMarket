@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MimeKit;
 using OnlineSuperMarket.Data;
-using OnlineSuperMarket.Migrations;
 using OnlineSuperMarket.Models;
 using OnlineSuperMarket.Models.ViewModel;
 using System.Data;
@@ -30,22 +29,20 @@ namespace OnlineSuperMarket.Controllers
             this._signInManager = signInManager;
             this._notifyService= notyfService;
         }
-        
+
         public async Task<ActionResult> Login(LoginViewModel model)
         {
             bool isPersistent = true; // Lưu cookie = true
-            bool lockoutOnFailure = true; //  Khóa tk nếu đăng nhập sai nhiều lần = false
+            bool lockoutOnFailure = false; //  Khóa tk nếu đăng nhập sai nhiều lần = false
 
 
-            var user = await _userManager.FindByEmailAsync(model.email.ToUpper());
+            var user = await _userManager.FindByEmailAsync(model.email);
             
             if (user == null)
             {
                 _notifyService.Error("Incorrect email!");
                 return RedirectToAction("Index", "Home");
             }
-
-
 
             var result = await _signInManager.PasswordSignInAsync(user, model.password, isPersistent, lockoutOnFailure);
 

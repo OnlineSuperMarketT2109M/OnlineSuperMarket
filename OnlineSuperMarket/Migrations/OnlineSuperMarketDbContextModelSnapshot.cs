@@ -384,6 +384,11 @@ namespace OnlineSuperMarket.Migrations
                     b.Property<int>("categoryId")
                         .HasColumnType("int");
 
+                    b.Property<string>("description")
+                        .IsRequired()
+                        .HasMaxLength(5000)
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("productName")
                         .IsRequired()
                         .HasMaxLength(255)
@@ -408,6 +413,29 @@ namespace OnlineSuperMarket.Migrations
                     b.HasIndex("categoryId");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("OnlineSuperMarket.Models.ProductColor", b =>
+                {
+                    b.Property<int>("productColorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("productColorId"));
+
+                    b.Property<string>("color")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("productId")
+                        .HasColumnType("int")
+                        .HasColumnName("productId");
+
+                    b.HasKey("productColorId");
+
+                    b.HasIndex("productId");
+
+                    b.ToTable("ProductColors");
                 });
 
             modelBuilder.Entity("OnlineSuperMarket.Models.ProductComment", b =>
@@ -447,38 +475,6 @@ namespace OnlineSuperMarket.Migrations
                     b.ToTable("ProductComments");
                 });
 
-            modelBuilder.Entity("OnlineSuperMarket.Models.ProductDetail", b =>
-                {
-                    b.Property<int>("productDetailId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("productDetailId"));
-
-                    b.Property<string>("color")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("description")
-                        .IsRequired()
-                        .HasMaxLength(5000)
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("productId")
-                        .HasColumnType("int")
-                        .HasColumnName("productId");
-
-                    b.Property<string>("size")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("productDetailId");
-
-                    b.HasIndex("productId");
-
-                    b.ToTable("ProductDetails");
-                });
-
             modelBuilder.Entity("OnlineSuperMarket.Models.ProductImage", b =>
                 {
                     b.Property<int>("productImageId")
@@ -500,6 +496,29 @@ namespace OnlineSuperMarket.Migrations
                     b.HasIndex("productId");
 
                     b.ToTable("ProductImages");
+                });
+
+            modelBuilder.Entity("OnlineSuperMarket.Models.ProductSize", b =>
+                {
+                    b.Property<int>("productSizeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("productSizeId"));
+
+                    b.Property<int>("productId")
+                        .HasColumnType("int")
+                        .HasColumnName("productId");
+
+                    b.Property<string>("size")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("productSizeId");
+
+                    b.HasIndex("productId");
+
+                    b.ToTable("ProductSizes");
                 });
 
             modelBuilder.Entity("OnlineSuperMarket.Models.User", b =>
@@ -599,19 +618,19 @@ namespace OnlineSuperMarket.Migrations
                             AccessFailedCount = 0,
                             Address = "Ninh Binh",
                             Avatar = "default.png",
-                            ConcurrencyStamp = "40d4a157-b5a1-4111-950a-c665fdbface0",
+                            ConcurrencyStamp = "ee9c7dfc-d041-43d8-81f5-815571c201da",
                             Email = "anhdqth2109005@fpt.edu.vn",
                             EmailConfirmed = true,
                             FirstName = "Dinh",
                             LastName = "Anh",
                             LockoutEnabled = false,
                             MiddleName = "Quang",
-                            NormalizedEmail = "anhdqth2109005@fpt.edu.vn",
+                            NormalizedEmail = "ANHDQTH2109005@FPT.EDU.VN",
                             NormalizedUserName = "anhdinh",
-                            PasswordHash = "AQAAAAIAAYagAAAAELUDQTOWurO8z3kN0v3ry4piOCaaUqf4IGOB4nZCUfD6z4JZ3O9YyZ0u83CFS/FFwQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAKYGKzi3/Tz0W7FvJWPVlB23sdJHkPNE9BvynKI06+DUqLwZHXd1owQ4d8jjxlu7Q==",
                             PhoneNumber = "0395100761",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9f53ccb7-1d94-4658-8077-1bbb699ef498",
+                            SecurityStamp = "64cca403-b817-443b-8c79-5e3a97c8b5c9",
                             TwoFactorEnabled = false,
                             UserName = "AnhDinh"
                         },
@@ -621,19 +640,19 @@ namespace OnlineSuperMarket.Migrations
                             AccessFailedCount = 0,
                             Address = "Ha Noi",
                             Avatar = "default.png",
-                            ConcurrencyStamp = "cc00a343-cf38-41ce-8476-222f75e1de1b",
+                            ConcurrencyStamp = "aec33d6e-f3de-4716-8539-9a4b3aa418e3",
                             Email = "khanhnb08112003@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Nguyen",
                             LastName = "Khanh",
                             LockoutEnabled = false,
                             MiddleName = "Ba",
-                            NormalizedEmail = "khanhnb08112003@gmail.com",
+                            NormalizedEmail = "KHANHNB08112003@GMAIL.COM",
                             NormalizedUserName = "khanhnguyen",
-                            PasswordHash = "AQAAAAIAAYagAAAAEML5LRl9VeGIZ+h/KzlmbFnEGmweYw9PgPzPNjapLGAP4q2lfTvly2weTy/Ux0ju5A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEA7Y90a6BGTtuZyrI52lPyNH9OHc/9gbaTNba/+2yJQvbIwwmTtA9Mf4ijnvQ3kr9Q==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c6fd6836-6091-423e-a165-6ac7ea9ae97f",
+                            SecurityStamp = "4a5e7b9f-d4ff-47ab-bbc7-bf5d9331cc92",
                             TwoFactorEnabled = false,
                             UserName = "KhanhNguyen"
                         },
@@ -643,19 +662,19 @@ namespace OnlineSuperMarket.Migrations
                             AccessFailedCount = 0,
                             Address = "Ha Long",
                             Avatar = "default.png",
-                            ConcurrencyStamp = "cc166930-130d-41ad-9a4d-14d9fa381047",
+                            ConcurrencyStamp = "c2dd4827-ea6c-4703-b65c-1bbeb7f50838",
                             Email = "hoanglt123@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Luong",
                             LastName = "Hoang",
                             LockoutEnabled = false,
                             MiddleName = "Viet",
-                            NormalizedEmail = "hoanglt123@gmail.com",
+                            NormalizedEmail = "HOANGLT123@GMAIL.COM",
                             NormalizedUserName = "hoangluong",
-                            PasswordHash = "AQAAAAIAAYagAAAAEG6j0LFlwPet0CeuFmuYT7L+f/BW3tQlZuVVahukKLu4zZKHuKFbZzuD5v/Mm+8ddw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKT3PhWjclYmupTPpdjbSMOa249SofzJyPNha6tjoziH+GZZTl+ICrFCojBoC6890A==",
                             PhoneNumber = "1234567890",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ec91b439-f259-4fb3-9a67-7380dcd9bdc0",
+                            SecurityStamp = "afc65fa2-a76e-407a-a42c-4f3951ad6330",
                             TwoFactorEnabled = false,
                             UserName = "HoangLuong"
                         });
@@ -785,6 +804,17 @@ namespace OnlineSuperMarket.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("OnlineSuperMarket.Models.ProductColor", b =>
+                {
+                    b.HasOne("OnlineSuperMarket.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("productId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("OnlineSuperMarket.Models.ProductComment", b =>
                 {
                     b.HasOne("OnlineSuperMarket.Models.User", "User")
@@ -802,7 +832,7 @@ namespace OnlineSuperMarket.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("OnlineSuperMarket.Models.ProductDetail", b =>
+            modelBuilder.Entity("OnlineSuperMarket.Models.ProductImage", b =>
                 {
                     b.HasOne("OnlineSuperMarket.Models.Product", "Product")
                         .WithMany()
@@ -813,7 +843,7 @@ namespace OnlineSuperMarket.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("OnlineSuperMarket.Models.ProductImage", b =>
+            modelBuilder.Entity("OnlineSuperMarket.Models.ProductSize", b =>
                 {
                     b.HasOne("OnlineSuperMarket.Models.Product", "Product")
                         .WithMany()

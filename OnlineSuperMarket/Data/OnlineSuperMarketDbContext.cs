@@ -30,7 +30,8 @@ namespace OnlineSuperMarket.Data
 
         public virtual DbSet<ProductComment> ProductComments { get; set; }
 
-        public virtual DbSet<ProductDetail> ProductDetails { get; set; }
+        public virtual DbSet<ProductColor> ProductColors { get; set; }
+        public virtual DbSet<ProductSize> ProductSizes { get; set; }
 
         public virtual DbSet<ProductImage> ProductImages { get; set; }
 
@@ -65,7 +66,7 @@ namespace OnlineSuperMarket.Data
                     UserName = "AnhDinh",
                     NormalizedUserName = "anhdinh",
                     Email = "anhdqth2109005@fpt.edu.vn",
-                    NormalizedEmail ="anhdqth2109005@fpt.edu.vn",
+                    NormalizedEmail ="ANHDQTH2109005@FPT.EDU.VN",
                     EmailConfirmed = true,
                     PasswordHash= hasher.HashPassword(null, "123456"),
                     PhoneNumber = "0395100761",
@@ -83,7 +84,7 @@ namespace OnlineSuperMarket.Data
                     UserName = "KhanhNguyen",
                     NormalizedUserName = "khanhnguyen",
                     Email = "khanhnb08112003@gmail.com",
-                    NormalizedEmail ="khanhnb08112003@gmail.com",
+                    NormalizedEmail ="KHANHNB08112003@GMAIL.COM",
                     EmailConfirmed = true,
                     PasswordHash= hasher.HashPassword(null, "123456"),
                     PhoneNumber = "0123456789",
@@ -101,7 +102,7 @@ namespace OnlineSuperMarket.Data
                     UserName = "HoangLuong",
                     NormalizedUserName = "hoangluong",
                     Email = "hoanglt123@gmail.com",
-                    NormalizedEmail ="hoanglt123@gmail.com",
+                    NormalizedEmail ="HOANGLT123@GMAIL.COM",
                     EmailConfirmed = true,
                     PasswordHash= hasher.HashPassword(null, "123456"),
                     PhoneNumber = "1234567890",

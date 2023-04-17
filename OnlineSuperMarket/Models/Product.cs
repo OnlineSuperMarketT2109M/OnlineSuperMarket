@@ -18,9 +18,12 @@ namespace OnlineSuperMarket.Models
 
         public int quantity { get; set; }
 
-        public int totalAmount { get; set; }
+        public int totalAmount { get; set; }    
 
         public string? status { get; set; }
+
+        [StringLength(5000)]
+        public string description { get; set; }
 
         public int brandId { get; set; }
 
