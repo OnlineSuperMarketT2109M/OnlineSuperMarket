@@ -1,0 +1,110 @@
+﻿
+@model OnlineSuperMarket.Areas.Admin.Models.ViewModel.UserUpdateVM;
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    var user = ViewBag.user;
+}
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">User Managements</h4>
+                <div class="ms-auto text-end">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home" asp-area="Admin">Home</a></li>
+                            <li class="breadcrumb-item">
+                                User Managements
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Update user
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Overlay product -->
+    <!-- ============================================================== -->
+    <div class="overlayProduct"></div>
+    <!-- ============================================================== -->
+    <!-- End overlay product -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Create product -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End form create product -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="createProductNoHidden">
+                <div class="formField">
+                    <div class="formHeading">
+                        <h4 class="page-title">Create new admin account: </h4>
+                    </div>
+                    <form class="formCreateProduct" asp-action="Update" asp-controller="User" asp-area="Admin" enctype="multipart/form-data">
+                        
+                        <label asp-for="FirstName"></label>
+                        <input type="text" asp-for="FirstName" value="@user.FirstName">
+                        <label asp-for="MiddleName"></label>
+                        <input type="text" asp-for="MiddleName" value="@user.MiddleName">
+                        <label asp-for="LastName"></label>
+                        <input type="text" asp-for="LastName" value="@user.LastName">
+                        <label asp-for="UserName"></label>
+                        <input type="text" asp-for="UserName" value="@user.UserName">
+                        <label asp-for="Email"></label>
+                        <input type="email" asp-for="Email" value="@user.Email">
+                        <label asp-for="Password"></label>
+                        <input type="password" asp-for="Password">
+                        <label asp-for="Address"></label>
+                        <input type="text" asp-for="Address" value="@user.Address"/>
+                        <label asp-for="PhoneNumber"></label>
+                        <input type="text" asp-for="PhoneNumber" value="@user.PhoneNumber"/>
+
+                        <label asp-for="IsLockedOut"></label>
+                       
+                        <input type="radio" id="accountActive" asp-for="IsLockedOut" value="false" checked />
+                        <label for="accountActive">Active</label>
+                        <input type="radio" id="accountLocked" asp-for="IsLockedOut" value="true"/>
+                        <label for="accountLocked">Locked</label>
+
+                        <div class="addImage">
+                            <label asp-for="ImageFile"></label>
+                            <input asp-for="ImageFile" accept="image/*" />
+                        </div>
+                        <button class="createProductBtn" type="submit">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer text-center">
+        All Rights Reserved by Matrix-admin. Designed and Developed by
+        <a href="https://www.wrappixel.com">WrapPixel</a>.
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>

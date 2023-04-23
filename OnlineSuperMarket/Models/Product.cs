@@ -23,7 +23,7 @@ namespace OnlineSuperMarket.Models
         public string? status { get; set; }
 
         [StringLength(5000)]
-        public string description { get; set; }
+        public string? description { get; set; }
 
         public int brandId { get; set; }
 

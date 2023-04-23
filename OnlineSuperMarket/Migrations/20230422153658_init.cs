@@ -263,6 +263,7 @@ namespace OnlineSuperMarket.Migrations
                     quantity = table.Column<int>(type: "int", nullable: false),
                     totalAmount = table.Column<int>(type: "int", nullable: false),
                     status = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    description = table.Column<string>(type: "nvarchar(max)", maxLength: 5000, nullable: true),
                     brandId = table.Column<int>(type: "int", nullable: false),
                     categoryId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -312,6 +313,26 @@ namespace OnlineSuperMarket.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ProductColors",
+                columns: table => new
+                {
+                    productColorId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    productId = table.Column<int>(type: "int", nullable: false),
+                    color = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductColors", x => x.productColorId);
+                    table.ForeignKey(
+                        name: "FK_ProductColors_Products_productId",
+                        column: x => x.productId,
+                        principalTable: "Products",
+                        principalColumn: "productId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ProductComments",
                 columns: table => new
                 {
@@ -340,28 +361,6 @@ namespace OnlineSuperMarket.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProductDetails",
-                columns: table => new
-                {
-                    productDetailId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    productId = table.Column<int>(type: "int", nullable: false),
-                    color = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    size = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    description = table.Column<string>(type: "nvarchar(max)", maxLength: 5000, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ProductDetails", x => x.productDetailId);
-                    table.ForeignKey(
-                        name: "FK_ProductDetails_Products_productId",
-                        column: x => x.productId,
-                        principalTable: "Products",
-                        principalColumn: "productId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "ProductImages",
                 columns: table => new
                 {
@@ -375,6 +374,26 @@ namespace OnlineSuperMarket.Migrations
                     table.PrimaryKey("PK_ProductImages", x => x.productImageId);
                     table.ForeignKey(
                         name: "FK_ProductImages_Products_productId",
+                        column: x => x.productId,
+                        principalTable: "Products",
+                        principalColumn: "productId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProductSizes",
+                columns: table => new
+                {
+                    productSizeId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    productId = table.Column<int>(type: "int", nullable: false),
+                    size = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductSizes", x => x.productSizeId);
+                    table.ForeignKey(
+                        name: "FK_ProductSizes_Products_productId",
                         column: x => x.productId,
                         principalTable: "Products",
                         principalColumn: "productId",
@@ -416,9 +435,9 @@ namespace OnlineSuperMarket.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "address", "Avatar", "ConcurrencyStamp", "Email", "EmailConfirmed", "firstName", "lastName", "LockoutEnabled", "LockoutEnd", "middleName", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "Ninh Binh", "default.png", "88d34924-1b46-41f1-a37e-42d8674cf68f", "anhdqth2109005@fpt.edu.vn", true, "Dinh", "Anh", false, null, "Quang", "ANHDQTH2109005@FPT.EDU.VN", "anhdinh", "AQAAAAIAAYagAAAAEPfyEXbHblrBP8fSl1zIYTptbehcxoLk6P43PoyNjISQzbXQ2W8kkkmG51krT9Vwlg==", "0395100761", false, "bef6438b-5c5a-41f5-8198-f89b99b41271", false, "AnhDinh" },
-                    { "2", 0, "Ha Noi", "default.png", "5a642087-7346-4b85-b254-1b570bf34bf4", "khanhnb08112003@gmail.com", true, "Nguyen", "Khanh", false, null, "Ba", "KHANHNB08112003@GMAIL.COM", "khanhnguyen", "AQAAAAIAAYagAAAAEGtpeUAvihv5I6Xv0Xtd96jqVA/VG5Y6D3HEueeyB2RasNmnS4arNugXBoYZGkaW1g==", "0123456789", false, "3ba1c9a0-40a8-4201-aa71-8d8479c6dc26", false, "KhanhNguyen" },
-                    { "3", 0, "Ha Long", "default.png", "cebd30af-0012-4015-bca9-a21b518121d2", "hoanglt123@gmail.com", true, "Luong", "Hoang", false, null, "Viet", "HOANGLT123@GMAIL.COM", "hoangluong", "AQAAAAIAAYagAAAAEN45uTBJ6/nZO/jad8gpW+cn3c6vgXyd3z+xk+VQtDP0i6x81LQajeZmdTLIEJcXfQ==", "1234567890", false, "8d48282c-30cf-472f-b319-a9e1de4283d8", false, "HoangLuong" }
+                    { "1", 0, "Ninh Binh", "default.jpg", "9d307707-9bf8-45c4-a9a5-61169c11d6b5", "anhdqth2109005@fpt.edu.vn", true, "Dinh", "Anh", false, null, "Quang", "ANHDQTH2109005@FPT.EDU.VN", "anhdinh", "AQAAAAIAAYagAAAAEEglkRWqBKQZA/RcBJxtP+7pXxWcdiXTBHtRi7xJqkAu+1iai8/uCgRskWJIV4gN9w==", "0395100761", false, "965da6c6-34a9-44d2-b6c8-0e9f8197fab3", false, "AnhDinh" },
+                    { "2", 0, "Ha Noi", "default.jpg", "3179485e-978c-4e2c-b0d8-5f01f0e89363", "khanhnb08112003@gmail.com", true, "Nguyen", "Khanh", false, null, "Ba", "KHANHNB08112003@GMAIL.COM", "khanhnguyen", "AQAAAAIAAYagAAAAEOqns5HxyXeZ9zHtxqLMGGc8yVzROsL1ipBF+59QE4KpwpM3xg/nRzjCmY1jwf51Xw==", "0123456789", false, "ea65839d-c2bf-4dd9-8b5d-9dd50f8573d5", false, "KhanhNguyen" },
+                    { "3", 0, "Ha Long", "default.jpg", "9d2ffafe-9d14-4930-b057-91a1998c8010", "hoanglt123@gmail.com", true, "Luong", "Hoang", false, null, "Viet", "HOANGLT123@GMAIL.COM", "hoangluong", "AQAAAAIAAYagAAAAEKWXMiiqEuBWUfv+AWA7MzmDCG/HiW+4+Y3lzXgcVvuJRVoyZCfnCC07LlJo8E0vNA==", "1234567890", false, "57a282bd-75cf-40e7-ab56-6111f0a2716a", false, "HoangLuong" }
                 });
 
             migrationBuilder.InsertData(
@@ -501,6 +520,11 @@ namespace OnlineSuperMarket.Migrations
                 column: "productId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ProductColors_productId",
+                table: "ProductColors",
+                column: "productId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ProductComments_Id",
                 table: "ProductComments",
                 column: "Id");
@@ -508,11 +532,6 @@ namespace OnlineSuperMarket.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_ProductComments_productId",
                 table: "ProductComments",
-                column: "productId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ProductDetails_productId",
-                table: "ProductDetails",
                 column: "productId");
 
             migrationBuilder.CreateIndex(
@@ -529,6 +548,11 @@ namespace OnlineSuperMarket.Migrations
                 name: "IX_Products_categoryId",
                 table: "Products",
                 column: "categoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductSizes_productId",
+                table: "ProductSizes",
+                column: "productId");
         }
 
         /// <inheritdoc />
@@ -559,13 +583,16 @@ namespace OnlineSuperMarket.Migrations
                 name: "CreditCards");
 
             migrationBuilder.DropTable(
+                name: "ProductColors");
+
+            migrationBuilder.DropTable(
                 name: "ProductComments");
 
             migrationBuilder.DropTable(
-                name: "ProductDetails");
+                name: "ProductImages");
 
             migrationBuilder.DropTable(
-                name: "ProductImages");
+                name: "ProductSizes");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

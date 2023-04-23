@@ -1,0 +1,102 @@
+﻿@using OnlineSuperMarket.Areas.Admin.Models.ViewModel;
+
+@model UserCreateVM;
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">User Managements</h4>
+                <div class="ms-auto text-end">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home" asp-area="Admin">Home</a></li>
+                            <li class="breadcrumb-item">
+                                User Managements
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Create new user
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Overlay product -->
+    <!-- ============================================================== -->
+    <div class="overlayProduct"></div>
+    <!-- ============================================================== -->
+    <!-- End overlay product -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Create product -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End form create product -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="createProductNoHidden">
+            <div class="formField">
+                <div class="formHeading">
+                    <h4 class="page-title">Create new admin account: </h4>
+                </div>
+                <form class="formCreateProduct" asp-action="Create" asp-controller="User" asp-area="Admin" enctype="multipart/form-data">
+                    <label asp-for="FirstName"></label>
+                    <input type="text" asp-for="FirstName">
+                    <label asp-for="MiddleName"></label>
+                    <input type="text" asp-for="MiddleName">
+                    <label asp-for="LastName"></label>
+                    <input type="text" asp-for="LastName">
+                    <label asp-for="UserName"></label>
+                    <input type="text" asp-for="UserName">
+                    <label asp-for="Email"></label>
+                    <input type="email" asp-for="Email">
+                    <label asp-for="Password"></label>
+                    <input type="password" asp-for="Password"/>
+                    <label asp-for="Address"></label>
+                    <input type="text" asp-for="Address"/>
+                    <label asp-for="PhoneNumber"></label>
+                    <input type="text" asp-for="PhoneNumber"/>
+                    <div class="addImage">
+                        <label asp-for="ImageFile"></label>
+                        <img src="~/CLientAssets/img/img_263524.png" width="80px" height="80px">
+                        <input asp-for="ImageFile" accept="image/*" />
+                    </div>
+                    <button class="createProductBtn" type="submit">Add</button>
+                </form>
+            </div>
+        </div>
+        </div>
+        
+        </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer text-center">
+        All Rights Reserved by Matrix-admin. Designed and Developed by
+        <a href="https://www.wrappixel.com">WrapPixel</a>.
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>

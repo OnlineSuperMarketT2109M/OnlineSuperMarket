@@ -1,0 +1,117 @@
+﻿@using OnlineSuperMarket.Models;
+@model User
+
+@{
+   Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+ }
+
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">User Managements</h4>
+                <div class="ms-auto text-end">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home" asp-area="Admin">Home</a></li>
+                            <li class="breadcrumb-item">
+                                User Managements
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                User Details
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Overlay product -->
+    <!-- ============================================================== -->
+    <div class="overlayProduct"></div>
+    <!-- ============================================================== -->
+    <!-- End overlay product -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Create product -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End form create product -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="leftProductDetails">
+                            <div class="leftProductDetails--imageProduct">
+                                <div class="leftProductDetails--imageProduct--mainImage">
+                                    <img src="~/ClientAssets/img/@Model.Avatar" asp-append-version="true">
+                                    @*<img src="~/ClientAssets/img/default.jpg">*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rightProductDetails">
+                            <div class="rightProductDetails--heading">
+                                <div class="rightProductDetails--heading-title">
+                                    <p class="rightProductDetails--heading-title--brand">Id: @Model.Id</p>
+                                    <h3>Fullname: @(Model.FirstName + " " + Model.MiddleName + " " + Model.LastName)</h3>
+                                    <p class="sold-product">Username: @Model.UserName</p>
+                                    <p class="sold-product">Role: @ViewData["roleName"]</p>
+                                </div>
+                                <div class="rightProductDetails--information">
+                                    <div class="rightProductDetails--information--type">
+                                        <p>Email: @Model.Email</p>
+                                        <p>Phone: @Model.PhoneNumber</p>
+                                        <p>Address: @Model.Address</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="editBtn">
+                                    <a asp-action="Update" asp-route-id="@Model.Id"><button type="submit">Edit User Information</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer text-center">
+        All Rights Reserved by Matrix-admin. Designed and Developed by
+        <a href="https://www.wrappixel.com">WrapPixel</a>.
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>

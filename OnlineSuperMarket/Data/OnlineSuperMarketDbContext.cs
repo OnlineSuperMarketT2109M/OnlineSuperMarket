@@ -71,7 +71,7 @@ namespace OnlineSuperMarket.Data
                     PasswordHash= hasher.HashPassword(null, "123456"),
                     PhoneNumber = "0395100761",
                     Address = "Ninh Binh",
-                    Avatar = "default.png",
+                    Avatar = "default.jpg",
                     LockoutEnabled = false,
                 },
 
@@ -89,7 +89,7 @@ namespace OnlineSuperMarket.Data
                     PasswordHash= hasher.HashPassword(null, "123456"),
                     PhoneNumber = "0123456789",
                     Address = "Ha Noi",
-                    Avatar = "default.png",
+                    Avatar = "default.jpg",
                     LockoutEnabled = false,
                 },
 
@@ -107,7 +107,7 @@ namespace OnlineSuperMarket.Data
                     PasswordHash= hasher.HashPassword(null, "123456"),
                     PhoneNumber = "1234567890",
                     Address = "Ha Long",
-                    Avatar = "default.png",
+                    Avatar = "default.jpg",
                     LockoutEnabled = false,
                 }
             );

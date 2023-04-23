@@ -1,0 +1,82 @@
+.card-body {
+  display: flex;
+}
+.leftProductDetails {
+  width: 50%;
+  padding-right: 32px;
+  /* border-right: 1px solid black; */
+}
+
+.leftProductDetails--imageProduct--mainImage img {
+  width: 100%;
+}
+
+.leftProductDetails--imageProduct--desImage {
+  display: flex;
+  justify-content: center;
+}
+
+.leftProductDetails--imageProduct--desImage img {
+  width: 120px;
+  height: 120px;
+}
+
+.rightProductDetails p {
+  font-size: 16px;
+}
+
+.rightProductDetails--heading-title--brand {
+  color: gray;
+  font-size: 16px;
+  font-weight: 400;
+  border-bottom: 1px solid gray;
+  width: fit-content;
+}
+
+.sold-product {
+  color: #e10600;
+}
+
+.rightProductDetails--information {
+  display: flex;
+}
+
+.rightProductDetails--information--type {
+  padding-right: 32px;
+}
+
+.rightProductDetails--price {
+  display: flex;
+}
+
+.rightProductDetails--price p {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.truePrice {
+  color: #e10600;
+}
+
+.nopePrice {
+  color: #505050;
+  text-decoration: line-through;
+  padding: 0 12px;
+}
+
+.editBtn button {
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 700;
+  -webkit-appearance: button;
+  cursor: pointer;
+  background: #0a6cdc;
+  color: #fff;
+  border: 1px solid #0a6cdc;
+  outline: none;
+}
+
+.editBtn button:hover {
+  background: #161880;
+  transition: ease-in-out 0.25s;
+}
