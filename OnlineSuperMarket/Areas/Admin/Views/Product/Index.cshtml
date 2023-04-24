@@ -38,7 +38,7 @@
     <!-- ============================================================== -->
     <!-- Create product -->
     <!-- ============================================================== -->
-    <div class="createProduct">
+   @* <div class="createProduct">
         <div class="formField">
             <div class="formHeading">
                 <h4 class="page-title">Create new category: </h4>
@@ -49,7 +49,7 @@
                 <button class="createProductBtn" type="submit">Add</button>
             </form>
         </div>
-    </div>
+    </div>*@
     <!-- ============================================================== -->
     <!-- End form create product -->
     <!-- ============================================================== -->
@@ -64,10 +64,16 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
+<<<<<<< HEAD
                         <div class="searchProduct">
                             <div class="createBtn">Create new product <i class="fa-solid fa-plus addCreate"></i></div>
                         <form class="searchForm" asp-action="Index" asp-controller="Product" asp-area="Admin" method="get">
                             <div class="searchForm--input col-sm-8">
+=======
+                        <div class="createBtn"> <a asp-action="Create">Create new product </a><i class="fa-solid fa-plus addCreate"></i></div>
+                        <form asp-action="Index" asp-controller="Product" asp-area="Admin" method="get">
+                            <div class="col-sm-8">
+>>>>>>> b6321408b725bb6e54cace1726a2af748faba17c
                                 <input type="text" name="search" value="@ViewData["CurrentFilter"]" />
                             </div>
                             <div class="searchForm--btn col-sm-4">
@@ -79,11 +85,12 @@
                             <table id="zero_config" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Id</th>
+                                        
                                         <th scope="col">Name</th>
                                         <th scope="col">Price</th>
-                                        <th scope="col">Category</th>
                                         <th scope="col">Total Amount</th>
+                                        <th scope="col">Category</th>
+                                        <th scope="col">Brand</th>
                                         <th scope="col">Actions</th>
                                     </tr>
                                 </thead>
@@ -91,8 +98,9 @@
                                     @foreach (var item in Model)
                                     {
                                         <tr>
-                                            <td scope="row">@Html.DisplayFor(model => item.productId)</td>
+                                            
                                             <td>@Html.DisplayFor(model => item.productName)</td>
+<<<<<<< HEAD
                                             <td>@Html.DisplayFor(model => item.unitCost)$</td>
                                             <td>@Html.DisplayFor(model => item.Category.categoryName)</td>
                                             <td>@Html.DisplayFor(model => item.Brand.brandName)</td>
@@ -111,6 +119,21 @@
                                                     Delete
                                                 </button></a>
                                                 </td>
+=======
+                                            <td>@Html.DisplayFor(model => item.unitCost)</td>
+                                            <td>@Html.DisplayFor(model => item.totalAmount)</td>
+                                            <td>@Html.DisplayFor(model => item.Category.categoryName)</td>
+                                            <td>@Html.DisplayFor(model => item.Brand.brandName)</td>
+                                            <td>
+                                                <a class="btn btn-success btn-tone m-r-5" asp-action="Details" asp-route-id="@item.productId">Details</a>
+                                                <a class="btn btn-success btn-tone m-r-5" asp-action="Edit" asp-route-id="@item.productId">Edit</a>
+                                                <form asp-action="Delete" asp-route-id="@item.productId" method="post">
+                                                    <button type="submit" class="btn btn-sm btn-danger">
+                                                        Delete
+                                                    </button>
+                                                </form>
+                                            </td>
+>>>>>>> b6321408b725bb6e54cace1726a2af748faba17c
                                         </tr>
                                     }
                                 </tbody>

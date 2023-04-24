@@ -1,0 +1,176 @@
+﻿@using OnlineSuperMarket.Models;
+
+
+@model Product;
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Product Managements</h4>
+                <div class="ms-auto text-end">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Product Managements
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Overlay product -->
+    <!-- ============================================================== -->
+    <div class="overlayProduct"></div>
+    <!-- ============================================================== -->
+    <!-- End overlay product -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Create product -->
+    <!-- ============================================================== -->
+    @*<div class="createProduct">
+        <div class="formField">
+            <div class="formHeading">
+                <h4 class="page-title">Create new product: </h4>
+            </div>
+            <form class="formCreateProduct">
+                <label>Product name: </label>
+                <input type="text">
+                <label>Description: </label>
+                <input type="text">
+                <label>Price: </label>
+                <input type="text">
+                <div class="groupInput">
+                    <div class="quantity">
+                        <label>Quantity: </label>
+                        <input type="text">
+                    </div>
+                    <div class="category">
+                        <label>Category: </label>
+                        <select>
+                            <option>Phone</option>
+                        </select>
+                    </div>
+                    <div class="brand">
+                        <label>Brand: </label>
+                        <select>
+                            <option>Apple</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="checkboxSize">
+                    <label>Size: </label>
+                    <label>S</label>
+                    <input type="checkbox" value="S">
+                    <label>M</label>
+                    <input type="checkbox" value="M">
+                    <label>L</label>
+                    <input type="checkbox" value="L">
+                    <label>XL</label>
+                    <input type="checkbox" value="XL">
+                </div>
+                <div class="addImage">
+                    <label>Add image: </label>
+                    <img src="../img/img_263524.png" width="80px" height="80px">
+                </div>
+                <button class="createProductBtn" type="submit">Add</button>
+            </form>
+        </div>
+    </div>*@
+    <!-- ============================================================== -->
+    <!-- End form create product -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="leftProductDetails">
+                            <div class="leftProductDetails--imageProduct">
+                                <div class="leftProductDetails--imageProduct--mainImage">
+                                    <img src="~/ClientAssets/img/@ViewBag.ProductImage">
+                                </div>
+                                @*<div class="leftProductDetails--imageProduct--desImage">
+                                    <img src="../img/product-4-1__64128(1).jpg">
+                                    <img src="../img/product-4-4__71826.jpg">
+                                    <img src="../img/product-4-5__83815.jpg">
+                                    <img src="../img/product-4-2__75853.webp">
+                                </div>*@
+                            </div>
+                        </div>
+                        <div class="rightProductDetails">
+                            <div class="rightProductDetails--heading">
+                                <div class="rightProductDetails--heading-title">
+                                    <p class="rightProductDetails--heading-title--brand">@Model.Brand.brandName</p>
+                                    <h3>@Model.productName</h3>
+                                    <p class="sold-product">10 sold in last 24 hours</p>
+                                </div>
+                                <div class="rightProductDetails--price">
+                                    <p class="truePrice">$43.60</p>
+                                    <p class="nopePrice">@Model.unitCost</p>
+                                </div>
+                                <div class="rightProductDetails-subtitle">
+                                    <p>@Model.status</p>
+                                </div>
+                                <div class="rightProductDetails-description">
+                                    <p>
+                                       @Model.description
+                                    </p>
+                                </div>
+                                <p>Color: @ViewBag.ProductColor</p>
+                                <p>Size: @ViewBag.ProductSize</p>
+                                <p>Quantity: @Model.quantity</p>
+                                <p>Total Amount: @Model.totalAmount</p>
+                                <div class="editBtn">
+                                    <a asp-action="Edit"><button type="submit">Edit Product Information</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer text-center">
+        All Rights Reserved by Matrix-admin. Designed and Developed by
+        <a href="https://www.wrappixel.com">WrapPixel</a>.
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>

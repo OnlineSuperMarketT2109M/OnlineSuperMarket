@@ -186,6 +186,7 @@ namespace OnlineSuperMarket.Areas.Admin.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Delete(string id)
         {

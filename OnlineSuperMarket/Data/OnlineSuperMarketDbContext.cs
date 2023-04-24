@@ -12,7 +12,9 @@ namespace OnlineSuperMarket.Data
         {
         }
 
-
+        public OnlineSuperMarketDbContext()
+        {
+        }
 
         public virtual DbSet<Blog> Blogs { get; set; }
 
