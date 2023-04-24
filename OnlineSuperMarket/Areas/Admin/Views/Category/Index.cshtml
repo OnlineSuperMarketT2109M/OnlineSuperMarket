@@ -64,15 +64,17 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <div class="createBtn">Create new brand <i class="fa-solid fa-plus addCreate"></i></div>
-                        <form asp-action="Index" asp-controller="Category" asp-area="Admin" method="get">
-                            <div class="col-sm-8">
-                                <input type="text" name="search" value="@ViewData["CurrentFilter"]" />
-                            </div>
-                            <div class="col-sm-4">
-                                <button type="submit">Search</button>
-                            </div>
-                        </form>
+                        <div class="searchProduct">
+                            <div class="createBtn">Create new category <i class="fa-solid fa-plus addCreate"></i></div>
+                            <form class="searchForm" asp-action="Index" asp-controller="Category" asp-area="Admin" method="get">
+                                <div class="searchForm--input col-sm-8">
+                                    <input type="text" name="search" value="@ViewData["CurrentFilter"]" />
+                                </div>
+                                <div class="searchForm--btn col-sm-4">
+                                    <button type="submit">Search</button>
+                                </div>
+                            </form>
+                        </div>
                         <div class="table-responsive">
                             <table id="zero_config" class="table table-striped table-bordered">
                                 <thead>
@@ -83,14 +85,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+
                                     @foreach (var item in Model)
                                     {
                                         <tr>
                                             <td scope="row">@Html.DisplayFor(model => item.categoryId)</td>
                                             <td>@Html.DisplayFor(model => item.categoryName)</td>
-                                            <td>
-                                                <a class="btn btn-success btn-tone m-r-5" asp-action="Edit" asp-route-id="@item.categoryId">Edit</a>
-                                                <a class="btn btn-success btn-tone m-r-5" asp-action="Delete" asp-route-id="@item.categoryId">Delete</a>
+                                            <td class="actBtn align-center">
+                                                <a asp-action="Edit" asp-route-id="@item.categoryId">
+                                                    <button type="button" class="btn btn-cyan btn-sm text-white">
+                                                        Edit
+                                                    </button>
+                                                </a>
+                                                <a asp-action="Delete" asp-route-id="@item.categoryId">
+                                                    <button type="button" class="btn btn-danger btn-sm text-white">
+                                                        Delete
+                                                    </button>
+                                                </a>
                                             </td>
                                         </tr>
                                     }
@@ -102,6 +113,7 @@
                                         <th scope="col">Actions</th>
                                     </tr>
                                 </tfoot>
+
                             </table>
                         </div>
                         <div class="pagination-custom">

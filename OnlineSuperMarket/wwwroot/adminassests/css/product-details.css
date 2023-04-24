@@ -1,5 +1,10 @@
-.card-body {
-  display: flex;
+.productDetails {
+    display: flex;
+}
+.navIcon {
+    width: 20px;
+    height: 20px;
+    margin: 0 8px;
 }
 .leftProductDetails {
   width: 50%;

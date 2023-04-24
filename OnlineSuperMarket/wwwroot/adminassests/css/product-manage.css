@@ -1,146 +1,94 @@
+.cardDetails{
+    display: flex;
+}
 .productName {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
-.productName p {
-  margin-bottom: 0;
-  margin-left: 32px;
-}
+    .productName p {
+        margin-bottom: 0;
+        margin-left: 32px;
+    }
 
-.align-center {
-  padding-top: 46px !important;
-}
 .productImg {
-  width: 80px;
-  height: 80px;
+    width: 80px;
+    height: 80px;
 }
 
 .detailBtn {
-  border: 1px solid green;
-  background: green;
-  color: #fff;
+    border: 1px solid green;
+    background: green;
+    color: #fff;
 }
 
 .updateBtn {
-  border: 1px solid blue;
-  background: blue;
-  color: #fff;
+    border: 1px solid blue;
+    background: blue;
+    color: #fff;
 }
 
 .deleteBtn {
-  border: 1px solid red;
-  background: red;
-  color: #fff;
+    border: 1px solid red;
+    background: red;
+    color: #fff;
 }
 
 .createBtn {
-  width: 172px;
-  padding: 8px;
-  margin-top: 0;
-  margin: 12px;
-  border: 1px solid black;
-  font-weight: 600;
-  cursor: pointer;
+    padding: 8px;
+    margin-top: 0;
+    margin: 12px;
+    border: 1px solid black;
+    font-weight: 600;
+    cursor: pointer;
 }
 
-.createBtn:hover {
-  background: #f3f3f3;
-  transition: ease-in-out 0.2s;
-}
+    .createBtn:hover {
+        background: #f3f3f3;
+        transition: ease-in-out 0.2s;
+    }
 
 .addCreate {
-  padding-left: 6px;
+    padding-left: 6px;
 }
 
+.searchProduct{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchForm{
+    display: flex;
+}
+
+.searchForm--btn button{
+    padding: 6px;
+    margin-left: 18px;
+}
+
+.searchForm--input input{
+    padding: 6px 12px;
+}
 /* overlay  */
 .overlayProduct {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  transition: 0.25s;
-  visibility: hidden;
-  z-index: 100;
-}
-
-.overlayProduct.active {
-  visibility: visible;
-  opacity: 1;
-}
-
-/* Create form no hidden*/
-.createProductNoHidden {
     position: fixed;
-    background: #fff;
-    z-index: 999;
-    padding: 24px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: 0.25s;
+    visibility: hidden;
+    z-index: 100;
 }
-    .createProductNoHidden .visible {
+
+    .overlayProduct.active {
+        visibility: visible;
         opacity: 1;
-        visible: visibility;
-        display: block;
-        transition: 0.25s;
     }
 
-    .createProductNoHidden .formCreateProduct {
-        padding: 12px;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-    }
-
-        .createProductNoHidden .formCreateProduct input {
-            margin-bottom: 12px;
-            padding: 5px;
-        }
-
-    .createProductNoHidden .checkboxSize input {
-        margin-right: 24px;
-        cursor: pointer;
-    }
-
-    .createProductNoHidden .formCreateProduct select {
-        padding: 6px 12px;
-        cursor: pointer;
-    }
-
-    .createProductNoHidden .quantity,
-    .createProductNoHidden .category,
-    .createProductNoHidden .brand {
-        display: flex;
-        flex-direction: column;
-        margin-right: 24px;
-    }
-
-    .createProductNoHidden .groupInput {
-        display: flex;
-    }
-
-    .createProductNoHidden .addImage {
-        margin-top: 12px;
-    }
-
-        .createProductNoHidden .addImage img {
-            margin-left: 24px;
-            cursor: pointer;
-        }
-
-    .createProductNoHidden .createProductBtn {
-        margin-top: 24px;
-        border: 1px solid #3e5569;
-        background: #3e5569;
-        padding: 4px 12px;
-        color: #fff;
-    }
-
-        .createProductNoHidden .createProductBtn:hover {
-            background: rgb(31, 38, 45);
-            transition: ease 0.25s;
-        }
 /* Create product form  */
 .createProduct {
     opacity: 0;
@@ -155,64 +103,64 @@
 }
 
 .visible {
-  opacity: 1;
-  visible: visibility;
-  display: block;
-  transition: 0.25s;
+    opacity: 1;
+    visible: visibility;
+    display: block;
+    transition: 0.25s;
 }
 
 .formCreateProduct {
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  position: relative;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
-.formCreateProduct input {
-  margin-bottom: 12px;
-  padding: 5px;
-}
+    .formCreateProduct input {
+        margin-bottom: 12px;
+        padding: 5px;
+    }
 
 .checkboxSize input {
-  margin-right: 24px;
-  cursor: pointer;
+    margin-right: 24px;
+    cursor: pointer;
 }
 
 .formCreateProduct select {
-  padding: 6px 12px;
-  cursor: pointer;
+    padding: 6px 12px;
+    cursor: pointer;
 }
 
 .quantity,
 .category,
 .brand {
-  display: flex;
-  flex-direction: column;
-  margin-right: 24px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 24px;
 }
 
 .groupInput {
-  display: flex;
+    display: flex;
 }
 
 .addImage {
-  margin-top: 12px;
+    margin-top: 12px;
 }
 
-.addImage img {
-  margin-left: 24px;
-  cursor: pointer;
-}
+    .addImage img {
+        margin-left: 24px;
+        cursor: pointer;
+    }
 
 .createProductBtn {
-  margin-top: 24px;
-  border: 1px solid #3e5569;
-  background: #3e5569;
-  padding: 4px 12px;
-  color: #fff;
+    margin-top: 24px;
+    border: 1px solid #3e5569;
+    background: #3e5569;
+    padding: 4px 12px;
+    color: #fff;
 }
 
-.createProductBtn:hover {
-  background: rgb(31, 38, 45);
-  transition: ease 0.25s;
-}
+    .createProductBtn:hover {
+        background: rgb(31, 38, 45);
+        transition: ease 0.25s;
+    }

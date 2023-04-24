@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace OnlineSuperMarket.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class initDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -435,9 +435,9 @@ namespace OnlineSuperMarket.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "address", "Avatar", "ConcurrencyStamp", "Email", "EmailConfirmed", "firstName", "lastName", "LockoutEnabled", "LockoutEnd", "middleName", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "Ninh Binh", "default.jpg", "9d307707-9bf8-45c4-a9a5-61169c11d6b5", "anhdqth2109005@fpt.edu.vn", true, "Dinh", "Anh", false, null, "Quang", "ANHDQTH2109005@FPT.EDU.VN", "anhdinh", "AQAAAAIAAYagAAAAEEglkRWqBKQZA/RcBJxtP+7pXxWcdiXTBHtRi7xJqkAu+1iai8/uCgRskWJIV4gN9w==", "0395100761", false, "965da6c6-34a9-44d2-b6c8-0e9f8197fab3", false, "AnhDinh" },
-                    { "2", 0, "Ha Noi", "default.jpg", "3179485e-978c-4e2c-b0d8-5f01f0e89363", "khanhnb08112003@gmail.com", true, "Nguyen", "Khanh", false, null, "Ba", "KHANHNB08112003@GMAIL.COM", "khanhnguyen", "AQAAAAIAAYagAAAAEOqns5HxyXeZ9zHtxqLMGGc8yVzROsL1ipBF+59QE4KpwpM3xg/nRzjCmY1jwf51Xw==", "0123456789", false, "ea65839d-c2bf-4dd9-8b5d-9dd50f8573d5", false, "KhanhNguyen" },
-                    { "3", 0, "Ha Long", "default.jpg", "9d2ffafe-9d14-4930-b057-91a1998c8010", "hoanglt123@gmail.com", true, "Luong", "Hoang", false, null, "Viet", "HOANGLT123@GMAIL.COM", "hoangluong", "AQAAAAIAAYagAAAAEKWXMiiqEuBWUfv+AWA7MzmDCG/HiW+4+Y3lzXgcVvuJRVoyZCfnCC07LlJo8E0vNA==", "1234567890", false, "57a282bd-75cf-40e7-ab56-6111f0a2716a", false, "HoangLuong" }
+                    { "1", 0, "Ninh Binh", "default.jpg", "930d10db-c8c3-4669-859b-dc5a420aeedb", "anhdqth2109005@fpt.edu.vn", true, "Dinh", "Anh", false, null, "Quang", "ANHDQTH2109005@FPT.EDU.VN", "anhdinh", "AQAAAAIAAYagAAAAEKytoiTJWOh/8nO1lDJaE1/aike4n2knxVs6Y1Abse/uUDQhLMdo9MoQF/tlhB7gHQ==", "0395100761", false, "a4f838cc-86ed-4104-9d8d-08197a3c56da", false, "AnhDinh" },
+                    { "2", 0, "Ha Noi", "default.jpg", "0f57568e-9a4c-48e0-8fb2-e73169ba187c", "khanhnb08112003@gmail.com", true, "Nguyen", "Khanh", false, null, "Ba", "KHANHNB08112003@GMAIL.COM", "khanhnguyen", "AQAAAAIAAYagAAAAEAvdavDx+BLEoEuNtPhF4Ti3Mku0bufFqhAfuaS0RU0r9eLa2hFOxZoiepZveSbkkQ==", "0123456789", false, "d4bed3a9-b9d4-4fe8-8b77-f911374956eb", false, "KhanhNguyen" },
+                    { "3", 0, "Ha Long", "default.jpg", "8aa75e22-eadd-4e58-9b25-08b24997f2e1", "hoanglt123@gmail.com", true, "Luong", "Hoang", false, null, "Viet", "HOANGLT123@GMAIL.COM", "hoangluong", "AQAAAAIAAYagAAAAEOCF+zh8sH5VpJpaO9VZ3KfiLB1RG+WrVdHfPg9EFyKT9ve25PoENnEEREIPYFVh2A==", "1234567890", false, "ef383b32-8960-4551-a727-d3ba88f149d6", false, "HoangLuong" }
                 });
 
             migrationBuilder.InsertData(
