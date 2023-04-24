@@ -1,0 +1,117 @@
+﻿@using OnlineSuperMarket.Areas.Admin.Models.ViewModel;
+
+@model ProductCreateVM;
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Product Managements</h4>
+                <div class="ms-auto text-end">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home" asp-area="Admin">Home</a></li>
+                            <li class="breadcrumb-item">
+                                Product Managements
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Create new product
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Overlay product -->
+    <!-- ============================================================== -->
+    <div class="overlayProduct"></div>
+    <!-- ============================================================== -->
+    <!-- End overlay product -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Create product -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End form create product -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="createProductNoHidden">
+            <div class="formField">
+                <div class="formHeading">
+                    <h4 class="page-title">Create new product: </h4>
+                </div>
+                <form class="formCreateProduct" asp-action="Create" enctype="multipart/form-data">
+                    <label asp-for="Name">Product name: </label>
+                    <input type="text" asp-for="Name">
+                    <label asp-for="description">Description: </label>
+                    <input type="text" asp-for="description">
+                    <label asp-for="unitCost">Price: </label>
+                    <input type="text" asp-for="unitCost">
+                    <div class="groupInput">
+                        <div class="quantity">
+                            <label asp-for="quantity">Quantity: </label>
+                            <input type="text" asp-for="quantity">
+                        </div>
+                        <div class="quantity">
+                            <label asp-for="totalAmount">Total Amount: </label>
+                            <input type="text" asp-for="totalAmount">
+                        </div>
+                        <div class="category">
+                            @Html.DropDownListFor(m => m.categoryId, (IEnumerable<SelectListItem>) ViewBag.Categories, "Select Category")
+                        </div>
+                        <div class="brand">
+                            @Html.DropDownListFor(m => m.brandId, (IEnumerable<SelectListItem>) ViewBag.Brands, "Select Brand")
+                        </div>
+                    </div>
+                    <div class="checkboxSize">
+                        <label asp-for="size">Size: </label>
+                        <input asp-for="size" type="text"/>
+                       
+                    </div>
+                    <div class="checkboxSize">
+                        <label asp-for="color">Colors: </label>
+                        <input asp-for="color" type="text" />
+                       
+                    </div>
+                    <div class="addImage">
+                        <label asp-for="formFile">Add image: </label>
+                        <img src="../img/img_263524.png" width="80px" height="80px">
+                        <input asp-for="formFile"/>
+                    </div>
+                    <button class="createProductBtn" type="submit">Add</button>
+                </form>
+            </div>
+        </div>
+
+        </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer text-center">
+        All Rights Reserved by Matrix-admin. Designed and Developed by
+        <a href="https://www.wrappixel.com">WrapPixel</a>.
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+
