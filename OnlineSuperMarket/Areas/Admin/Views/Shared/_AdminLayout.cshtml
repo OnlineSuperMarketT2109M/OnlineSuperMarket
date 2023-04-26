@@ -55,7 +55,7 @@
           <!-- ============================================================== -->
           <!-- Logo -->
           <!-- ============================================================== -->
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" asp-action="Index" asp-controller="Home" asp-area="Admin">
             <!-- Logo icon -->
             <!-- <b class="logo-icon ps-2"> -->
             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -292,26 +292,26 @@
         <nav class="sidebar-nav">
           <ul id="sidebarnav" class="pt-4">
             <li class="sidebar-item">
-              <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i
+              <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-action="Index" asp-area="Admin" asp-controller="Home" aria-expanded="false"><i
                   class="navIcon fa-solid fa-table-columns"></i><span class="hide-menu">Dashboard</span></a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link waves-effect waves-dark sidebar-link" href="employees.html"
+              <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-action="Index" asp-area="Admin" asp-controller="User"
                 aria-expanded="false"><i class="navIcon fa-solid fa-user"></i><span
                   class="hide-menu">Employees</span></a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link waves-effect waves-dark sidebar-link" href="product-manage.html"
+              <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-action="Index" asp-area="Admin" asp-controller="Product"
                 aria-expanded="false"><i class="navIcon fa-solid fa-border-inner"></i><span class="hide-menu">Product
                   Managements</span></a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-gallery.html"
+              <a class="sidebar-link waves-effect waves-dark sidebar-link" asp-action="Index" asp-area="Admin" asp-controller="Category"
                 aria-expanded="false"><i class="navIcon fa-solid fa-rectangle-history"></i><span
-                  class="hide-menu">Gallery</span></a>
+                  class="hide-menu">Category</span></a>
             </li>
             <li class="sidebar-item">
-              <a href="pages-calendar.html" class="sidebar-link"><i
+              <a asp-action="Index" asp-area="Admin" asp-controller="Calendar" class="sidebar-link"><i
                   class="navIcon fa-duotone fa-calendar-days"></i><span class="hide-menu"> Calendar </span></a>
             </li>
             <li class="sidebar-item">

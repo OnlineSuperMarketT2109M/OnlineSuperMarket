@@ -187,7 +187,7 @@ namespace OnlineSuperMarket.Areas.Admin.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        [HttpPost]
+        [HttpGet]
         public async Task<IActionResult> Delete(string id)
         {
             User user = await _userManager.FindByIdAsync(id);

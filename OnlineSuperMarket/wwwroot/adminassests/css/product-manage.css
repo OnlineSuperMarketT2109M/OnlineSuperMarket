@@ -6,7 +6,7 @@
     align-items: center;
 }
 
-    .productName p {
+    .productName p {    
         margin-bottom: 0;
         margin-left: 32px;
     }
@@ -70,6 +70,7 @@
 .searchForm--input input{
     padding: 6px 12px;
 }
+
 /* overlay  */
 .overlayProduct {
     position: fixed;

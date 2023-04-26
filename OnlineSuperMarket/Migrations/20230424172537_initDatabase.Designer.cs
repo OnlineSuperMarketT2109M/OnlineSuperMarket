@@ -12,7 +12,7 @@ using OnlineSuperMarket.Data;
 namespace OnlineSuperMarket.Migrations
 {
     [DbContext(typeof(OnlineSuperMarketDbContext))]
-    [Migration("20230423070040_initDatabase")]
+    [Migration("20230424172537_initDatabase")]
     partial class initDatabase
     {
         /// <inheritdoc />
@@ -620,7 +620,7 @@ namespace OnlineSuperMarket.Migrations
                             AccessFailedCount = 0,
                             Address = "Ninh Binh",
                             Avatar = "default.jpg",
-                            ConcurrencyStamp = "930d10db-c8c3-4669-859b-dc5a420aeedb",
+                            ConcurrencyStamp = "796992d8-79c7-4a1b-b79c-8bbdda4c42de",
                             Email = "anhdqth2109005@fpt.edu.vn",
                             EmailConfirmed = true,
                             FirstName = "Dinh",
@@ -629,10 +629,10 @@ namespace OnlineSuperMarket.Migrations
                             MiddleName = "Quang",
                             NormalizedEmail = "ANHDQTH2109005@FPT.EDU.VN",
                             NormalizedUserName = "anhdinh",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKytoiTJWOh/8nO1lDJaE1/aike4n2knxVs6Y1Abse/uUDQhLMdo9MoQF/tlhB7gHQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHe8HJrl8ZaR476hkFN0cNSY4j/JFINwk9TFxU055keRdP7TyhNx0+ugi4+Q2Ea3hA==",
                             PhoneNumber = "0395100761",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a4f838cc-86ed-4104-9d8d-08197a3c56da",
+                            SecurityStamp = "b2bf2676-5754-4566-ade6-62543b3c214d",
                             TwoFactorEnabled = false,
                             UserName = "AnhDinh"
                         },
@@ -642,7 +642,7 @@ namespace OnlineSuperMarket.Migrations
                             AccessFailedCount = 0,
                             Address = "Ha Noi",
                             Avatar = "default.jpg",
-                            ConcurrencyStamp = "0f57568e-9a4c-48e0-8fb2-e73169ba187c",
+                            ConcurrencyStamp = "b448b6ff-84fd-43f3-9003-8cf46b4666fb",
                             Email = "khanhnb08112003@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Nguyen",
@@ -651,10 +651,10 @@ namespace OnlineSuperMarket.Migrations
                             MiddleName = "Ba",
                             NormalizedEmail = "KHANHNB08112003@GMAIL.COM",
                             NormalizedUserName = "khanhnguyen",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAvdavDx+BLEoEuNtPhF4Ti3Mku0bufFqhAfuaS0RU0r9eLa2hFOxZoiepZveSbkkQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFsbKvWPEPMnzergIlnllncS8T4XG6V9SEXPaP3IDnIgc+QZigkPXStUI2RRuk1XHg==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d4bed3a9-b9d4-4fe8-8b77-f911374956eb",
+                            SecurityStamp = "10e84fc7-00af-427c-9455-359d063c5be8",
                             TwoFactorEnabled = false,
                             UserName = "KhanhNguyen"
                         },
@@ -664,7 +664,7 @@ namespace OnlineSuperMarket.Migrations
                             AccessFailedCount = 0,
                             Address = "Ha Long",
                             Avatar = "default.jpg",
-                            ConcurrencyStamp = "8aa75e22-eadd-4e58-9b25-08b24997f2e1",
+                            ConcurrencyStamp = "2b13e25a-f03f-4582-bd9a-6837264b08a0",
                             Email = "hoanglt123@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Luong",
@@ -673,10 +673,10 @@ namespace OnlineSuperMarket.Migrations
                             MiddleName = "Viet",
                             NormalizedEmail = "HOANGLT123@GMAIL.COM",
                             NormalizedUserName = "hoangluong",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOCF+zh8sH5VpJpaO9VZ3KfiLB1RG+WrVdHfPg9EFyKT9ve25PoENnEEREIPYFVh2A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBJyh/4wzr+N2TNpFv34v2O4pURTs3FSgpif2AUn7d4k49gl+wItgSvn1qxpTW25Bg==",
                             PhoneNumber = "1234567890",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ef383b32-8960-4551-a727-d3ba88f149d6",
+                            SecurityStamp = "eb25885c-27a6-46e7-b58e-da719f2b5021",
                             TwoFactorEnabled = false,
                             UserName = "HoangLuong"
                         });
