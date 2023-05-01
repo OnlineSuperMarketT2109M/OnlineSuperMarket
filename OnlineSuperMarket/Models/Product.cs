@@ -21,7 +21,8 @@ namespace OnlineSuperMarket.Models
         public int totalAmount { get; set; }    
 
         public string? status { get; set; }
-
+        public string? color { get; set; }
+        public string? size { get; set; }
         [StringLength(5000)]
         public string? description { get; set; }
 
@@ -34,5 +35,8 @@ namespace OnlineSuperMarket.Models
 
         [ForeignKey("brandId")]
         public virtual Brand? Brand { get; set; }
+
+        public ICollection<ProductImage> productImages { get; set; }
+        
     }
 }

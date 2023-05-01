@@ -384,6 +384,9 @@ namespace OnlineSuperMarket.Migrations
                     b.Property<int>("categoryId")
                         .HasColumnType("int");
 
+                    b.Property<string>("color")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("description")
                         .HasMaxLength(5000)
                         .HasColumnType("nvarchar(max)");
@@ -395,6 +398,9 @@ namespace OnlineSuperMarket.Migrations
 
                     b.Property<int>("quantity")
                         .HasColumnType("int");
+
+                    b.Property<string>("size")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("status")
                         .HasColumnType("nvarchar(max)");
@@ -412,29 +418,6 @@ namespace OnlineSuperMarket.Migrations
                     b.HasIndex("categoryId");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("OnlineSuperMarket.Models.ProductColor", b =>
-                {
-                    b.Property<int>("productColorId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("productColorId"));
-
-                    b.Property<string>("color")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("productId")
-                        .HasColumnType("int")
-                        .HasColumnName("productId");
-
-                    b.HasKey("productColorId");
-
-                    b.HasIndex("productId");
-
-                    b.ToTable("ProductColors");
                 });
 
             modelBuilder.Entity("OnlineSuperMarket.Models.ProductComment", b =>
@@ -495,29 +478,6 @@ namespace OnlineSuperMarket.Migrations
                     b.HasIndex("productId");
 
                     b.ToTable("ProductImages");
-                });
-
-            modelBuilder.Entity("OnlineSuperMarket.Models.ProductSize", b =>
-                {
-                    b.Property<int>("productSizeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("productSizeId"));
-
-                    b.Property<int>("productId")
-                        .HasColumnType("int")
-                        .HasColumnName("productId");
-
-                    b.Property<string>("size")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("productSizeId");
-
-                    b.HasIndex("productId");
-
-                    b.ToTable("ProductSizes");
                 });
 
             modelBuilder.Entity("OnlineSuperMarket.Models.User", b =>
@@ -617,7 +577,7 @@ namespace OnlineSuperMarket.Migrations
                             AccessFailedCount = 0,
                             Address = "Ninh Binh",
                             Avatar = "default.jpg",
-                            ConcurrencyStamp = "796992d8-79c7-4a1b-b79c-8bbdda4c42de",
+                            ConcurrencyStamp = "ca370f1f-291e-4a30-9404-6535e8503291",
                             Email = "anhdqth2109005@fpt.edu.vn",
                             EmailConfirmed = true,
                             FirstName = "Dinh",
@@ -626,10 +586,10 @@ namespace OnlineSuperMarket.Migrations
                             MiddleName = "Quang",
                             NormalizedEmail = "ANHDQTH2109005@FPT.EDU.VN",
                             NormalizedUserName = "anhdinh",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHe8HJrl8ZaR476hkFN0cNSY4j/JFINwk9TFxU055keRdP7TyhNx0+ugi4+Q2Ea3hA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFssF8jLYQqdZsNxgXmVEjJQwplnirvxQs0fC9p3fIMz05tpRKtjVrRjmRwxssAC6g==",
                             PhoneNumber = "0395100761",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b2bf2676-5754-4566-ade6-62543b3c214d",
+                            SecurityStamp = "fcb220e0-4c7f-4edd-8671-281a2ebde717",
                             TwoFactorEnabled = false,
                             UserName = "AnhDinh"
                         },
@@ -639,7 +599,7 @@ namespace OnlineSuperMarket.Migrations
                             AccessFailedCount = 0,
                             Address = "Ha Noi",
                             Avatar = "default.jpg",
-                            ConcurrencyStamp = "b448b6ff-84fd-43f3-9003-8cf46b4666fb",
+                            ConcurrencyStamp = "edd4fe26-2d97-44e6-8790-51fbdfd5f551",
                             Email = "khanhnb08112003@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Nguyen",
@@ -648,10 +608,10 @@ namespace OnlineSuperMarket.Migrations
                             MiddleName = "Ba",
                             NormalizedEmail = "KHANHNB08112003@GMAIL.COM",
                             NormalizedUserName = "khanhnguyen",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFsbKvWPEPMnzergIlnllncS8T4XG6V9SEXPaP3IDnIgc+QZigkPXStUI2RRuk1XHg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFwbOeuWi8v5VB4LsLiRWAsYpzzxRqGgKYgcKUQlt9G8NUbDogS5HbJZiMuLbKzlCQ==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "10e84fc7-00af-427c-9455-359d063c5be8",
+                            SecurityStamp = "cfaf684a-cd08-49e4-9a92-8c7e1dc001c9",
                             TwoFactorEnabled = false,
                             UserName = "KhanhNguyen"
                         },
@@ -661,7 +621,7 @@ namespace OnlineSuperMarket.Migrations
                             AccessFailedCount = 0,
                             Address = "Ha Long",
                             Avatar = "default.jpg",
-                            ConcurrencyStamp = "2b13e25a-f03f-4582-bd9a-6837264b08a0",
+                            ConcurrencyStamp = "a84ba0f7-b05e-4ad7-99ae-4d101f651ae3",
                             Email = "hoanglt123@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Luong",
@@ -670,10 +630,10 @@ namespace OnlineSuperMarket.Migrations
                             MiddleName = "Viet",
                             NormalizedEmail = "HOANGLT123@GMAIL.COM",
                             NormalizedUserName = "hoangluong",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBJyh/4wzr+N2TNpFv34v2O4pURTs3FSgpif2AUn7d4k49gl+wItgSvn1qxpTW25Bg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGVmiy3a7KX2VmTOzK0SZcVllUgJ6JQ0reZqm5aqLg9s1rL7Ou0O6kVwMcKNS8g58w==",
                             PhoneNumber = "1234567890",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "eb25885c-27a6-46e7-b58e-da719f2b5021",
+                            SecurityStamp = "23f15d98-2708-44af-b3fd-f0bc54660e44",
                             TwoFactorEnabled = false,
                             UserName = "HoangLuong"
                         });
@@ -803,17 +763,6 @@ namespace OnlineSuperMarket.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("OnlineSuperMarket.Models.ProductColor", b =>
-                {
-                    b.HasOne("OnlineSuperMarket.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("productId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
-                });
-
             modelBuilder.Entity("OnlineSuperMarket.Models.ProductComment", b =>
                 {
                     b.HasOne("OnlineSuperMarket.Models.User", "User")
@@ -834,7 +783,7 @@ namespace OnlineSuperMarket.Migrations
             modelBuilder.Entity("OnlineSuperMarket.Models.ProductImage", b =>
                 {
                     b.HasOne("OnlineSuperMarket.Models.Product", "Product")
-                        .WithMany()
+                        .WithMany("productImages")
                         .HasForeignKey("productId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -842,15 +791,9 @@ namespace OnlineSuperMarket.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("OnlineSuperMarket.Models.ProductSize", b =>
+            modelBuilder.Entity("OnlineSuperMarket.Models.Product", b =>
                 {
-                    b.HasOne("OnlineSuperMarket.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("productId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
+                    b.Navigation("productImages");
                 });
 #pragma warning restore 612, 618
         }

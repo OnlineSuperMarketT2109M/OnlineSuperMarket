@@ -1,4 +1,4 @@
-const closeBtn = document.querySelector("#closeBtn");
+﻿const closeBtn = document.querySelector("#closeBtn");
 const notification = document.querySelector(".notification")
 const closePopup = document.querySelector(".closePopup");
 const popUp = document.querySelector(".newsletterPopup");
@@ -53,4 +53,4 @@ closeLoginForm.onclick = function () {
   displayLoginForm();
 }
 
-// End 
+// End

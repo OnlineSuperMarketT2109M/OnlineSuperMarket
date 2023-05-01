@@ -1,4 +1,6 @@
-﻿@{
+﻿@using OnlineSuperMarket.Models.ViewModel;
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Home Page";
 }
@@ -79,163 +81,38 @@
             <div class="productItem">
                 <div class="swiper1 mySwiper1">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <div class="cardTop">
-                                    <div class="tag">Sale</div>
-                                    <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                                    <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
+                        
+                        @foreach (ProductViewModel item in ViewBag.productOnSaleSlides)
+                        {
+                            if(item != null)
+                            {
+                                
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <div class="cardTop">
+                                            <div class="tag">Sale</div>
+                                            <img class="img1" src="~/ClientAssets/img/@item.productImage">
+                                            <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
+                                        </div>
+                                        <div class="cardBody">
+                                            <p class="subtitle">@item.brandName</p>
+                                            <p class="productName">@item.productName</p>
+                                            @*<p class="price">$@item.Product.unitCost <span class="priceNot">$@test</span></p>*@
+                                        </div>
+                                        <div class="cardBottom">
+                                            <a asp-route="addcart" asp-route-productid="@item.productId">
+
+                                                <p class="choose">Choose Options</p>
+
+                                            </a>
+                                            <div class="heart"><i class="fa-thin fa-heart"></i></div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="cardBody">
-                                    <p class="subtitle">Arm & Hammer</p>
-                                    <p class="productName">Homuir mollis pharetras praneu</p>
-                                    <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
-                                </div>
-                                <div class="cardBottom">
-                                    <button class="choose" type="button">Choose Options</button>
-                                    <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <div class="cardTop">
-                                    <div class="tag">Sale</div>
-                                    <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                                    <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
-                                </div>
-                                <div class="cardBody">
-                                    <p class="subtitle">Arm & Hammer</p>
-                                    <p class="productName">Homuir mollis pharetras praneu</p>
-                                    <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
-                                </div>
-                                <div class="cardBottom">
-                                    <button class="choose" type="button">Choose Options</button>
-                                    <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <div class="cardTop">
-                                    <div class="tag">Sale</div>
-                                    <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                                    <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
-                                </div>
-                                <div class="cardBody">
-                                    <p class="subtitle">Arm & Hammer</p>
-                                    <p class="productName">Homuir mollis pharetras praneu</p>
-                                    <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
-                                </div>
-                                <div class="cardBottom">
-                                    <button class="choose" type="button">Choose Options</button>
-                                    <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <div class="cardTop">
-                                    <div class="tag">Sale</div>
-                                    <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                                    <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
-                                </div>
-                                <div class="cardBody">
-                                    <p class="subtitle">Arm & Hammer</p>
-                                    <p class="productName">Homuir mollis pharetras praneu</p>
-                                    <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
-                                </div>
-                                <div class="cardBottom">
-                                    <button class="choose" type="button">Choose Options</button>
-                                    <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <div class="cardTop">
-                                    <div class="tag">Sale</div>
-                                    <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                                </div>
-                                <div class="cardBody">
-                                    <p class="subtitle">Arm & Hammer</p>
-                                    <p class="productName">Homuir mollis pharetras praneu</p>
-                                    <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
-                                </div>
-                                <div class="cardBottom">
-                                    <button class="choose" type="button">Choose Options</button>
-                                    <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <div class="cardTop">
-                                    <div class="tag">Sale</div>
-                                    <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                                </div>
-                                <div class="cardBody">
-                                    <p class="subtitle">Arm & Hammer</p>
-                                    <p class="productName">Homuir mollis pharetras praneu</p>
-                                    <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
-                                </div>
-                                <div class="cardBottom">
-                                    <button class="choose" type="button">Choose Options</button>
-                                    <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <div class="cardTop">
-                                    <div class="tag">Sale</div>
-                                    <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                                </div>
-                                <div class="cardBody">
-                                    <p class="subtitle">Arm & Hammer</p>
-                                    <p class="productName">Homuir mollis pharetras praneu</p>
-                                    <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
-                                </div>
-                                <div class="cardBottom">
-                                    <button class="choose" type="button">Choose Options</button>
-                                    <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <div class="cardTop">
-                                    <div class="tag">Sale</div>
-                                    <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                                </div>
-                                <div class="cardBody">
-                                    <p class="subtitle">Arm & Hammer</p>
-                                    <p class="productName">Homuir mollis pharetras praneu</p>
-                                    <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
-                                </div>
-                                <div class="cardBottom">
-                                    <button class="choose" type="button">Choose Options</button>
-                                    <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="card">
-                                <div class="cardTop">
-                                    <div class="tag">Sale</div>
-                                    <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                                </div>
-                                <div class="cardBody">
-                                    <p class="subtitle">Arm & Hammer</p>
-                                    <p class="productName">Homuir mollis pharetras praneu</p>
-                                    <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
-                                </div>
-                                <div class="cardBottom">
-                                    <button class="choose" type="button">Choose Options</button>
-                                    <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                                </div>
-                            </div>
-                        </div>
+                            }
+                            
+                        }
+                        
                     </div>
                 </div>
             </div>
@@ -441,3 +318,5 @@
     </div>
 </div>
 <!-- End  -->
+
+

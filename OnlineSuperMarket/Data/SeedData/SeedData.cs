@@ -85,6 +85,7 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 186,
                         totalAmount = 2320,
                         status = "sale 10%",
+                        
                         brandId = brands.Single(brand => brand.brandName == "Chefman").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Houseware").categoryId
                     },
@@ -118,6 +119,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 78,
                         totalAmount = 800,
                         status = "sale 10%",
+                        size = "XL",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "GUCCI").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
                     },
@@ -128,6 +131,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "XXL",
+                        color = "Blue",
                         brandId = brands.Single(brand => brand.brandName == "GUCCI").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
                     },
@@ -138,6 +143,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "XL",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "GUCCI").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
                     },
@@ -150,6 +157,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "L",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Louis Vuiton").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
                     },
@@ -160,6 +169,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "M",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Louis Vuiton").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
                     },
@@ -170,6 +181,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "XXL",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Louis Vuiton").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
                     },
@@ -180,6 +193,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "M",
+                        color = "Red",
                         brandId = brands.Single(brand => brand.brandName == "Louis Vuiton").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
                     },
@@ -191,6 +206,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "XL",
+                        color = "Red",
                         brandId = brands.Single(brand => brand.brandName == "Adidas").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
                     },
@@ -201,6 +218,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "XXL",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Adidas").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
                     },
@@ -211,6 +230,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "XXL",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Adidas").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
                     },
@@ -222,6 +243,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "M",
+                        color = "Blue",
                         brandId = brands.Single(brand => brand.brandName == "Nike").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
                     },
@@ -232,6 +255,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "XXL",
+                        color = "Brown",
                         brandId = brands.Single(brand => brand.brandName == "Nike").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
                     },
@@ -242,6 +267,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "XL",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Nike").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
                     },
@@ -253,6 +280,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                         size = "XXL",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Levi's").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
                     },
@@ -263,6 +292,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                         size = "M",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Levi's").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
                     },
@@ -273,6 +304,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                         size = "XL",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Levi's").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Clothes").categoryId
                     },
@@ -286,6 +319,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                         size = "42",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Adidas").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId
                     },
@@ -295,6 +330,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         unitCost = 199,
                         quantity = 53,
                         totalAmount = 890,
+                         size = "44",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Adidas").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId,
                     },
@@ -305,6 +342,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                         size = "48",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Adidas").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId
                     },
@@ -316,6 +355,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                         size = "43",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Nike").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId
                     },
@@ -326,6 +367,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                         size = "42",
+                        color = "Blue",
                         brandId = brands.Single(brand => brand.brandName == "Nike").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId
                     },
@@ -336,6 +379,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                         size = "41",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Nike").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId
                     },
@@ -347,6 +392,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "41",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "New Balance").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId
                     },
@@ -357,6 +404,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "41",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "New Balance").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId
                     },
@@ -367,6 +416,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "41",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "New Balance").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId
                     },
@@ -378,6 +429,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "41",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Converse").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId
                     },
@@ -388,6 +441,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "41",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Converse").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId
                     },
@@ -398,6 +453,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "41",
+                        color = "Blue",
                         brandId = brands.Single(brand => brand.brandName == "Converse").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Footwear").categoryId
                     },
@@ -410,6 +467,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "512GB",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Dell").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Laptops & Computers").categoryId
                     },
@@ -420,6 +479,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "512GB",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Dell").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Laptops & Computers").categoryId
                     },
@@ -429,6 +490,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         unitCost = 199,
                         quantity = 53,
                         totalAmount = 890,
+                        size = "512GB",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Dell").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Laptops & Computers").categoryId
                     },
@@ -440,6 +503,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "512GB",
+                        color = "Gray",
                         brandId = brands.Single(brand => brand.brandName == "ASUS").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Laptops & Computers").categoryId
                     },
@@ -450,6 +515,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "512GB",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "ASUS").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Laptops & Computers").categoryId
                     },
@@ -460,6 +527,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "1TB",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "ASUS").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Laptops & Computers").categoryId
                     },
@@ -471,6 +540,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "512GB",
+                        color = "Gray",
                         brandId = brands.Single(brand => brand.brandName == "HP").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Laptops & Computers").categoryId
                     },
@@ -481,6 +552,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "512GB",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "HP").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Laptops & Computers").categoryId
                     },
@@ -492,6 +565,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "256GB",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Apple").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Laptops & Computers").categoryId
                     },
@@ -502,6 +577,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "512GB",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Apple").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Laptops & Computers").categoryId
                     },
@@ -512,6 +589,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "1TB",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Apple").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Laptops & Computers").categoryId
                     },
@@ -523,6 +602,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         unitCost = 1200,
                         quantity = 53,
                         totalAmount = 890,
+                        size = "128GB",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Apple").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Mobilephones & Tablets").categoryId
                     },
@@ -533,6 +614,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "256GB",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Apple").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Mobilephones & Tablets").categoryId
                     },
@@ -543,6 +626,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "1TB",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Apple").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Mobilephones & Tablets").categoryId
                     },
@@ -553,6 +638,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         unitCost = 1250,
                         quantity = 53,
                         totalAmount = 890,
+                        size = "128GB",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Samsung").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Mobilephones & Tablets").categoryId
                     },
@@ -563,6 +650,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "128GB",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Samsung").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Mobilephones & Tablets").categoryId
                     },
@@ -573,6 +662,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "128",
+                        color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Samsung").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Mobilephones & Tablets").categoryId
                     },
@@ -628,6 +719,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "58 inches",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Toshiba").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Televisions").categoryId
                     },
@@ -638,6 +731,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "58 inches",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Toshiba").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Televisions").categoryId
                     },
@@ -649,6 +744,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "58 inches",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Sony").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Televisions").categoryId
                     },
@@ -659,6 +756,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "65 inches",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Sony").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Televisions").categoryId
                     },
@@ -669,6 +768,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         unitCost = 2150,
                         quantity = 53,
                         totalAmount = 890,
+                        size = "55 inches",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Samsung").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Televisions").categoryId
                     },
@@ -679,6 +780,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "65 inches",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Samsung").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Televisions").categoryId
                     },
@@ -690,6 +793,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         unitCost = 3750,
                         quantity = 53,
                         totalAmount = 890,
+                        size = "220l",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Toshiba").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Refrigerator").categoryId
                     },
@@ -700,6 +805,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "280l",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Toshiba").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Refrigerator").categoryId
                     },
@@ -710,6 +817,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         unitCost = 2250,
                         quantity = 53,
                         totalAmount = 890,
+                        size = "210l",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Sony").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Refrigerator").categoryId
                     },
@@ -719,6 +828,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         unitCost = 3250,
                         quantity = 53,
                         totalAmount = 890,
+                        size = "240l",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Sony").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Refrigerator").categoryId
                     },
@@ -730,6 +841,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
+                        size = "280l",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Samsung").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Refrigerator").categoryId
                     },
@@ -739,6 +852,8 @@ namespace OnlineSuperMarket.Data.SeedData
                         unitCost = 4250,
                         quantity = 53,
                         totalAmount = 890,
+                        size = "280l",
+                        color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Samsung").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Refrigerator").categoryId
                     },
@@ -903,12 +1018,12 @@ namespace OnlineSuperMarket.Data.SeedData
                    //Adidas
                     new ProductImage
                    {
-                       productId= products.Single(product => product.productName == " ULTRABOOST LIGHT SHOES").productId,
+                       productId= products.Single(product => product.productName == "ULTRABOOST LIGHT SHOES").productId,
                        productImage = "ad1.webp",
                    },
                    new ProductImage
                    {
-                       productId= products.Single(product => product.productName == " ULTRA ADIDAS 4D SHOES").productId,
+                       productId= products.Single(product => product.productName == "ULTRA ADIDAS 4D SHOES").productId,
                        productImage = "ad2.webp",
                    },
                    new ProductImage
@@ -919,12 +1034,12 @@ namespace OnlineSuperMarket.Data.SeedData
                    //MacBook
                    new ProductImage
                    {
-                       productId= products.Single(product => product.productName == " MacBook Pro 14 2023 M2 Pro 12CPU 19GPU 16GB/1TB").productId,
+                       productId= products.Single(product => product.productName == "MacBook Pro 14 2023 M2 Pro 12CPU 19GPU 16GB/1TB").productId,
                        productImage = "phone21.webp",
                    },
                    new ProductImage
                    {
-                       productId= products.Single(product => product.productName == " MacBook Pro 14 2023 M2 Pro 10CPU 16GPU 16GB/512GB").productId,
+                       productId= products.Single(product => product.productName == "MacBook Pro 14 2023 M2 Pro 10CPU 16GPU 16GB/512GB").productId,
                        productImage = "phone27.webp",
                    },
                    new ProductImage
@@ -935,7 +1050,7 @@ namespace OnlineSuperMarket.Data.SeedData
                    //HP
                    new ProductImage
                    {
-                       productId= products.Single(product => product.productName == " HP Pavilion 14-dv2035TU i5 1235U/6K771PA").productId,
+                       productId= products.Single(product => product.productName == "HP Pavilion 14-dv2035TU i5 1235U/6K771PA").productId,
                        productImage = "phone13.webp",
                    },
                    new ProductImage
@@ -1092,7 +1207,7 @@ namespace OnlineSuperMarket.Data.SeedData
                    },
                     new ProductImage
                    {
-                       productId= products.Single(product => product.productName == "KODAK PIXPRO ORBIT360 4K VR Camer").productId,
+                       productId= products.Single(product => product.productName == "KODAK PIXPRO ORBIT360 4K VR Camera").productId,
                        productImage = "cn4.webp",
                    },
 
@@ -1100,368 +1215,6 @@ namespace OnlineSuperMarket.Data.SeedData
                 foreach (var productImage in productsImages)
                 {
                     context.Add(productImage);
-                }
-
-                var ProductSizes = new ProductSize[]
-                {
-                    //Housewear
-                    new ProductSize
-                    {
-                        productId= products.Single(product => product.productName == "STAINLESS ALUMINIUM 3-LAYER STEEL SAUCEPOT").productId,
-                        size = "Medium",
-                    },
-                    new ProductSize
-                    {
-                        productId= products.Single(product => product.productName == "WOODEN TABLE BRUSH").productId,
-                        size = "Large",
-                    },
-                    new ProductSize
-                    {
-                        productId= products.Single(product => product.productName == "Stainless steel kitchen stand").productId,
-                        size = "Small",
-                    },
-                    //Levis
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Housemark Polo Shirt").productId,
-                       size = "XL",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Housemark Polo Shirt").productId,
-                       size = "XXL",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Relaxed Fit Short Sleeve T-Shirt").productId,
-                       size = "M",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Barstow Western Denim Shirt").productId,
-                       size = "L",
-                   },
-                   //NikeClothes
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Nike Dri-FIT UV Hyverse").productId,
-                       size = "L",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Nike Culture of Basketball").productId,
-                       size = "XXL",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Nike Sportswear").productId,
-                       size = "SM",
-                   },
-                   //AddCl
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "ADIDAS ADVENTURE MOUNTAIN BACK TEE").productId,
-                       size = "XL",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "OWN THE RUN TEE").productId,
-                       size = "XXL",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "CLUB 3-STRIPES TENNIS TEE").productId,
-                       size = "SM",
-                   },
-                   //LV
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "LV Printed Leaf Regular Shirt").productId,
-                       size = "L",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Monogram Hoodie").productId,
-                       size = "M",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "DNA Leaf Denim Jacket").productId,
-                       size = "SM",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Evening Blouson").productId,
-                       size = "L",
-                   },
-                   //Gucci
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Gucci Web and Interlocking G").productId,
-                       size = "XL",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Gucci Jacquard Striped Cotton").productId,
-                       size = "XXL",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Gucci Cream GG-striped Cotton Polo Shirt").productId,
-                       size = "M",
-                   },
-                   //Converse
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Chuck 70").productId,
-                       size = "42",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Converse Chuck Taylor All Star High Top").productId,
-                       size = "43",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Converse Chuck Taylor All Star Low Top").productId,
-                       size = "44",
-                   },
-                   //NewBalance
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "MX608V5").productId,
-                       size = "46",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Fresh Foam X 1080v12").productId,
-                       size = "41",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "574 Core").productId,
-                       size = "42",
-                   },
-                   //Nike
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Nike Free Metcon 4 Premium").productId,
-                       size = "43",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Nike Dunk Low Retro SE").productId,
-                       size = "43",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Air Jordan 1 Elevate Low").productId,
-                       size = "43",
-                   },
-                   //Adidas
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == " ULTRABOOST LIGHT SHOES").productId,
-                       size = "42",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == " ULTRA ADIDAS 4D SHOES").productId,
-                       size = "41",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "STAN SMITH SHOES").productId,
-                       size = "42",
-                   },
-                   //MacBook
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == " MacBook Pro 14 2023 M2 Pro 12CPU 19GPU 16GB/1TB").productId,
-                       size = "14 inches, 16GB/1TB",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == " MacBook Pro 14 2023 M2 Pro 10CPU 16GPU 16GB/512GB").productId,
-                       size = "14 inches, 16GB/1TB",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "MacBook Pro M2 2022 13 inch 8CPU 10GPU 8GB 256GB").productId,
-                       size = "13 inches, 8GB/256GB",
-                   },
-                   //HP
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == " HP Pavilion 14-dv2035TU i5 1235U/6K771PA").productId,
-                       size = "15.6 inches",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Laptop HP Gaming Victus 16-e1107AX R5-6600H").productId,
-                       size = "15.6 inches",
-                   },
-                   //Asus
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Asus TUF Gaming FX506LHB-HN188W i5 10300H").productId,
-                       size = "15.6 inches",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Asus TUF Gaming FX506HC-HN144W i5 11400H").productId,
-                       size = "14 inches",
-                   },
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Asus Vivobook M1403QA-LY022W R5 5600H").productId,
-                       size = "15.6 inches",
-                   },
-                   //Dell
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "New Latitude 7640").productId,
-                       size = "15.6 inches",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "New Latitude 7340 Laptop or 2-in-1").productId,
-                       size = "14 inches",
-                   },
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "New Latitude 5340 Laptop or 2-in-1").productId,
-                       size = "15.6 inches",
-                   },
-                   //iphone
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "iPhone 13 Pro 1TB").productId,
-                       size = "1TB",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "iPhone 14 Pro Max 256GB").productId,
-                       size = "256GB",
-                   },
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "iPhone 14 Pro Max 128GB").productId,
-                       size = "128GB",
-                   },
-                    //samsungphone
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Samsung Galaxy S23 Ultra 5G").productId,
-                       size = "128Gb",
-                   },
-                   new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Samsung Galaxy S23 5G").productId,
-                       size = "64GB",
-                   },
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Samsung Galaxy Z Fold4 5G").productId,
-                       size = "256GB",
-                   },
-                    //samsung refrigerator
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Bespoke 4-Door French Door Refrigerator (23 cu. ft.) with Beverage Center™ in Stainless Steel").productId,
-                       size = "250l",
-                   },
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Bespoke 4-Door French Door Refrigerator (29 cu. ft.) with Beverage Center™ in White Glass").productId,
-                       size = "280l",
-                   },
-                    //sony refrigerator
-                     new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "SER-305TS").productId,
-                       size = "180l",
-                   },
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "SER-240TS").productId,
-                       size = "220l",
-                   },
-                    //Toshiba refrigerator
-                     new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "GR-RS508WE-PMI").productId,
-                       size = "220l",
-                   },
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "GR-AG66INA(GG)").productId,
-                       size = "180l",
-                   },
-                    //Samsung television
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "65 inch Neo QLED 8K QN800C").productId,
-                       size = "65 inches",
-                   },
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "65 inch Neo QLED 8K QN800C").productId,
-                       size = "65 inches",
-                   },
-                    //Sony television
-                     new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "X95K Series").productId,
-                       size = "65 inches",
-                   },
-                       new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "X95K Series").productId,
-                       size = "52 inches",
-                   },
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Z9J Series").productId,
-                       size = "65 inches",
-                   },
-                    //Toshiba televesion
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Ultra HD Smart TV").productId,
-                       size = "65 inches",
-                   },
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "Ultra HD Android TV").productId,
-                       size = "52 inches",
-                   },
-                    //Canon cameras
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "PowerShot G5 X Mark II").productId,
-                       size = "no size",
-                   },
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "PowerShot G9 X Mark II").productId,
-                       size = "no size",
-                   },
-                    //Kodak cameras
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "KODAK PIXPRO WPZ2 Digital Camera").productId,
-                       size = "no size",
-                   },
-                    new ProductSize
-                   {
-                       productId= products.Single(product => product.productName == "KODAK PIXPRO ORBIT360 4K VR Camer").productId,
-                       size = "no size",
-                   },
-                };
-                foreach (var productSize in ProductSizes)
-                {
-                    context.Add(productSize);
                 }
                 context.SaveChanges();
             }

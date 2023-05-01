@@ -4,8 +4,6 @@
 @{
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
     var product = ViewBag.product;
-    var productColor = ViewBag.productColor;
-    var productSize = ViewBag.productSize;
     var productImage = ViewBag.productImage;
 }
 <div class="page-wrapper">
@@ -24,7 +22,7 @@
                                 Product Managements
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Edit new product
+                                Edit product
                             </li>
                         </ol>
                     </nav>
@@ -86,17 +84,17 @@
                     </div>
                     <div class="checkboxSize">
                         <label asp-for="size">Size: </label>
-                        <input asp-for="size" type="text" value="@productSize.size"/>
+                        <input asp-for="size" type="text" value="@product.size"/>
 
                     </div>
                     <div class="checkboxSize">
                         <label asp-for="color">Colors: </label>
-                        <input asp-for="color" type="text" value="@productColor.color"/>
+                        <input asp-for="color" type="text" value="@product.color"/>
 
                     </div>
                     <div class="addImage">
                         <label asp-for="formFile">Add image: </label>
-                        <img src="../img/@productImage.productImage" width="80px" height="80px">
+                        <img src="~/ClientAssets/img/@productImage.productImage" width="80px" height="80px">
                         <input asp-for="formFile" />
                     </div>
                     <button class="createProductBtn" type="submit">Add</button>

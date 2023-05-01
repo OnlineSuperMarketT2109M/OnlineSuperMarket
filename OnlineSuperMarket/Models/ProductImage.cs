@@ -12,7 +12,7 @@ namespace OnlineSuperMarket.Models
         public int productId { get; set; }
 
         [ForeignKey("productId")]
-        public virtual Product? Product { get; set; }
+        public Product? Product { get; set; }
         public string productImage { get; set; }
 
         [NotMapped, DisplayName("Upload Product Image")]

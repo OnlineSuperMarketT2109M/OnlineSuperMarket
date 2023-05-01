@@ -80,21 +80,12 @@ namespace OnlineSuperMarket.Areas.Admin.Controllers
                     totalAmount= model.totalAmount,
                     categoryId= model.categoryId,
                     brandId= model.brandId,
+                    size= model.size,
+                    color= model.color,
                 };
                 _context.Add(product);
                 _context.SaveChanges();
-                ProductSize productSize = new ProductSize()
-                {
-                    productId = product.productId,
-                    size = model.size,
-                };
-                _context.Add(productSize);
-                ProductColor productColor = new ProductColor()
-                {
-                    productId= product.productId,
-                    color = model.color,
-                };
-                _context.Add(productColor);
+                
                 string wwwRootPath = _hostEnvironment.WebRootPath;
                 string fileName = Path.GetFileNameWithoutExtension(model.formFile.FileName);
                 string extension = Path.GetExtension(model.formFile.FileName);
@@ -128,8 +119,6 @@ namespace OnlineSuperMarket.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewBag.productColor = _context.ProductColors.Where(s => s.productId == product.productId).First();
-            ViewBag.productSize = _context.ProductSizes.Where(r => r.productId== product.productId).First();
             ViewBag.productImage = _context.ProductImages.Where(t => t.productId== product.productId).First();
             ViewBag.product = product;
             var categories = _context.Categories.ToList();
@@ -160,16 +149,11 @@ namespace OnlineSuperMarket.Areas.Admin.Controllers
                 product.unitCost = model.unitCost ?? product.unitCost;
                 product.brandId = model.brandId ?? product.brandId;
                 product.categoryId = model.categoryId?? product.categoryId;
+                product.color = model.color ?? product.color;
+                product.size = model.size ?? product.size;
                 _context.Update(product);
                 _context.SaveChanges();
 
-                var productSize = _context.ProductSizes.Where(s => s.productId == id).First();
-                var productColor = _context.ProductColors.Where(p => p.productId == id).First();
-                productColor.color = model.color ?? productColor.color;
-                productSize.size = model.size ?? productSize.size;
-                _context.Update(productColor);
-                _context.Update(productSize);
-                _context.SaveChanges();
                 var productImage = _context.ProductImages.Where(i => i.productId == id).First();
                 if (model.formFile != null)
                 {
@@ -206,11 +190,9 @@ namespace OnlineSuperMarket.Areas.Admin.Controllers
                 .Include(p => p.Category)
                 .Include(p => p.Brand)
                 .Where(p => p.productId == id).FirstOrDefault();
-            var productSize = _context.ProductSizes.Where(i => i.productId == id).Select(i => i.size).FirstOrDefault();
-            var productColor = _context.ProductColors.Where(i => i.productId == id).Select(i => i.color).FirstOrDefault();
-            var productImage = _context.ProductImages.Where(i => i.productId != id).Select(i => i.productImage).FirstOrDefault();
-            ViewBag.ProductColor = productColor;
-            ViewBag.ProductSize = productSize;
+
+            var productImage = _context.ProductImages.Where(i => i.productId == id).Select(i => i.productImage).FirstOrDefault();
+
             ViewBag.ProductImage = productImage;
 
             return View(product);
@@ -222,13 +204,11 @@ namespace OnlineSuperMarket.Areas.Admin.Controllers
         {
             
             var product = _context.Products.Where(p => p.productId == id).FirstOrDefault();
-            var productSize = _context.ProductSizes.Where(s => s.productId == id).FirstOrDefault();
-            var productColor = _context.ProductColors.Where(c => c.productId == id).FirstOrDefault();
             var productImage = _context.ProductImages.Where(s => s.productId == id).FirstOrDefault();
 
-            _context.ProductColors.Remove(productColor);
+
             _context.ProductImages.Remove(productImage);
-            _context.ProductSizes.Remove(productSize);
+;
             _context.Products.Remove(product);
 
             await _context.SaveChangesAsync();

@@ -2,9 +2,16 @@
 @using OnlineSuperMarket.Models;
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
+@using Microsoft.AspNetCore.Http
+@using Newtonsoft.Json
+@using OnlineSuperMarket.Models.ViewModel;
+@*@inject IHttpContextAccessor HttpContextAccessor
 @{
     var username = UserManager.GetUserName(User);
-}
+    var session = HttpContextAccessor.HttpContext.Session;
+    string jsoncart = session.GetString(OnlineSuperMarket.Controllers.CartController.CARTKEY);
+    
+}*@
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,6 +24,7 @@
     <link rel="shortcut icon" type="image/icon" href="~/ClientAssets/img/Premium Vector _ Supermarket logo concept.jpg" />
     <link ref="stylesheet" href="~/ClientAssets/fontawesome-pro-6.1.0-web/css/all.min.css">
     <script src="~/ClientAssets/fontawesome-pro-6.1.0-web/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
     <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
@@ -115,10 +123,21 @@
                             <i class="icon fa-thin fa-heart"></i>
                         </div>
                         <div class="item headerTop--list--cart">
-                            <i class="icon fa-thin fa-cart-shopping">
-                            </i>
-                            <span class="headerAmount">1</span>
+                            <a asp-action="Index" asp-controller="Cart"><i class="icon fa-thin fa-cart-shopping"></i></a>
+                            <span class="headerAmount">@*(@cart.Count)*@</span>
                         </div>
+                        @*@if (jsoncart != null)
+                        {
+                            var cart = JsonConvert.DeserializeObject<List<CartItemViewModel>>(jsoncart);
+                            
+
+                        }
+                        else
+                        {
+                            <a asp-action="Index" asp-controller="Cart"><i class="icon fa-thin fa-cart-shopping"></i></a>
+                            <span class="headerAmount">(0)</span>
+                        }*@
+
                         <div class="item headerTop--list--signin">
                             <a asp-action="Logout" asp-controller="Account">
                                 <img src="~/ClientAssets/img/default.jpg">

@@ -11,10 +11,18 @@ using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(cfg => {
+    cfg.Cookie.Name = "CartSession";
+    cfg.IdleTimeout = new TimeSpan(0, 30, 0);
+    cfg.Cookie.IsEssential= true;
+});
+
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("OnlineSuperMarketDbContext") ?? throw new InvalidOperationException("Connection string 'OnlineSuperMarketDbContext.");
 builder.Services.AddDbContext<OnlineSuperMarketDbContext>(options =>
     options.UseSqlServer(connectionString));
+
 
 
 builder.Services.AddIdentity<User, IdentityRole>(options =>
@@ -84,7 +92,7 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseSession();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(

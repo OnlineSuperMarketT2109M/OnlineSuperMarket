@@ -32,9 +32,6 @@ namespace OnlineSuperMarket.Data
 
         public virtual DbSet<ProductComment> ProductComments { get; set; }
 
-        public virtual DbSet<ProductColor> ProductColors { get; set; }
-        public virtual DbSet<ProductSize> ProductSizes { get; set; }
-
         public virtual DbSet<ProductImage> ProductImages { get; set; }
 
 
