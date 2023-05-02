@@ -13,14 +13,13 @@ namespace OnlineSuperMarket.Models
 
         [ForeignKey("Id")]
         public virtual User? User { get; set; }
-        [Column("productId")]
-        public int productId { get; set; }
+        public double total { get; set; }
 
-        [ForeignKey("productId")]
-        public virtual Product? Product { get; set; }
-
-        public int amount { get; set; }
+        public string Address { get; set; }
+        public string orderStatus { get; set; }
 
         public DateTime purchaseDate { get; set; }
+
+        public ICollection<OrderDetails> OrderDetails { get; set; }
     }
 }

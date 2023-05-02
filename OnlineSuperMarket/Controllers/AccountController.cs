@@ -30,13 +30,13 @@ namespace OnlineSuperMarket.Controllers
             this._notifyService= notyfService;
         }
 
-        public async Task<ActionResult> Login(LoginViewModel model)
+        public async Task<ActionResult> Login([FromForm] string email, string password)
         {
             bool isPersistent = true; // Lưu cookie = true
             bool lockoutOnFailure = false; //  Khóa tk nếu đăng nhập sai nhiều lần = false
 
 
-            var user = await _userManager.FindByEmailAsync(model.email);
+            var user = await _userManager.FindByEmailAsync(email);
             
             if (user == null)
             {
@@ -44,7 +44,7 @@ namespace OnlineSuperMarket.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            var result = await _signInManager.PasswordSignInAsync(user, model.password, isPersistent, lockoutOnFailure);
+            var result = await _signInManager.PasswordSignInAsync(user, password, isPersistent, lockoutOnFailure);
 
             var role = await _userManager.GetRolesAsync(user);
 

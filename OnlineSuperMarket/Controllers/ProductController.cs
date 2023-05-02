@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using OnlineSuperMarket.Data;
 using OnlineSuperMarket.Models;
 using OnlineSuperMarket.Models.ViewModel;
-using System;
+using OnlineSuperMarket.Services.VnPay;
 
 namespace OnlineSuperMarket.Controllers
 {
@@ -13,11 +15,20 @@ namespace OnlineSuperMarket.Controllers
         private readonly ILogger<ProductController> _logger;
 
         private readonly OnlineSuperMarketDbContext _context;
+        private UserManager<User> _userManager;
+        private SignInManager<User> _signInManager;
+        private readonly IConfiguration config;
+        private readonly IHttpContextAccessor httpContextAccessor;
 
-        public ProductController(ILogger<ProductController> logger, OnlineSuperMarketDbContext context)
+        public ProductController(ILogger<ProductController> logger, OnlineSuperMarketDbContext context, UserManager<User> userManager, SignInManager<User> signInManager,
+            IConfiguration config, IHttpContextAccessor httpContextAccessor)
         {
             _logger = logger;
             _context = context;
+            _userManager = userManager;
+            _signInManager = signInManager;
+            this.config = config;
+            this.httpContextAccessor = httpContextAccessor;
         }
         public const string CARTKEY = "cart";
 
@@ -133,5 +144,117 @@ namespace OnlineSuperMarket.Controllers
             SaveCartSession(cart);
             return RedirectToAction(nameof(Cart));
         }
+
+        public IActionResult CreateOrder()
+        {
+            var cart = GetCartItems();
+            ViewBag.Cart = cart;
+
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CreateOrder(CheckoutViewModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                var cart = GetCartItems();
+                var user = _userManager.GetUserAsync(User);
+                if (user != null)
+                {
+                    Order order = new Order()
+                    {
+                        userId = user.Id,
+                        Address= model.Address,
+                        total = cart.Sum(x => x.TotalMoney),
+                        orderStatus = "No process",
+                        purchaseDate= DateTime.Now,
+                    };
+                    _context.Add(order);
+                    _context.SaveChanges();
+
+                    foreach (var item in cart)
+                    {
+                        OrderDetails orderDetails = new OrderDetails()
+                        {
+                            OrderId = order.orderId,
+                            ProductId = item.product.productId,
+                            Amount = item.quantity,
+                            TotalMoney = item.TotalMoney,
+                            Price = item.product.unitCost,
+                            CreateDate = DateTime.Now,
+                        };
+                        _context.Add(orderDetails);
+                        _context.SaveChanges();
+                    }
+
+                    var Payment = new VnPayService(config, httpContextAccessor);
+
+                    string paymentVnPayUrl = Payment.getPaymentUrl(order);
+
+                    return Redirect(paymentVnPayUrl);
+                }
+
+            }
+
+            return View();
+        }
+
+        [HttpGet]
+        public string CheckOut()
+        {
+            string Message = null;
+            var Request = HttpContext.Request;
+
+
+            string hashSecret = config["VnPay:HashSecret"]; //Chuỗi bí mật
+
+            var vnpayData = Request.Query.ToDictionary(x => x.Key, x => x.Value.ToString());
+            PayLib pay = new PayLib();
+
+            if (vnpayData.Count()<1)
+            {
+                return "Đơn hàng chưa được khởi tạo";
+            };
+
+            //lấy toàn bộ dữ liệu được trả về
+            foreach (KeyValuePair<string, string> pair in vnpayData)
+            {
+                string key = pair.Key;
+                string value = pair.Value;
+
+                if (!string.IsNullOrEmpty(key) && key.StartsWith("vnp_"))
+                {
+                    pay.AddResponseData(key, value);
+                }
+            }
+
+            long orderId = Convert.ToInt64(pay.GetResponseData("vnp_TxnRef")); //mã hóa đơn
+            long vnpayTranId = Convert.ToInt64(pay.GetResponseData("vnp_TransactionNo")); //mã giao dịch tại hệ thống VNPAY
+            string vnp_ResponseCode = pay.GetResponseData("vnp_ResponseCode"); //response code: 00 - thành công, khác 00 - xem thêm https://sandbox.vnpayment.vn/apis/docs/bang-ma-loi/
+            string vnp_SecureHash = Request.Query["vnp_SecureHash"]; //hash của dữ liệu trả về
+
+            bool checkSignature = pay.ValidateSignature(vnp_SecureHash, hashSecret); //check chữ ký đúng hay không?
+
+            if (checkSignature)
+            {
+                if (vnp_ResponseCode == "00")
+                {
+                    //Thanh toán thành công
+                    Message = "Thanh toán thành công hóa đơn " + orderId + " | Mã giao dịch: " + vnpayTranId;
+                }
+                else
+                {
+                    //Thanh toán không thành công. Mã lỗi: vnp_ResponseCode
+                    Message = "Có lỗi xảy ra trong quá trình xử lý hóa đơn " + orderId + " | Mã giao dịch: " + vnpayTranId + " | Mã lỗi: " + vnp_ResponseCode;
+                }
+            }
+            else
+            {
+                Message = "Có lỗi xảy ra trong quá trình xử lý";
+            }
+
+            return Message;
+        }
+
     }
 }

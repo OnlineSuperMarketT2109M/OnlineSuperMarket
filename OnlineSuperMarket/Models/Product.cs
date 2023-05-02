@@ -37,6 +37,8 @@ namespace OnlineSuperMarket.Models
         public virtual Brand? Brand { get; set; }
 
         public ICollection<ProductImage> productImages { get; set; }
+
+        public ICollection<OrderDetails> orderDetails { get; set; }
         
     }
 }

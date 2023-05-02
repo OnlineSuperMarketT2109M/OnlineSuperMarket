@@ -5,5 +5,6 @@
         public int quantity { set; get; }
         public Product product { set; get; }
         public ProductImage productImage { set; get; }
+        public double TotalMoney => quantity * product.unitCost;
     }
 }

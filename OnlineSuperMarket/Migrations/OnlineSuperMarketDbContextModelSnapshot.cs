@@ -344,18 +344,22 @@ namespace OnlineSuperMarket.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("orderId"));
 
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("amount")
-                        .HasColumnType("int");
-
-                    b.Property<int>("productId")
-                        .HasColumnType("int")
-                        .HasColumnName("productId");
+                    b.Property<string>("orderStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("purchaseDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<double>("total")
+                        .HasColumnType("float");
 
                     b.Property<int>("userId")
                         .HasColumnType("int")
@@ -365,9 +369,43 @@ namespace OnlineSuperMarket.Migrations
 
                     b.HasIndex("Id");
 
-                    b.HasIndex("productId");
-
                     b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("OnlineSuperMarket.Models.OrderDetails", b =>
+                {
+                    b.Property<int>("OrderDetailId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OrderDetailId"));
+
+                    b.Property<int?>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CreateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("ProductId")
+                        .IsRequired()
+                        .HasColumnType("int");
+
+                    b.Property<double?>("TotalMoney")
+                        .HasColumnType("float");
+
+                    b.HasKey("OrderDetailId");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("OrderDetails");
                 });
 
             modelBuilder.Entity("OnlineSuperMarket.Models.Product", b =>
@@ -577,7 +615,7 @@ namespace OnlineSuperMarket.Migrations
                             AccessFailedCount = 0,
                             Address = "Ninh Binh",
                             Avatar = "default.jpg",
-                            ConcurrencyStamp = "ca370f1f-291e-4a30-9404-6535e8503291",
+                            ConcurrencyStamp = "e0ab064d-ba38-4fc9-b59f-3952b83762bf",
                             Email = "anhdqth2109005@fpt.edu.vn",
                             EmailConfirmed = true,
                             FirstName = "Dinh",
@@ -586,10 +624,10 @@ namespace OnlineSuperMarket.Migrations
                             MiddleName = "Quang",
                             NormalizedEmail = "ANHDQTH2109005@FPT.EDU.VN",
                             NormalizedUserName = "anhdinh",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFssF8jLYQqdZsNxgXmVEjJQwplnirvxQs0fC9p3fIMz05tpRKtjVrRjmRwxssAC6g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENS33dI3opvrr5JaW2zTGdu/yZfgyH5IKVlpQAAH1LLeJOX38lhx4p1EldPUEeTPUw==",
                             PhoneNumber = "0395100761",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "fcb220e0-4c7f-4edd-8671-281a2ebde717",
+                            SecurityStamp = "9063e96a-574c-4981-bfd0-ec7ed00aa108",
                             TwoFactorEnabled = false,
                             UserName = "AnhDinh"
                         },
@@ -599,7 +637,7 @@ namespace OnlineSuperMarket.Migrations
                             AccessFailedCount = 0,
                             Address = "Ha Noi",
                             Avatar = "default.jpg",
-                            ConcurrencyStamp = "edd4fe26-2d97-44e6-8790-51fbdfd5f551",
+                            ConcurrencyStamp = "1c98a1a9-00cb-463b-81ae-415b58f4e389",
                             Email = "khanhnb08112003@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Nguyen",
@@ -608,10 +646,10 @@ namespace OnlineSuperMarket.Migrations
                             MiddleName = "Ba",
                             NormalizedEmail = "KHANHNB08112003@GMAIL.COM",
                             NormalizedUserName = "khanhnguyen",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFwbOeuWi8v5VB4LsLiRWAsYpzzxRqGgKYgcKUQlt9G8NUbDogS5HbJZiMuLbKzlCQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBW6XPHPYZv5pVfy5qm03PmTuj44GM9PfgXbXnPDaXt3yH10qA188Kssn4P9/naNKA==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "cfaf684a-cd08-49e4-9a92-8c7e1dc001c9",
+                            SecurityStamp = "4fc2cd3a-4d7e-4bd3-a9f9-0d31dfb54632",
                             TwoFactorEnabled = false,
                             UserName = "KhanhNguyen"
                         },
@@ -621,7 +659,7 @@ namespace OnlineSuperMarket.Migrations
                             AccessFailedCount = 0,
                             Address = "Ha Long",
                             Avatar = "default.jpg",
-                            ConcurrencyStamp = "a84ba0f7-b05e-4ad7-99ae-4d101f651ae3",
+                            ConcurrencyStamp = "05aa9fd6-e379-4cea-acd0-425328d76328",
                             Email = "hoanglt123@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Luong",
@@ -630,10 +668,10 @@ namespace OnlineSuperMarket.Migrations
                             MiddleName = "Viet",
                             NormalizedEmail = "HOANGLT123@GMAIL.COM",
                             NormalizedUserName = "hoangluong",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGVmiy3a7KX2VmTOzK0SZcVllUgJ6JQ0reZqm5aqLg9s1rL7Ou0O6kVwMcKNS8g58w==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBdWqKt2McxrNxDo7TfuFbJxYS+5JylWRvvbrDb4F5c9q2fQBDWYuBGvd6zy5Jxcvw==",
                             PhoneNumber = "1234567890",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "23f15d98-2708-44af-b3fd-f0bc54660e44",
+                            SecurityStamp = "cc33a13d-0520-4c68-815b-ac6b7638a879",
                             TwoFactorEnabled = false,
                             UserName = "HoangLuong"
                         });
@@ -733,15 +771,24 @@ namespace OnlineSuperMarket.Migrations
                         .WithMany()
                         .HasForeignKey("Id");
 
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("OnlineSuperMarket.Models.OrderDetails", b =>
+                {
+                    b.HasOne("OnlineSuperMarket.Models.Order", "Order")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("OrderId");
+
                     b.HasOne("OnlineSuperMarket.Models.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("productId")
+                        .WithMany("orderDetails")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Product");
+                    b.Navigation("Order");
 
-                    b.Navigation("User");
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("OnlineSuperMarket.Models.Product", b =>
@@ -791,8 +838,15 @@ namespace OnlineSuperMarket.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("OnlineSuperMarket.Models.Order", b =>
+                {
+                    b.Navigation("OrderDetails");
+                });
+
             modelBuilder.Entity("OnlineSuperMarket.Models.Product", b =>
                 {
+                    b.Navigation("orderDetails");
+
                     b.Navigation("productImages");
                 });
 #pragma warning restore 612, 618
