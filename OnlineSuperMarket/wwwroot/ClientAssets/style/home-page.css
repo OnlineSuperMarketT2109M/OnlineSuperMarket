@@ -51,7 +51,7 @@
 .shipppingIcon,
 .longestIcon {
   margin-right: 16px;
-  color: #051c42;
+  color: #051c42;   
 }
 
 .achieveHeading {
@@ -223,10 +223,15 @@
 }
 
 .productName {
-  font-size: 16px;
-  margin: 0 0 14px 0;
-  line-height: 22px;
-  font-weight: 400;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 16px;
+    margin: 0 0 14px 0;
+    line-height: 22px;
+    font-weight: 400;
 }
 
 .price {

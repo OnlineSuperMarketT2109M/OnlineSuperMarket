@@ -207,9 +207,9 @@
                                     <p class="cart--item--size">Size: <span>@item.product.size</span></p>
                                     <a class="cart--item--change" href="#">Change</a>
                                 </td>
-                                <td>@item.product.unitCost</td>
+                                <td>$@item.product.unitCost</td>
                                 <td><input class="cart--item--quantity" asp-for="@item.quantity" id="@($"quantity-{item.product.productId}")" type="number"></td>
-                                <td>@thanhtien</td>
+                                <td>$@thanhtien</td>
                                 <td>
                                     <button class="updatecartitem" data-productid="@item.product.productId"></button>
                                     <a asp-route="removecart" asp-route-productid="@item.product.productId"><i class="fa-solid fa-xmark"></i></a>

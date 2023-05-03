@@ -48,13 +48,13 @@
                                     <p class="cart--item--color">Color: <span>@item.product.color</span></p>
                                     <p class="cart--item--size">Size: <span>@item.product.size</span></p>
                                 </td>
-                                <td>@item.product.unitCost</td>
+                                <td>$@item.product.unitCost</td>
                                 <td>
                                     <button class="quantity__minus updatecartitem" data-productid="@item.product.productId" data-route-cartIndex="@Url.RouteUrl("cart")" data-route-updateCart="@Url.RouteUrl("updatecart")">-</button>
                                     <input class="cart--item--quantity" asp-for="@item.quantity" id="@($"quantity-{item.product.productId}")" type="number" data-productid="@item.product.productId" data-route-cartIndex="@Url.RouteUrl("cart")" data-route-updateCart="@Url.RouteUrl("updatecart")">
                                     <button class="quantity__plus updatecartitem" data-productid="@item.product.productId" data-route-cartIndex="@Url.RouteUrl("cart")" data-route-updateCart="@Url.RouteUrl("updatecart")">+</button>
                                     </td>
-                                <td>@item.TotalMoney</td>
+                                <td>$@item.TotalMoney</td>
                                 <td>
                                     <a asp-route="removecart" asp-route-productid="@item.product.productId"><i class="fa-solid fa-xmark"></i></a>
                                 </td>

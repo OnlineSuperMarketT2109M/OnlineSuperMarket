@@ -54,13 +54,13 @@
                                 <p class="cart--item--color">Color: <span>@item.product.color</span></p>
                                 <p class="cart--item--size">Size: <span>@item.product.size</span></p>
                             </td>
-                            <td>@item.product.unitCost</td>
+                            <td>$@item.product.unitCost</td>
                             <td>
-
-                                <p class="cart--item--quantity">@item.quantity</p>
+                            <input disabled class="cart--item--quantity" value="@item.quantity" asp-for="@item.quantity" id="@($"quantity-{item.product.productId}")" type="number" data-productid="@item.product.productId" data-route-cartIndex="@Url.RouteUrl("cart")" data-route-updateCart="@Url.RouteUrl("updatecart")">
+                                @*<p class="cart--item--quantity">@item.quantity</p>*@
                                 
                             </td>
-                            <td>@thanhtien</td>
+                            <td>$@thanhtien</td>
                             
                         </tr>
 
@@ -116,7 +116,7 @@
                     
                         <div class="shipping--country">
                             <label>Customer Name:</label>
-                            <input class="shipping--input" type="text" asp-for="FullName" value="@user.FirstName @user.MiddleName @user.LastName">
+                            <input class="shipping--input" type="text" asp-for="FullName" value="@user.FirstName @user.LastName">
                         </div>
                         <div class="shipping--state">
                             <label>Email</label>
@@ -147,7 +147,7 @@
                     <div class="line"></div>
                     <div class="order--grandTotal">
                         <p>Grand total:</p>
-                        <p>@total</p>
+                        <p>$@total</p>
                     </div>
                     <div class="order--form">
                             <button class="order--button" type="submit">Check Out</button>

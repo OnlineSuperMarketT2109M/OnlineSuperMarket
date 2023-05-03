@@ -6,6 +6,32 @@
 }
 
 
+<!-- Newsletter Popup -->
+<div class="newsletterPopup">
+    <div class="newsletterPopup--container">
+        <div class="newsletterPopup--inner">
+            <button type="button" class="closePopup"><i class="fa-solid fa-xmark"></i></button>
+            <div class="newsletterPopup--image">
+                <img src="~/ClientAssets/img/newsletter-bg.jpg" alt="Newsletter Pop Up Image">
+            </div>
+            <div class="newsletterPopup--content">
+                <h2 class="newsletterPopup--content--title">Be the first to know</h2>
+                <span class="newsletterPopup--content--message">
+                    Get the latest updates on new products and upcoming
+                    sales
+                </span>
+                <form class="newsletterPopup--content--form">
+                    <input class="newsletterPopup--content--form--input" type="email" placeholder="Your email address">
+                    <button class="newsletterPopup--content--form--button" type="button">Subscribe</button>
+                </form>
+                <div class="noThanks">
+                    <p>No, thanks!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End  -->
 
 <!-- Banner + top page  -->
 <div class="body">
@@ -21,17 +47,17 @@
     </div>
     <div class="achieve">
         <div class="achievement achieve--freeshipping">
-            <div class="shipppingIcon icon"><i class="fa-solid fa-truck-fast"></i></div>
+            <div class="shipppingIcon icon"><i style="width: 33px; height:33px;" class="fa-solid fa-truck-fast"></i></div>
             <p class="achieveHeading">Free Shipping & Returns</p>
         </div>
         <span class="line2"></span>
         <div class="achievement achieve--lowest">
-            <div class="lowestIcon icon"><i class="fa-solid fa-medal"></i></div>
+            <div class="lowestIcon icon"><i style="width: 33px; height:33px;" class="fa-solid fa-medal"></i></div>
             <p class="achieveHeading">Lowest Price Guarantee</p>
         </div>
         <span class="line2"></span>
         <div class="achievement achieve--longest">
-            <div class="longestIcon icon"><i class="fa-solid fa-trophy-star"></i></div>
+            <div class="longestIcon icon"><i style="width: 33px; height:33px;" class="fa-solid fa-trophy-star"></i></div>
             <p class="achieveHeading">Longest Warranties Offer</p>
         </div>
     </div>
@@ -97,13 +123,11 @@
                                         <div class="cardBody">
                                             <p class="subtitle">@item.brandName</p>
                                             <p class="productName">@item.productName</p>
-                                            @*<p class="price">$@item.Product.unitCost <span class="priceNot">$@test</span></p>*@
+                                            <p class="price">$@item.unitCost</p>
                                         </div>
                                         <div class="cardBottom">
-                                            <a asp-route="addcart" asp-route-productid="@item.productId">
-
-                                                <p class="choose">Choose Options</p>
-
+                                            <a class="choose" asp-route="addcart" asp-route-productid="@item.productId">
+                                                Choose Options
                                             </a>
                                             <div class="heart"><i class="fa-thin fa-heart"></i></div>
                                         </div>

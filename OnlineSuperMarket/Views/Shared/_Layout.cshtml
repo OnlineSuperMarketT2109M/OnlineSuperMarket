@@ -37,32 +37,7 @@
 <body>
     <div id="overlay"></div>
 
-    <!-- Newsletter Popup -->
-    <div class="newsletterPopup">
-        <div class="newsletterPopup--container">
-            <div class="newsletterPopup--inner">
-                <button type="button" class="closePopup"><i class="fa-solid fa-xmark"></i></button>
-                <div class="newsletterPopup--image">
-                    <img src="~/ClientAssets/img/newsletter-bg.jpg" alt="Newsletter Pop Up Image">
-                </div>
-                <div class="newsletterPopup--content">
-                    <h2 class="newsletterPopup--content--title">Be the first to know</h2>
-                    <span class="newsletterPopup--content--message">
-                        Get the latest updates on new products and upcoming
-                        sales
-                    </span>
-                    <form class="newsletterPopup--content--form">
-                        <input class="newsletterPopup--content--form--input" type="email" placeholder="Your email address">
-                        <button class="newsletterPopup--content--form--button" type="button">Subscribe</button>
-                    </form>
-                    <div class="noThanks">
-                        <p>No, thanks!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End  -->
+
     <!-- Log in form  -->
     @await Html.PartialAsync("~/Views/Account/Login.cshtml")
     
@@ -304,11 +279,11 @@
             <div class="footerMiddle--connectUs">
                 <strong>Connect with us</strong>
                 <ul>
-                    <li>#</li>
-                    <li>#</li>
-                    <li>#</li>
-                    <li>#</li>
-                    <li>#</li>
+                    <li class="facebook-icon"><i class="fa-brands fa-facebook-f"></i></li>
+                    <li class="twitter-icon"><i class="fa-brands fa-twitter"></i></li>
+                    <li class="bell-icon"><i class="fa-solid fa-bell"></i></li>
+                    <li class="youtube-icon"><i class="fa-brands fa-youtube"></i></li>
+                    <li class="messenger-icon"><i class="fa-brands fa-facebook-messenger"></i></li>
                 </ul>
             </div>
         </div>
@@ -316,13 +291,8 @@
             <div class="space"></div>
             <div class="credit">
                 <ul>
-                    <li><img src="#" alt="credit image"></li>
-                    <li><img src="#" alt="credit image"></li>
-                    <li><img src="#" alt="credit image"></li>
-                    <li><img src="#" alt="credit image"></li>
-                    <li><img src="#" alt="credit image"></li>
-                    <li><img src="#" alt="credit image"></li>
-                    <li><img src="#" alt="credit image"></li>
+                    <li> </li>
+                    <li><img src="~/ClientAssets//img/trust-image.jpg"></li>
                 </ul>
             </div>
         </div>
