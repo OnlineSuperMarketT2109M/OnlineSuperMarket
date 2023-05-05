@@ -1,0 +1,389 @@
+﻿
+@using OnlineSuperMarket.Models.ViewModel;
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@model IPagedList<ProductViewModel>;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var categories = ViewBag.categories;
+    var brands = ViewBag.brands;
+    //var colors = ViewBag.colors;
+    //var sizes = ViewBag.sizes;
+    List<string> sizes = new List<string> { "XXL", "XL", "L", "M", "SM", "37", "38", "39", "40", "41", "42", "43", "44", "512GB", "256GB", "1TB", "64GB", "128GB",
+                                "58 inches", "65 inches", "55 inches", "210l", "220l", "240l", "280l" };
+
+    List<string> colors = new List<string> { "White", "Black", "Gray", "Blue", "Green", "Yellow", "Red", "Brown" };
+}
+
+<div class="productList container">
+    <img class="productList--img" src="~/ClientAssets/img/category-banner-top-layout-2.jpg">
+    <div class="productList--banner">
+        <h1>Category</h1>
+    </div>
+
+    <div class="productList--heading">
+        <ol class="breadcrumb">
+            <li><a href="~/ClientAssets/index.html">Home</a></li>
+            <li>/</li>
+            <li><a href="~/ClientAssets/pages/cart.html">Your Cart</a></li>
+        </ol>
+        <div class="pagination">
+            <div class="group--paginate">
+                <form asp-action="Index" asp-controller="Product" method="get">
+                    <label>Search</label>
+                    <input type="text" name="search" value="@ViewData["CurrentFilter"]" />
+                    <button type="submit" value="search"></button>
+                </form>
+                
+            </div>
+            <div class="group--sort">
+                <label>Sort By</label>
+                <ul>
+                    <li><a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParmAsc"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Name A->Z</a></li>>
+                    <li><a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParmDesc"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Name Z->A</a></li>>
+                    <li><a asp-action="Index" asp-route-sortOrder="@ViewData["PriceSortParmAsc"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Price ascending</a></li>
+                    <li><a asp-action="Index" asp-route-sortOrder="@ViewData["PriceSortParmDesc"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Price descending</a></li>
+                </ul>
+            </div>
+            <div class="group--changeForm">
+                <i class="active changeForm--icon fa-light fa-border-all"></i>
+                <i class="changeForm--icon fa-light fa-diagram-cells"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="productList--body">
+        <div class="productList--filter">
+            <form method="get" asp-action="Index" asp-controller="Product">
+                <div class="productList--filter--category">
+                    <h2>Categories</h2>
+                    @foreach (var item in categories)
+                    {
+                        <div class="productList--item productList--filter--category--appliances">
+                            <div class="productList--item--title">
+                                <label for="categories"><h3>@item.categoryName</h3></label>
+                                <input type="checkbox" value="@item.categoryName" name="categories"/>
+                                <i class="iconPlus1 fa-solid fa-plus"></i>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+                <div class="productList--filter--brand">
+                    <div class="productList--item--title">
+                        <h2>Brand</h2>
+                        <i class="iconPlus5 fa-solid fa-plus"></i>
+                    </div>
+                    @foreach (var item in brands)
+                    {
+                        <div class="productList--item">
+                            <label for="brands">@item.brandName</label>
+                            <input type="checkbox" name="brands" value="@item.brandName"/>
+                        </div>
+                    }
+                    
+                </div>
+                <div class="productList--filter--color">
+                    <div class="productList--item--title">
+                        <h2>Color</h2>
+                        <i class="iconPlus6 fa-solid fa-plus"></i>
+                    </div>
+                    @foreach (var item in colors)
+                    {
+                        <div class="productList--item">
+                            <label for="colors">@item.ToString()</label>
+                            <input type="checkbox" name="colors" value="@item" />
+                        </div>
+                    }
+                    
+                </div>
+                <div class="productList--filter--size">
+                    <div class="productList--item--title">
+                        <h2>Size</h2>
+                        <i class="iconPlus7 fa-solid fa-plus"></i>
+                    </div>
+                    @foreach (var item in sizes)
+                    {
+                            <div class="productList--item">
+                                <label for="sizes">@item.ToString()</label>
+                                <input type="checkbox" name="sizes" value="@item" />
+                            </div>
+                    }
+                    
+                </div>
+                <button type="submit">Filter</button>
+            </form>
+            
+        </div>
+        <div class="productList--list">
+            @if(Model.Count > 0)
+            {
+                @foreach(var item in Model)
+            {
+                <div class="productList--list--item">
+                <div class="card">
+                    <div class="cardTop">
+                        <div class="tag">@item.status</div>
+                        <img class="img1" src="~/ClientAssets/img/@item.productImage">
+                        <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
+                    </div>
+                    <div class="cardBody">
+                        <p class="subtitle">@item.brandName</p>
+                        <p class="productName">@item.productName</p>
+                            @if(item.status != null)
+                            {
+                                var priceonsale = item.unitCost * 90 / 100;
+                                <p class="price">$@priceonsale <span class="priceNot">$@item.unitCost</span></p>
+                            }
+                            else
+                            {
+                                <p class="price">$@item.unitCost</p>
+                            }
+                        </div>
+                    <div class="cardBottom">
+                        <button class="choose" type="button">Choose Options</button>
+                        <div class="heart"><i class="fa-thin fa-heart"></i></div>
+                    </div>
+                </div>
+            </div>
+                }
+            }
+            else
+            {
+                <h4 class="text-center text-danger">No products were found!</h4>
+            }
+            
+            
+@*            <div class="productList--list--item">
+                <div class="card">
+                    <div class="cardTop">
+                        <div class="tag">Sale</div>
+                        <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
+                        <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
+                    </div>
+                    <div class="cardBody">
+                        <p class="subtitle">Arm & Hammer</p>
+                        <p class="productName">Homuir mollis pharetras praneu</p>
+                        <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
+                    </div>
+                    <div class="cardBottom">
+                        <button class="choose" type="button">Choose Options</button>
+                        <div class="heart"><i class="fa-thin fa-heart"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="productList--list--item">
+                <div class="card">
+                    <div class="cardTop">
+                        <div class="tag">Sale</div>
+                        <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
+                        <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
+                    </div>
+                    <div class="cardBody">
+                        <p class="subtitle">Arm & Hammer</p>
+                        <p class="productName">Homuir mollis pharetras praneu</p>
+                        <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
+                    </div>
+                    <div class="cardBottom">
+                        <button class="choose" type="button">Choose Options</button>
+                        <div class="heart"><i class="fa-thin fa-heart"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="productList--list--item">
+                <div class="card">
+                    <div class="cardTop">
+                        <div class="tag">Sale</div>
+                        <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
+                        <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
+                    </div>
+                    <div class="cardBody">
+                        <p class="subtitle">Arm & Hammer</p>
+                        <p class="productName">Homuir mollis pharetras praneu</p>
+                        <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
+                    </div>
+                    <div class="cardBottom">
+                        <button class="choose" type="button">Choose Options</button>
+                        <div class="heart"><i class="fa-thin fa-heart"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="productList--list--item">
+                <div class="card">
+                    <div class="cardTop">
+                        <div class="tag">Sale</div>
+                        <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
+                        <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
+                    </div>
+                    <div class="cardBody">
+                        <p class="subtitle">Arm & Hammer</p>
+                        <p class="productName">Homuir mollis pharetras praneu</p>
+                        <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
+                    </div>
+                    <div class="cardBottom">
+                        <button class="choose" type="button">Choose Options</button>
+                        <div class="heart"><i class="fa-thin fa-heart"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="productList--list--item">
+                <div class="card">
+                    <div class="cardTop">
+                        <div class="tag">Sale</div>
+                        <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
+                        <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
+                    </div>
+                    <div class="cardBody">
+                        <p class="subtitle">Arm & Hammer</p>
+                        <p class="productName">Homuir mollis pharetras praneu</p>
+                        <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
+                    </div>
+                    <div class="cardBottom">
+                        <button class="choose" type="button">Choose Options</button>
+                        <div class="heart"><i class="fa-thin fa-heart"></i></div>
+                    </div>
+                </div>
+            </div>*@
+        </div>
+
+        <div class="pagination-custom">
+            @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index",new {page,
+                categories = ViewData["CurrentCategories"],
+                brands = ViewData["CurrentBrands"],
+            sizes = ViewData["CurrentSizes"],
+            colors = ViewData["CurrentColors"],
+            search = ViewData["CurrentFilter"],
+            sortOrder = ViewData["CurrentSort"]}))
+        </div>
+    </div>
+    <div class="topBrand">
+        <div class="topBrand--banner">
+            <img src="~/ClientAssets/img/category-custom-block-left-img.jpg">
+        </div>
+        <div class="topBrand--brands">
+            <div class="topBrand--brands--title">
+                <h3>Top Brands</h3>
+                <a>View all</a>
+            </div>
+            <div class="topBrand--brands--logo">
+                <div class="topBrand--brands--logo--group">
+                    <img src="~/ClientAssets/img/category-custom-block-brand-1.jpg">
+                    <img src="~/ClientAssets/img/category-custom-block-brand-2.jpg">
+                    <img src="~/ClientAssets/img/category-custom-block-brand-3.jpg">
+                    <img src="~/ClientAssets/img/category-custom-block-brand-4.jpg">
+                    <img src="~/ClientAssets/img/category-custom-block-brand-5.jpg">
+                    <img src="~/ClientAssets/img/category-custom-block-brand-6.jpg">
+                    <img src="~/ClientAssets/img/category-custom-block-brand-7.jpg">
+                    <img src="~/ClientAssets/img/category-custom-block-brand-8.jpg">
+                    <img src="~/ClientAssets/img/category-custom-block-brand-9.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="lineEnd"></div>
+
+
+<style>
+    .pagination {
+        display: compact;
+        padding: 10px;
+        margin: 0;
+        border-radius: 4px;
+    }
+
+        .pagination > li {
+            display: inline-grid;
+        }
+
+            .pagination > li > a,
+            .pagination > li > span {
+                position: relative;
+                float: left;
+                padding: 10px;
+                margin-left: -1px;
+                line-height: 2;
+                text-decoration: none;
+                background-color: #eee;
+                border: 1px solid #dddddd;
+            }
+
+            .pagination > li:first-child > a,
+            .pagination > li:first-child > span {
+                margin-left: 0;
+                border-bottom-left-radius: 4px;
+                border-top-left-radius: 4px;
+            }
+
+            .pagination > li:last-child > a,
+            .pagination > li:last-child > span {
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+            }
+
+            .pagination > li > a:hover,
+            .pagination > li > span:hover,
+            .pagination > li > a:focus,
+            .pagination > li > span:focus {
+                background-color: #eeeeee;
+            }
+
+        .pagination > .active > a,
+        .pagination > .active > span,
+        .pagination > .active > a:hover,
+        .pagination > .active > span:hover,
+        .pagination > .active > a:focus,
+        .pagination > .active > span:focus {
+            z-index: 2;
+            color: #000;
+            cursor: default;
+            background-color: #428bca;
+            border-color: #428bca;
+        }
+
+        .pagination > .disabled > span,
+        .pagination > .disabled > a,
+        .pagination > .disabled > a:hover,
+        .pagination > .disabled > a:focus {
+            color: #999999;
+            cursor: not-allowed;
+            background-color: #eee;
+            border-color: #dddddd;
+        }
+
+    .pagination-lg > li > a,
+    .pagination-lg > li > span {
+        padding: 10px;
+        font-size: 36px;
+    }
+
+    .pagination-lg > li:first-child > a,
+    .pagination-lg > li:first-child > span {
+        border-bottom-left-radius: 6px;
+        border-top-left-radius: 6px;
+    }
+
+    .pagination-lg > li:last-child > a,
+    .pagination-lg > li:last-child > span {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+    }
+
+    .pagination-sm > li > a,
+    .pagination-sm > li > span {
+        padding: 0;
+        font-size: 12px;
+    }
+
+    .pagination-sm > li:first-child > a,
+    .pagination-sm > li:first-child > span {
+        border-bottom-left-radius: 3px;
+        border-top-left-radius: 3px;
+    }
+
+    .pagination-sm > li:last-child > a,
+    .pagination-sm > li:last-child > span {
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+</style>

@@ -7,6 +7,7 @@ using OnlineSuperMarket.Data;
 using OnlineSuperMarket.Models;
 using OnlineSuperMarket.Models.ViewModel;
 using OnlineSuperMarket.Services.VnPay;
+using X.PagedList;
 
 namespace OnlineSuperMarket.Controllers
 {
@@ -64,9 +65,103 @@ namespace OnlineSuperMarket.Controllers
             session.SetString(CARTKEY, jsoncart);
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string[] categories, string[] brands, string[] colors, string[] sizes, string search, int? page, string sortOrder, string currentFilter)
         {
-            return View();
+
+            var category = _context.Categories.ToList();
+            var brand = _context.Brands.ToList();
+
+            ViewBag.categories = category;
+            ViewBag.brands = brand;
+
+            //var pageNumber = page ?? 1;
+            //var pageSize = 5;
+            var models = _context.Products
+                        .Include(p => p.Brand)
+                        .Include(p => p.Category)
+                        .Include(p => p.productImages)
+                        .Select(p => new ProductViewModel
+                        {
+                            productId = p.productId,
+                            productName = p.productName,
+                            productImage = p.productImages.FirstOrDefault().productImage,
+                            unitCost = p.unitCost,
+                            brandName = p.Brand.brandName,
+                            categoryName = p.Category.categoryName,
+                            size = p.size,
+                            color = p.color,
+                            status = p.status
+                        })
+                        .AsQueryable();
+
+
+            if (categories != null && categories.Length > 0)
+            {
+                models = models.Where(p => categories.Contains(p.categoryName));
+                
+            }
+            if (brands != null && brands.Length > 0)
+            {
+                models = models.Where(p => brands.Contains(p.brandName));
+                
+            }
+            if (colors != null && colors.Length > 0)
+            {
+                models = models.Where(p => colors.Contains(p.color));
+                
+            }
+            if (sizes != null && sizes.Length > 0)
+            {
+                models = models.Where(p => sizes.Contains(p.size));
+                
+            }
+
+            if (search != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                search = currentFilter;
+            }
+
+            ViewData["CurrentFilter"] = search;
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["NameSortParmAsc"] = String.IsNullOrEmpty(sortOrder) ? "name_asc" : "";
+            ViewData["NameSortParmDesc"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["PriceSortParmAsc"] = sortOrder == "Price" ? "price_asc" : "";
+            ViewData["PriceSortParmDesc"] = sortOrder == "Price" ? "price_desc" : "";
+
+            switch (sortOrder)
+            {
+                case "name_asc":
+                    models = models.OrderBy(s => s.productName);
+                    break;
+                case "name_desc":
+                    models = models.OrderByDescending(s => s.productName);
+                    break;
+                case "price_desc":
+                    models = models.OrderByDescending(s => s.unitCost);
+                    break;
+                case "price_asc":
+                    models = models.OrderBy(s => s.unitCost);
+                    break;
+                default:
+                    models = models.OrderBy(s => s.productName);
+                    break;
+            }
+            var pageNumber = page ?? 1;
+            var pageSize = 15;
+
+            ViewData["CurrentCategories"] = categories;
+            ViewData["CurrentBrands"] = brands;
+            ViewData["CurrentColors"] = colors;
+            ViewData["CurrentSizes"] = sizes;
+
+            return View(models.AsNoTracking().Where(s => s.productName.Contains(search) ||
+                        s.brandName.Contains(search) ||
+                        s.categoryName.Contains(search) || search == null).ToPagedList(pageNumber, pageSize));
+
         }
 
 

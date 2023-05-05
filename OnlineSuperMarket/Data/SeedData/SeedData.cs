@@ -662,7 +662,7 @@ namespace OnlineSuperMarket.Data.SeedData
                         quantity = 53,
                         totalAmount = 890,
                         status = "sale 10%",
-                        size = "128",
+                        size = "128GB",
                         color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Samsung").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Mobilephones & Tablets").categoryId

@@ -4229,7 +4229,7 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
-      "X.PagedList/8.4.7": {
+      "X.PagedList/8.4.5": {
         "type": "package",
         "dependencies": {
           "JetBrains.Annotations": "2022.3.1"
@@ -4241,10 +4241,10 @@
           "lib/net7.0/X.PagedList.dll": {}
         }
       },
-      "X.PagedList.Mvc.Core/8.4.7": {
+      "X.PagedList.Mvc.Core/8.4.5": {
         "type": "package",
         "dependencies": {
-          "X.PagedList": "8.4.7"
+          "X.PagedList": "8.4.5"
         },
         "compile": {
           "lib/net7.0/X.PagedList.Mvc.Core.dll": {}
@@ -11858,10 +11858,10 @@
         "system.xml.xdocument.nuspec"
       ]
     },
-    "X.PagedList/8.4.7": {
-      "sha512": "ZA1WcyNviMUhivCgwKAm/5/YsNP3Yf/n81SzrPaHSJOcFzavA9MrXTT8M+ZX4fvHwLCL1bY6BPXvwZF5pRtgTg==",
+    "X.PagedList/8.4.5": {
+      "sha512": "J+k5n2eIQWsX7HLYkTFl9sv6eYFn6ypVBuBGgAGrors+Iuuv3UtTk7fVXOxx/8oMZkvTuJlzZ1ALiONtwnQQPQ==",
       "type": "package",
-      "path": "x.pagedlist/8.4.7",
+      "path": "x.pagedlist/8.4.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -11869,20 +11869,20 @@
         "lib/net7.0/X.PagedList.dll",
         "lib/netstandard2.0/X.PagedList.dll",
         "lib/netstandard2.1/X.PagedList.dll",
-        "x.pagedlist.8.4.7.nupkg.sha512",
+        "x.pagedlist.8.4.5.nupkg.sha512",
         "x.pagedlist.nuspec"
       ]
     },
-    "X.PagedList.Mvc.Core/8.4.7": {
-      "sha512": "dS8sJr/aT3AoV9ePaqmF4wijh/2vqS9rxpOvzjPPStkQcR8rUaGPVezPgY/kJwWCZ2hdgKNralbU08So0otNxw==",
+    "X.PagedList.Mvc.Core/8.4.5": {
+      "sha512": "xpqkOdvclpRRDQPCpqVwYO4SkFYx16Qs6Wj7wB+pYA6nTaqIkaawrS7TRCDx8KvlJZ16kollf3c9dFe70qiOXQ==",
       "type": "package",
-      "path": "x.pagedlist.mvc.core/8.4.7",
+      "path": "x.pagedlist.mvc.core/8.4.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "lib/net6.0/X.PagedList.Mvc.Core.dll",
         "lib/net7.0/X.PagedList.Mvc.Core.dll",
-        "x.pagedlist.mvc.core.8.4.7.nupkg.sha512",
+        "x.pagedlist.mvc.core.8.4.5.nupkg.sha512",
         "x.pagedlist.mvc.core.nuspec"
       ]
     }
@@ -11905,7 +11905,7 @@
       "MimeKit >= 3.6.1",
       "Newtonsoft.Json >= 13.0.3",
       "PagedList.Core.Mvc >= 3.0.0",
-      "X.PagedList.Mvc.Core >= 8.4.7"
+      "X.PagedList.Mvc.Core >= 8.4.5"
     ]
   },
   "packageFolders": {
@@ -12017,7 +12017,7 @@
           },
           "X.PagedList.Mvc.Core": {
             "target": "Package",
-            "version": "[8.4.7, )"
+            "version": "[8.4.5, )"
           }
         },
         "imports": [

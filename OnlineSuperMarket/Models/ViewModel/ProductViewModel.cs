@@ -10,5 +10,10 @@
         public string brandName { get; set; }
 
         public string categoryName { get; set; }
+
+        public string? status { get; set; }
+
+        public string? color { get; set; }
+        public string? size { get; set; }
     }
 }
