@@ -32,7 +32,6 @@
     </div>
 </div>
 <!-- End  -->
-
 <!-- Banner + top page  -->
 <div class="body">
     <div class="swiper mySwiper">
@@ -107,16 +106,19 @@
             <div class="productItem">
                 <div class="swiper1 mySwiper1">
                     <div class="swiper-wrapper">
-                        
+
                         @foreach (ProductViewModel item in ViewBag.productOnSaleSlides)
                         {
-                            if(item != null)
+                            if (item != null)
                             {
-                                
+
                                 <div class="swiper-slide">
                                     <div class="card">
                                         <div class="cardTop">
-                                            <div class="tag">Sale</div>
+                                            @if (item.status != null)
+                                            {
+                                                <div class="tag">Sale</div>
+                                            }
                                             <img class="img1" src="~/ClientAssets/img/@item.productImage">
                                             <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
                                         </div>
@@ -126,17 +128,16 @@
                                             <p class="price">$@item.unitCost</p>
                                         </div>
                                         <div class="cardBottom">
-                                            <a class="choose" asp-route="addcart" asp-route-productid="@item.productId">
-                                                Choose Options
-                                            </a>
+                                            <button class="choose"><a asp-action="Details" asp-controller="Product" asp-route-id="@item.productId">Choose Options</a></button>
+                                            
                                             <div class="heart"><i class="fa-thin fa-heart"></i></div>
                                         </div>
                                     </div>
                                 </div>
                             }
-                            
+
                         }
-                        
+
                     </div>
                 </div>
             </div>
@@ -205,69 +206,43 @@
         </div>
         <div class="newProducts container">
             <div class="newProducts--heading">
-                <p>New Products</p>
+                <p>Top Televisions</p>
             </div>
             <div class="newProducts--content">
                 <div class="newProducts--left">
                     <div class="swiper mySwiper2">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="card">
-                                    <div class="cardTop">
-                                        <div class="tag">Sale</div>
-                                        <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
+                            @foreach (var item in ViewBag.topTelevisions)
+                            {
+                                @if (item != null)
+                                {
+                                    <div class="swiper-slide">
+                                        <div class="card">
+                                            <div class="cardTop">
+                                                @if (item.status != null)
+                                                {
+                                                    <div class="tag">Sale</div>
+                                                }
+
+                                                <img class="img1" src="~/ClientAssets/img/@item.productImage">
+                                            </div>
+                                            <div class="cardBody">
+                                                <p class="subtitle">@item.brandName</p>
+                                                <p class="productName">@item.productName</p>
+                                                <p class="price">$@item.unitCost</p>
+                                            </div>
+                                            <div class="cardBottom">
+                                                <button class="choose"><a asp-action="Details" asp-controller="Product" asp-route-id="@item.productId">Choose Options</a></button>
+
+                                                <div class="heart"><i class="fa-thin fa-heart"></i></div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="cardBody">
-                                        <p class="subtitle">Arm & Hammer</p>
-                                        <p class="productName">Homuir mollis pharetras praneu</p>
-                                        <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
-                                    </div>
-                                    <div class="cardBottom">
-                                        <button class="choose" type="button">Choose Options</button>
-                                        <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card">
-                                    <div class="cardTop">
-                                        <div class="tag">Sale</div>
-                                        <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg" />
-                                    </div>
-                                    <div class="cardBody">
-                                        <p class="subtitle">Arm & Hammer</p>
-                                        <p class="productName">Homuir mollis pharetras praneu</p>
-                                        <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
-                                    </div>
-                                    <div class="cardBottom">
-                                        <button class="choose" type="button">Choose Options</button>
-                                        <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="card">
-                                    <div class="cardTop">
-                                        <div class="tag">Sale</div>
-                                        <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                                    </div>
-                                    <div class="cardBody">
-                                        <p class="subtitle">Arm & Hammer</p>
-                                        <p class="productName">Homuir mollis pharetras praneu</p>
-                                        <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
-                                    </div>
-                                    <div class="cardBottom">
-                                        <button class="choose" type="button">Choose Options</button>
-                                        <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">Slide 4</div>
-                            <div class="swiper-slide">Slide 5</div>
-                            <div class="swiper-slide">Slide 6</div>
-                            <div class="swiper-slide">Slide 7</div>
-                            <div class="swiper-slide">Slide 8</div>
-                            <div class="swiper-slide">Slide 9</div>
+                                }
+
+                            }
+
+
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
@@ -342,5 +317,3 @@
     </div>
 </div>
 <!-- End  -->
-
-

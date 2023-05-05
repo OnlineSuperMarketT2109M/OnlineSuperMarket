@@ -7,6 +7,7 @@ using OnlineSuperMarket.Data;
 using OnlineSuperMarket.Models;
 using OnlineSuperMarket.Models.ViewModel;
 using OnlineSuperMarket.Services.VnPay;
+using System.Reflection.Metadata.Ecma335;
 using X.PagedList;
 
 namespace OnlineSuperMarket.Controllers
@@ -125,7 +126,7 @@ namespace OnlineSuperMarket.Controllers
                 search = currentFilter;
             }
 
-            ViewData["CurrentFilter"] = search;
+
             ViewData["CurrentSort"] = sortOrder;
             ViewData["NameSortParmAsc"] = String.IsNullOrEmpty(sortOrder) ? "name_asc" : "";
             ViewData["NameSortParmDesc"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -157,6 +158,7 @@ namespace OnlineSuperMarket.Controllers
             ViewData["CurrentBrands"] = brands;
             ViewData["CurrentColors"] = colors;
             ViewData["CurrentSizes"] = sizes;
+            ViewData["CurrentFilter"] = search;
 
             return View(models.AsNoTracking().Where(s => s.productName.Contains(search) ||
                         s.brandName.Contains(search) ||
@@ -164,14 +166,45 @@ namespace OnlineSuperMarket.Controllers
 
         }
 
+        public IActionResult Details(int id)
+        {
+            if(id == null)
+            {
+                return NotFound();
+            }
+
+            var product = _context.Products
+                            .Include(s => s.Category)
+                            .Include(s => s.Brand)
+                            .Include(s => s.productImages)
+                            .AsNoTracking()
+                            .FirstOrDefault(s => s.productId == id);
+            ProductViewModel model = new ProductViewModel()
+            {
+                productId = product.productId,
+                productName= product.productName,
+                productImage= product.productImages.FirstOrDefault().productImage,
+                brandName = product.Brand.brandName,
+                categoryName = product.Category.categoryName,
+                unitCost = product.unitCost,
+                size= product.size,
+                color= product.color,
+                status= product.status,
+                quantity = product.quantity,
+                totalAmount = product.totalAmount,
+            };
+
+            return View(model);
+        }
+
 
         /// Thêm sản phẩm vào cart
         [Route("addcart/{productid:int}", Name = "addcart")]
-        public IActionResult AddToCart([FromRoute] int productid)
+        public IActionResult AddToCart([FromRoute] int productid, int quantity)
         {
 
             var product = _context.Products
-                
+                .Include(p => p.Category)
                 .Include(p => p.Brand)
                 .FirstOrDefault(p => p.productId == productid);
             var productImage = _context.ProductImages.FirstOrDefault(p => p.productId == productid);
@@ -183,13 +216,13 @@ namespace OnlineSuperMarket.Controllers
             var cartitem = cart.Find(p => p.product.productId == productid);
             if (cartitem != null)
             {
-                // Đã tồn tại, tăng thêm 1
-                cartitem.quantity++;
+                // Đã tồn tại, tăng thêm quantity
+                cartitem.quantity+=quantity;
             }
             else
             {
                 //  Thêm mới
-                cart.Add(new CartItem() { quantity = 1, product = product, productImage = productImage });
+                cart.Add(new CartItem() { quantity = quantity, product = product, productImage = productImage });
             }
 
             // Lưu cart vào Session

@@ -34,12 +34,38 @@ namespace OnlineSuperMarket.Controllers
                                         productImage = p.productImages.FirstOrDefault().productImage,
                                         unitCost = p.unitCost * 90 / 100,
                                         brandName = p.Brand.brandName,
-                                        categoryName = p.Category.categoryName
+                                        categoryName = p.Category.categoryName,
+                                        status= p.status,
+                                        size= p.size,
+                                        color= p.color,
+                                        quantity= p.quantity,
+                                        totalAmount=p.totalAmount
                                     })
-                                    .Take(5)
+                                    .Take(10)
+                                    .OrderByDescending(p => p.productId)
+                                    .ToList();
+            dynamic topTelevisions = _context.Products
+                                    .Where(p => p.Category.categoryName == "Televisions")
+                                    .Include(p => p.productImages)
+                                    .Select(p => new ProductViewModel
+                                    {
+                                        productId = p.productId,
+                                        productName = p.productName,
+                                        productImage = p.productImages.FirstOrDefault().productImage,
+                                        unitCost = p.unitCost * 90 / 100,
+                                        brandName = p.Brand.brandName,
+                                        categoryName = p.Category.categoryName,
+                                        status= p.status,
+                                        size= p.size,
+                                        color= p.color,
+                                        quantity= p.quantity,
+                                        totalAmount=p.totalAmount
+                                    })
+                                    .Take(10)
                                     .OrderByDescending(p => p.productId)
                                     .ToList();
             ViewBag.productOnSaleSlides = productsOnSale;
+            ViewBag.topTelevisions = topTelevisions;
 
             return View();
         }

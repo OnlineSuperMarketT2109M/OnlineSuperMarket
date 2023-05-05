@@ -1,0 +1,113 @@
+﻿@using OnlineSuperMarket.Models.ViewModel;
+@model ProductViewModel;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="~/ClientAssets/index.html">Home</a></li>
+        <li>/</li>
+        <li><a href="~/ClientAssets/pages/cart.html">Your Cart</a></li>
+    </ol>
+    <div class="card">
+        <div class="card-body productDetails">
+            <div class="leftProductDetails">
+                <div class="leftProductDetails--imageProduct">
+                    <div class="leftProductDetails--imageProduct--mainImage">
+                        <img src="~/ClientAssets/img/@Model.productImage">
+                    </div>
+                    @*<div class="leftProductDetails--imageProduct--desImage">
+                    <img src="~/ClientAssets/img/product-4-1__64128(1).jpg">
+                    <img src="~/ClientAssets/img/product-4-4__71826.jpg">
+                    <img src="~/ClientAssets/img/product-4-5__83815.jpg">
+                    <img src="~/ClientAssets/img/product-4-2__75853.webp">
+                    </div>*@
+                </div>
+            </div>
+            <div class="rightProductDetails">
+                <div class="rightProductDetails--heading">
+                    <div class="rightProductDetails--heading-title">
+                        <p class="rightProductDetails--heading-title--brand">@Model.brandName</p>
+                        <h3>@Model.productName</h3>
+                        <p class="sold-product">10 sold in last 24 hours</p>
+                    </div>
+                    <div class="rightProductDetails--information">
+                        <div class="rightProductDetails--information--type">
+                            <p>Category: </p>
+                            <p>Sale: </p>
+                            <p>Shipping: </p>
+                        </div>
+                        <div class="rightProductDetails--information--content">
+                            <p>@Model.categoryName</p>
+                            @if (Model.status != null)
+                            {
+                                <p>@Model.status</p>
+                            }
+                            else
+                            {
+                                <p>No discount applied</p>
+                            }
+                            <p>Calculated At Checkout</p>
+                        </div>
+                    </div>
+                    <div class="rightProductDetails--price">
+                        @if (Model.status != null)
+                        {
+                            double priceOnSale = Model.unitCost * 90 / 100;
+
+                            <p class="truePrice">$@priceOnSale</p>
+                        }
+
+                        <p class="nopePrice">$@Model.unitCost</p>
+                    </div>
+                    <div class="rightProductDetails-description">
+                        <p>
+                            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+                            voluptatum
+                            deleniti atque corrupti quos dolores et quas molestia…
+                        </p>
+                    </div>
+                    <p>Color: @Model.color</p>
+
+                    <p>Size: @Model.size </p>
+
+                    <p>Current Stock: @Model.totalAmount</p>
+                    <p>Quantity: @Model.quantity</p>
+                    <div class="addToCart">
+
+                        <input id="addProductQty" name="quantity" type="number" min="1" max="@Model.quantity">
+                        <a id="add-to-cart-btn" class="choose" asp-route="addcart" asp-route-productid="@Model.productId" asp-route-quantity="">
+                            Add to cart
+                        </a>
+
+
+
+                    </div>
+
+                </div>
+                <img src="~/ClientAssets/img/trust-image.jpg">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#add-to-cart-btn").click(function () {
+            var quantity = $("#addProductQty").val();
+            var url = '@Url.RouteUrl("addcart", new { productid = Model.productId, quantity = "__QUANTITY__" })';
+            url = url.replace('__QUANTITY__', quantity);
+            $.ajax({
+                type: "POST",
+                url: url,
+                success: function (data) {
+               
+                },
+                error: function (xhr, status, error) {
+                    
+                }
+            });
+        });
+    });
+</script>

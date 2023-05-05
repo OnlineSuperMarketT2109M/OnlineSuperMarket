@@ -1,5 +1,4 @@
-﻿
-@using OnlineSuperMarket.Models.ViewModel;
+﻿@using OnlineSuperMarket.Models.ViewModel;
 @using X.PagedList;
 @using X.PagedList.Mvc.Core;
 @model IPagedList<ProductViewModel>;
@@ -32,9 +31,9 @@
                 <form asp-action="Index" asp-controller="Product" method="get">
                     <label>Search</label>
                     <input type="text" name="search" value="@ViewData["CurrentFilter"]" />
-                    <button type="submit" value="search"></button>
+                    <button type="submit" value="search">Search</button>
                 </form>
-                
+
             </div>
             <div class="group--sort">
                 <label>Sort By</label>
@@ -62,7 +61,7 @@
                         <div class="productList--item productList--filter--category--appliances">
                             <div class="productList--item--title">
                                 <label for="categories"><h3>@item.categoryName</h3></label>
-                                <input type="checkbox" value="@item.categoryName" name="categories"/>
+                                <input type="checkbox" value="@item.categoryName" name="categories" />
                                 <i class="iconPlus1 fa-solid fa-plus"></i>
                             </div>
                         </div>
@@ -78,10 +77,10 @@
                     {
                         <div class="productList--item">
                             <label for="brands">@item.brandName</label>
-                            <input type="checkbox" name="brands" value="@item.brandName"/>
+                            <input type="checkbox" name="brands" value="@item.brandName" />
                         </div>
                     }
-                    
+
                 </div>
                 <div class="productList--filter--color">
                     <div class="productList--item--title">
@@ -95,7 +94,7 @@
                             <input type="checkbox" name="colors" value="@item" />
                         </div>
                     }
-                    
+
                 </div>
                 <div class="productList--filter--size">
                     <div class="productList--item--title">
@@ -104,156 +103,69 @@
                     </div>
                     @foreach (var item in sizes)
                     {
-                            <div class="productList--item">
-                                <label for="sizes">@item.ToString()</label>
-                                <input type="checkbox" name="sizes" value="@item" />
-                            </div>
+                        <div class="productList--item">
+                            <label for="sizes">@item.ToString()</label>
+                            <input type="checkbox" name="sizes" value="@item" />
+                        </div>
                     }
-                    
+
                 </div>
                 <button type="submit">Filter</button>
             </form>
-            
+
         </div>
         <div class="productList--list">
-            @if(Model.Count > 0)
+            @if (Model.Count > 0)
             {
-                @foreach(var item in Model)
-            {
-                <div class="productList--list--item">
-                <div class="card">
-                    <div class="cardTop">
-                        <div class="tag">@item.status</div>
-                        <img class="img1" src="~/ClientAssets/img/@item.productImage">
-                        <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
-                    </div>
-                    <div class="cardBody">
-                        <p class="subtitle">@item.brandName</p>
-                        <p class="productName">@item.productName</p>
-                            @if(item.status != null)
-                            {
-                                var priceonsale = item.unitCost * 90 / 100;
-                                <p class="price">$@priceonsale <span class="priceNot">$@item.unitCost</span></p>
-                            }
-                            else
-                            {
-                                <p class="price">$@item.unitCost</p>
-                            }
+                @foreach (var item in Model)
+                {
+                    <div class="productList--list--item">
+                        <div class="card">
+                            <div class="cardTop">
+                                @if (item.status != null)
+                                {
+                                    <div class="tag">@item.status</div>
+                                }
+
+                                <img class="img1" src="~/ClientAssets/img/@item.productImage">
+                                <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
+                            </div>
+                            <div class="cardBody">
+                                <p class="subtitle">@item.brandName</p>
+                                <p class="productName">@item.productName</p>
+                                @if (item.status != null)
+                                {
+                                    var priceonsale = item.unitCost * 90 / 100;
+                                    <p class="price">$@priceonsale <span class="priceNot">$@item.unitCost</span></p>
+                                }
+                                else
+                                {
+                                    <p class="price">$@item.unitCost</p>
+                                }
+                            </div>
+                            <div class="cardBottom">
+                                <button class="choose" type="button"><a asp-action="Details" asp-controller="Product" asp-route-id="@item.productId">Choose Options</a></button>
+                                <div class="heart"><i class="fa-thin fa-heart"></i></div>
+                            </div>
                         </div>
-                    <div class="cardBottom">
-                        <button class="choose" type="button">Choose Options</button>
-                        <div class="heart"><i class="fa-thin fa-heart"></i></div>
                     </div>
-                </div>
-            </div>
                 }
             }
             else
             {
                 <h4 class="text-center text-danger">No products were found!</h4>
             }
-            
-            
-@*            <div class="productList--list--item">
-                <div class="card">
-                    <div class="cardTop">
-                        <div class="tag">Sale</div>
-                        <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                        <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
-                    </div>
-                    <div class="cardBody">
-                        <p class="subtitle">Arm & Hammer</p>
-                        <p class="productName">Homuir mollis pharetras praneu</p>
-                        <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
-                    </div>
-                    <div class="cardBottom">
-                        <button class="choose" type="button">Choose Options</button>
-                        <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                    </div>
-                </div>
-            </div>
-            <div class="productList--list--item">
-                <div class="card">
-                    <div class="cardTop">
-                        <div class="tag">Sale</div>
-                        <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                        <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
-                    </div>
-                    <div class="cardBody">
-                        <p class="subtitle">Arm & Hammer</p>
-                        <p class="productName">Homuir mollis pharetras praneu</p>
-                        <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
-                    </div>
-                    <div class="cardBottom">
-                        <button class="choose" type="button">Choose Options</button>
-                        <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                    </div>
-                </div>
-            </div>
-            <div class="productList--list--item">
-                <div class="card">
-                    <div class="cardTop">
-                        <div class="tag">Sale</div>
-                        <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                        <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
-                    </div>
-                    <div class="cardBody">
-                        <p class="subtitle">Arm & Hammer</p>
-                        <p class="productName">Homuir mollis pharetras praneu</p>
-                        <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
-                    </div>
-                    <div class="cardBottom">
-                        <button class="choose" type="button">Choose Options</button>
-                        <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                    </div>
-                </div>
-            </div>
-            <div class="productList--list--item">
-                <div class="card">
-                    <div class="cardTop">
-                        <div class="tag">Sale</div>
-                        <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                        <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
-                    </div>
-                    <div class="cardBody">
-                        <p class="subtitle">Arm & Hammer</p>
-                        <p class="productName">Homuir mollis pharetras praneu</p>
-                        <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
-                    </div>
-                    <div class="cardBottom">
-                        <button class="choose" type="button">Choose Options</button>
-                        <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                    </div>
-                </div>
-            </div>
-            <div class="productList--list--item">
-                <div class="card">
-                    <div class="cardTop">
-                        <div class="tag">Sale</div>
-                        <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                        <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
-                    </div>
-                    <div class="cardBody">
-                        <p class="subtitle">Arm & Hammer</p>
-                        <p class="productName">Homuir mollis pharetras praneu</p>
-                        <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
-                    </div>
-                    <div class="cardBottom">
-                        <button class="choose" type="button">Choose Options</button>
-                        <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                    </div>
-                </div>
-            </div>*@
+
         </div>
 
         <div class="pagination-custom">
             @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index",new {page,
-                categories = ViewData["CurrentCategories"],
-                brands = ViewData["CurrentBrands"],
+            categories = ViewData["CurrentCategories"],
+            brands = ViewData["CurrentBrands"],
             sizes = ViewData["CurrentSizes"],
             colors = ViewData["CurrentColors"],
-            search = ViewData["CurrentFilter"],
-            sortOrder = ViewData["CurrentSort"]}))
+            search = ViewData["CurrentFilter"]
+            }))
         </div>
     </div>
     <div class="topBrand">
