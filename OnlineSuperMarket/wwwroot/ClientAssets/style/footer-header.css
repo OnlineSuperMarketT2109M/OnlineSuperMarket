@@ -6,6 +6,10 @@ body {
   position: relative;
 }
 
+.displayBlock{
+    display: block !important;
+}
+
 a {
   text-decoration: none;
 }
@@ -76,6 +80,32 @@ a {
     height: 33px;
     border-radius: 50%;
 }
+
+    .headerTop--list--signin img:focus+.dropdown-test{
+        display: block;
+    }
+
+.dropdown-test {
+    display: none;
+    position: absolute;
+    z-index: 99;
+    background: #fff;
+    color: black;
+    text-align: left;
+    width: 140px;
+    right: 100px;
+}
+
+    .dropdown-test ul {
+        padding-left: 12px;
+    }
+
+        .dropdown-test ul li {
+            list-style-type: none;
+            margin: 20px 0;
+            color: #505050;
+            font-size: 14px;
+        }
 
 .form {
     display: flex;

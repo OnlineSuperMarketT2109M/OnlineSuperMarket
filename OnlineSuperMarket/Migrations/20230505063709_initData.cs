@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace OnlineSuperMarket.Migrations
 {
     /// <inheritdoc />
-    public partial class initCreate : Migration
+    public partial class initData : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -226,6 +226,29 @@ namespace OnlineSuperMarket.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Orders",
+                columns: table => new
+                {
+                    orderId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    userId = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    total = table.Column<double>(type: "float", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    orderStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    purchaseDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Orders", x => x.orderId);
+                    table.ForeignKey(
+                        name: "FK_Orders_AspNetUsers_Id",
+                        column: x => x.Id,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "BlogComments",
                 columns: table => new
                 {
@@ -287,29 +310,50 @@ namespace OnlineSuperMarket.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Orders",
+                name: "Bills",
                 columns: table => new
                 {
-                    orderId = table.Column<int>(type: "int", nullable: false)
+                    billId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    userId = table.Column<int>(type: "int", nullable: false),
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    productId = table.Column<int>(type: "int", nullable: false),
-                    amount = table.Column<int>(type: "int", nullable: false),
-                    orderStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    purchaseDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    creditCardNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    billAmount = table.Column<double>(type: "float", nullable: false),
+                    orderId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Orders", x => x.orderId);
+                    table.PrimaryKey("PK_Bills", x => x.billId);
                     table.ForeignKey(
-                        name: "FK_Orders_AspNetUsers_Id",
-                        column: x => x.Id,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id");
+                        name: "FK_Bills_Orders_orderId",
+                        column: x => x.orderId,
+                        principalTable: "Orders",
+                        principalColumn: "orderId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "OrderDetails",
+                columns: table => new
+                {
+                    OrderDetailId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    OrderId = table.Column<int>(type: "int", nullable: true),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    Amount = table.Column<int>(type: "int", nullable: true),
+                    TotalMoney = table.Column<double>(type: "float", nullable: true),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Price = table.Column<double>(type: "float", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_OrderDetails", x => x.OrderDetailId);
                     table.ForeignKey(
-                        name: "FK_Orders_Products_productId",
-                        column: x => x.productId,
+                        name: "FK_OrderDetails_Orders_OrderId",
+                        column: x => x.OrderId,
+                        principalTable: "Orders",
+                        principalColumn: "orderId");
+                    table.ForeignKey(
+                        name: "FK_OrderDetails_Products_ProductId",
+                        column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "productId",
                         onDelete: ReferentialAction.Cascade);
@@ -363,56 +407,6 @@ namespace OnlineSuperMarket.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Bills",
-                columns: table => new
-                {
-                    billId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    creditCardNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    billAmount = table.Column<double>(type: "float", nullable: false),
-                    orderId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Bills", x => x.billId);
-                    table.ForeignKey(
-                        name: "FK_Bills_Orders_orderId",
-                        column: x => x.orderId,
-                        principalTable: "Orders",
-                        principalColumn: "orderId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "OrderDetails",
-                columns: table => new
-                {
-                    OrderDetailId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    OrderId = table.Column<int>(type: "int", nullable: true),
-                    ProductId = table.Column<int>(type: "int", nullable: false),
-                    Amount = table.Column<int>(type: "int", nullable: true),
-                    TotalMoney = table.Column<int>(type: "int", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Price = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_OrderDetails", x => x.OrderDetailId);
-                    table.ForeignKey(
-                        name: "FK_OrderDetails_Orders_OrderId",
-                        column: x => x.OrderId,
-                        principalTable: "Orders",
-                        principalColumn: "orderId");
-                    table.ForeignKey(
-                        name: "FK_OrderDetails_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
-                        principalColumn: "productId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
@@ -427,9 +421,9 @@ namespace OnlineSuperMarket.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "address", "Avatar", "ConcurrencyStamp", "Email", "EmailConfirmed", "firstName", "lastName", "LockoutEnabled", "LockoutEnd", "middleName", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "1", 0, "Ninh Binh", "default.jpg", "3bd911cf-9f4f-43cb-8c1f-9a79ec4720c3", "anhdqth2109005@fpt.edu.vn", true, "Dinh", "Anh", false, null, "Quang", "ANHDQTH2109005@FPT.EDU.VN", "anhdinh", "AQAAAAIAAYagAAAAEFN5nFpizOtu9JyAPzQL/w/paWcNGZAFifXJ89Nqq4uTnpfh6wIc65VRIhAQ124mMA==", "0395100761", false, "b36afbc8-3fdb-4984-8e2f-7e2b2b801b3f", false, "AnhDinh" },
-                    { "2", 0, "Ha Noi", "default.jpg", "90a16aed-27b8-4055-a57a-9f5f10c3f1db", "khanhnb08112003@gmail.com", true, "Nguyen", "Khanh", false, null, "Ba", "KHANHNB08112003@GMAIL.COM", "khanhnguyen", "AQAAAAIAAYagAAAAEC/OP7hUpCri75/tD1GfmTjOAXQtQj2yVjVyV4mkcQvvy4tRpYng5iQWTFw0p7jqqQ==", "0123456789", false, "e3dd2bf9-80b7-4dda-a6a3-d7b94423b959", false, "KhanhNguyen" },
-                    { "3", 0, "Ha Long", "default.jpg", "705856f7-5302-4313-84e7-dca205307811", "hoanglt123@gmail.com", true, "Luong", "Hoang", false, null, "Viet", "HOANGLT123@GMAIL.COM", "hoangluong", "AQAAAAIAAYagAAAAENRfXpuivOtF3ZAsD7p1+Br8mjuzYlatuHjOfIC1ALaq0AIL4Ur+M70ARvLvU75Zww==", "1234567890", false, "09c71b08-1431-4f53-8e4a-6f8123ee96d3", false, "HoangLuong" }
+                    { "1", 0, "Ninh Binh", "default.jpg", "b01b18f7-2ee2-4420-8a23-d48f322ccab6", "anhdqth2109005@fpt.edu.vn", true, "Dinh", "Anh", false, null, "Quang", "ANHDQTH2109005@FPT.EDU.VN", "anhdinh", "AQAAAAIAAYagAAAAEDV9bLG9aXhsqbE/2P3GjFUH0QpRgQy2OACK+MsPoSEuZmkrqJlSMeYZ0t3PZeRw+A==", "0395100761", false, "125a0eff-179e-477c-89c3-5dd7a4a82f80", false, "AnhDinh" },
+                    { "2", 0, "Ha Noi", "default.jpg", "029c2d8f-86d5-4a63-b1be-a52f765b4118", "khanhnb08112003@gmail.com", true, "Nguyen", "Khanh", false, null, "Ba", "KHANHNB08112003@GMAIL.COM", "khanhnguyen", "AQAAAAIAAYagAAAAEJ7imRYxkHbE4j6xFAflE6S8r0iCKulPHc6xSp70u/OB8HKy7Aq9tavO5bUdUdzlBA==", "0123456789", false, "c9b00021-12bc-4aeb-8c8d-f5d414a1c89d", false, "KhanhNguyen" },
+                    { "3", 0, "Ha Long", "default.jpg", "d847b0fd-9468-4a5b-8cb6-eb46497262ce", "hoanglt123@gmail.com", true, "Luong", "Hoang", false, null, "Viet", "HOANGLT123@GMAIL.COM", "hoangluong", "AQAAAAIAAYagAAAAEBtTil+nKREqgwXjrTPRB56uSEVViBR2wYBnfb/S79ugcxswe5sPz94NdL1cZby3GA==", "1234567890", false, "d9e4ba18-ba4b-4277-9863-2e249fa608ab", false, "HoangLuong" }
                 });
 
             migrationBuilder.InsertData(
@@ -517,11 +511,6 @@ namespace OnlineSuperMarket.Migrations
                 column: "Id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_productId",
-                table: "Orders",
-                column: "productId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_ProductComments_Id",
                 table: "ProductComments",
                 column: "Id");
@@ -593,10 +582,10 @@ namespace OnlineSuperMarket.Migrations
                 name: "Orders");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Products");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "Brands");

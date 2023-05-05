@@ -161,5 +161,10 @@ namespace OnlineSuperMarket.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
+
+        public IActionResult Profile()
+        {
+            return View();
+        }
     }
 }
