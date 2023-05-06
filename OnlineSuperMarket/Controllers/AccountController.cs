@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 using MimeKit;
 using OnlineSuperMarket.Areas.Admin.Models.ViewModel;
 using OnlineSuperMarket.Data;
@@ -20,18 +21,21 @@ namespace OnlineSuperMarket.Controllers
         private SignInManager<User> _signInManager;
         private INotyfService _notifyService;
         private readonly OnlineSuperMarketDbContext _context;
+        private readonly IWebHostEnvironment _hostEnvironment;
 
         public AccountController(UserManager<User> userManager,
             RoleManager<IdentityRole> roleManager,
             SignInManager<User> signInManager,
             INotyfService notyfService,
-            OnlineSuperMarketDbContext context)
+            OnlineSuperMarketDbContext context,
+            IWebHostEnvironment hostEnvironment)
         {
             this._userManager = userManager;
             this._roleManager = roleManager;
             this._signInManager = signInManager;
             this._notifyService= notyfService;
             _context= context;
+            _hostEnvironment=hostEnvironment;
         }
 
         public async Task<ActionResult> Login([FromForm] string email, string password)
@@ -166,9 +170,135 @@ namespace OnlineSuperMarket.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult Profile()
+        public async Task<IActionResult> Profile()
         {
-            return View();
+            var user = await _userManager.GetUserAsync(HttpContext.User);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            UserViewModel model = new UserViewModel()
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                Address = user.Address,
+                PhoneNumber = user.PhoneNumber,
+                Avatar = user.Avatar,
+                UserName = user.UserName
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateUserInfo([FromBody] UserViewModel model)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            user.UserName = model.UserName;
+            user.FirstName = model.FirstName;
+            user.LastName = model.LastName;
+            user.Email = model.Email;
+            user.EmailConfirmed = true;
+            user.PhoneNumber = model.PhoneNumber;
+            user.Address = model.Address;
+
+            var result = await _userManager.UpdateAsync(user);
+            if (result.Succeeded)
+            {
+                return Json(new { success = true });
+            }
+
+            return Json(new { success = false });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(string currentPassword, string newPassword, string newPasswordConfirm)
+        {
+            var user = await _userManager.GetUserAsync(User);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            // Kiểm tra xem currentPassword có giống với password của user không
+            var passwordCheck = await _userManager.CheckPasswordAsync(user, currentPassword);
+            if (!passwordCheck)
+            {
+                return BadRequest(new { Errors = "Current password is incorrect." });
+            }
+
+            // Kiểm tra xem newPassword có giống newPasswordConfirm không
+            if (newPassword != newPasswordConfirm)
+            {
+                return BadRequest(new { Errors = "New password and confirm password do not match." });
+            }
+
+            var result = await _userManager.ChangePasswordAsync(user, currentPassword, newPassword);
+
+            if (!result.Succeeded)
+            {
+                var errors = result.Errors.Select(e => e.Description);
+                return BadRequest(new { Errors = errors });
+            }
+
+            await _signInManager.RefreshSignInAsync(user);
+
+            return Ok();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangeAvatar(IFormFile ImageFile)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            if (ImageFile == null || ImageFile.Length == 0)
+            {
+                return BadRequest("No file selected");
+            }
+
+            if (!ImageFile.ContentType.Contains("image"))
+            {
+                return BadRequest("File is not an image");
+            }
+
+            if (ImageFile.Length > 1 * 1024 * 1024)
+            {
+                return BadRequest("File is too large");
+            }
+
+            // Save the image to the wwwroot folder
+            string wwwRootPath = _hostEnvironment.WebRootPath;
+            string fileName = Path.GetFileNameWithoutExtension(ImageFile.FileName);
+            string extension = Path.GetExtension(ImageFile.FileName);
+            user.Avatar = fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+            string path = Path.Combine(wwwRootPath + "/ClientAssets/img/", fileName);
+            using (var fileStream = new FileStream(path, FileMode.Create))
+            {
+                await ImageFile.CopyToAsync(fileStream);
+            }
+
+
+            // Update the user's avatar
+            user.Avatar = fileName;
+            var result = await _userManager.UpdateAsync(user);
+            if (!result.Succeeded)
+            {
+                return BadRequest("Unable to update user's avatar");
+            }
+
+            return Ok("Avatar updated successfully");
         }
 
         public async Task<IActionResult> MyOrder()
