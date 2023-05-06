@@ -286,15 +286,15 @@ namespace OnlineSuperMarket.Controllers
             if(ModelState.IsValid)
             {
                 var cart = GetCartItems();
-                var user = _userManager.GetUserAsync(User);
+                var user = _context.Users.Where(u => u.Email == model.Email).FirstOrDefault();
                 if (user != null)
                 {
                     Order order = new Order()
                     {
-                        userId = user.Id,
+                        Id = user.Id,
                         Address= model.Address,
                         total = cart.Sum(x => x.TotalMoney),
-                        orderStatus = "No process",
+                        orderStatus = "Pending",
                         purchaseDate= DateTime.Now,
                     };
                     _context.Add(order);

@@ -27,9 +27,6 @@ namespace OnlineSuperMarket.Data
 
         public virtual DbSet<Order> Orders { get; set; }
 
-        public virtual DbSet<Bill> Bills { get; set; }
-        public virtual DbSet<CreditCard> CreditCards { get; set; }
-
         public virtual DbSet<ProductComment> ProductComments { get; set; }
 
         public virtual DbSet<ProductImage> ProductImages { get; set; }

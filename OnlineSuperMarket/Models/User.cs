@@ -26,5 +26,7 @@ namespace OnlineSuperMarket.Models
         [DisplayName("Upload Avatar")]
         public IFormFile ImageFile { get; set; }
 
+        public ICollection<Order> Orders { get; set; }
+
     }
 }

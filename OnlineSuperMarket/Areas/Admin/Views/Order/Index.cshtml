@@ -1,0 +1,144 @@
+﻿@using OnlineSuperMarket.Models;
+@using X.PagedList;
+@using X.PagedList.Mvc.Core
+@model IPagedList<Order>;
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Order Managements</h4>
+                <div class="ms-auto text-end">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Order Managements
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Overlay product -->
+    <!-- ============================================================== -->
+    <div class="overlayProduct"></div>
+    <!-- ============================================================== -->
+    <!-- End overlay product -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="searchProduct">
+                            <form class="searchForm" asp-action="Index" asp-controller="Order" asp-area="Admin" method="get">
+                                <div class="searchForm--input col-sm-8">
+                                    <input type="text" name="search" value="@ViewData["CurrentFilter"]" placeholder="Search by order status"/>
+                                </div>
+                                <div class="searchForm--btn col-sm-4">
+                                    <button type="submit">Search</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="table-responsive">
+                            <table id="zero_config" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Customer Name</th>
+                                        <th>Amount</th>
+                                        <th>Phone</th>
+                                        <th>Address</th>
+                                        <th>Total Price</th>
+                                        <th>Order Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if(Model.Count > 0)
+                                    {
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>@item.User.UserName</td>
+                                                @foreach(var i in item.OrderDetails)
+                                                {
+                                                    int? totalAmount = 0;
+                                                    totalAmount += i.Amount;
+                                                    <th>@totalAmount</th>
+                                                }
+                                                
+                                                <td>@item.User.PhoneNumber</td>
+                                                <td>@item.Address</td>
+                                                <td>@item.total</td>
+                                                <td class="orderStatus">
+                                                    <p>@item.orderStatus</p>
+                                                </td>
+                                                <td class="actBtn">
+                                                    <div class="comment-footer">
+
+                                                        <a asp-action="Details" asp-route-id="@item.orderId">
+                                                            <button type="button"
+                                                            class="btn btn-success btn-sm text-white">
+                                                                Details
+                                                            </button>
+                                                        </a>
+                                                        <a asp-action="Delete" asp-route-id="@item.orderId">
+                                                            <button type="button" class="btn btn-danger btn-sm text-white">
+                                                                Delete
+                                                            </button>
+                                                        </a>
+
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                    
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Customer Name</th>
+                                        <th>Amount</th>
+                                        <th>Phone</th>
+                                        <th>Address</th>
+                                        <th>Total Price</th>
+                                        <th>Order Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>

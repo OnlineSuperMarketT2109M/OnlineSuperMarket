@@ -1,0 +1,30 @@
+.groupBtn-order {
+  /* float: right; */
+}
+
+.groupBtn-order button {
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.acceptBtn {
+  background: #0a6cdc;
+  border: 1px solid #0a6cdc;
+}
+
+.declineBtn {
+  background: red;
+  border: 1px solid red;
+}
+
+.finishBtn {
+  background: green;
+  border: 1px solid green;
+}
+
+.orderInfo {
+  display: flex;
+  justify-content: space-between;
+}

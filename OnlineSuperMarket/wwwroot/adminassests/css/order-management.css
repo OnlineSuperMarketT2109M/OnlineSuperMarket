@@ -1,0 +1,21 @@
+.row--center {
+  display: flex;
+  align-items: center;
+}
+
+table tr th,
+tr td {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.orderStatus p {
+  margin: 0;
+  text-align: center;
+  background: orange;
+  border-radius: 4px;
+  color: #fff;
+  border: 1px solid orange;
+}

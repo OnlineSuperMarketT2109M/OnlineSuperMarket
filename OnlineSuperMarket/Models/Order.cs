@@ -9,7 +9,7 @@ namespace OnlineSuperMarket.Models
         public int orderId { get; set; }
 
         [Column("userId")]
-        public int userId { get; set; }
+        public string Id { get; set; }
 
         [ForeignKey("Id")]
         public virtual User? User { get; set; }

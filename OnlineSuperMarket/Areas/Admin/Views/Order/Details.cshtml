@@ -1,0 +1,141 @@
+﻿@using OnlineSuperMarket.Models;
+
+@model Order;
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h4 class="page-title">Order Details</h4>
+                <div class="ms-auto text-end">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                Order Details
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Overlay product -->
+    <!-- ============================================================== -->
+    <div class="overlayProduct"></div>
+    <!-- ============================================================== -->
+    <!-- End overlay product -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Create product -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- End form create product -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+        <!-- ============================================================== -->
+        <!-- Start Page Content -->
+        <!-- ============================================================== -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="zero_config" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Category</th>
+                                        <th>Brand</th>
+                                        <th>Quantity</th>
+                                        <th>Salary</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach(var item in Model.OrderDetails)
+                                    {
+                                        <tr>
+                                            <td class="productName">
+                                                <img class="productImg" src="~/ClientAssets/img/@item.Product.productImages.FirstOrDefault().productImage" alt="productImage">
+                                                <p>@item.Product.productName</p>
+                                            </td>
+                                            <td class="align-center">@item.Product.Category.categoryName</td>
+                                            <td class="align-center">@item.Product.Brand.brandName</td>
+                                            <td class="align-center">@item.Amount</td>
+                                            <td class="align-center">@item.TotalMoney</td>
+                                        </tr>
+                                    }
+                                    
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Category</th>
+                                        <th>Brand</th>
+                                        <th>Quantity</th>
+                                        <th>Salary</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <div class="orderInfo">
+                            <div class="customerInfo">
+                                <h5>Customer name: @Model.User.UserName</h5>
+                                <p>Phone number: @Model.User.PhoneNumber</p>
+                                <p>Address: @Model.User.Address</p>
+                                <p>Time order: @Model.purchaseDate</p>
+                                <p>Payment method: VN PAY</p>
+                                <p>Order status: @Model.orderStatus</p>
+                            </div>
+                            <div class="totalPrice">
+                                <h3>Total price: $@Model.total</h3>
+                            </div>
+                        </div>
+                        <div class="groupBtn-order">
+                            <button class="declineBtn" onclick="changeOrderStatus(@Model.orderId, 'Processing')">Processing</button>
+                            <button class="acceptBtn" onclick="changeOrderStatus(@Model.orderId, 'Completed')">Completed</button>
+                            <button class="finishBtn" onclick="changeOrderStatus(@Model.orderId, 'Canceled')">Canceled</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <footer class="footer text-center">
+        All Rights Reserved by Matrix-admin. Designed and Developed by
+        <a href="https://www.wrappixel.com">WrapPixel</a>.
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
