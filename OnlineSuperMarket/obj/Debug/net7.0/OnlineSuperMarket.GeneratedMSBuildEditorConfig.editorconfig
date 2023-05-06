@@ -9,137 +9,153 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = OnlineSuperMarket
 build_property.RootNamespace = OnlineSuperMarket
-build_property.ProjectDir = C:\Users\Admin\Documents\GitHub\OnlineSuperMarket\OnlineSuperMarket\
+build_property.ProjectDir = C:\Users\Admin\source\repos\OnlineSuperMarket\OnlineSuperMarket\OnlineSuperMarket\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Admin\Documents\GitHub\OnlineSuperMarket\OnlineSuperMarket
+build_property.MSBuildProjectDirectory = C:\Users\Admin\source\repos\OnlineSuperMarket\OnlineSuperMarket\OnlineSuperMarket
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Brand/Index.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Brand/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQnJhbmRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Category/Index.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Category/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Home/Index.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Product/Create.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Order/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3JkZXJcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Order/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcT3JkZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Product/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Product/Details.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Product/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Product/Edit.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Product/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Product/Index.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Role/Index.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Role/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9sZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Shared/Error.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Shared/_NavbarPartialView.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Shared/_NavbarPartialView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9OYXZiYXJQYXJ0aWFsVmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/User/Create.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/User/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/User/Details.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/User/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/User/Index.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/User/Update.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/User/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXNlclxVcGRhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/_ViewImports.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Views/Account/ConfirmEmail.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Views/Account/ConfirmEmail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Views/Account/Login.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Views/Account/Profile.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Views/Account/MyOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxNeU9yZGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Views/Account/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Views/Account/Register.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Views/Cart/Index.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Views/Cart/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Views/Home/Index.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Views/Home/Privacy.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Views/Product/Cart.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Views/Product/Cart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDYXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Views/Product/CreateOrder.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Views/Product/CreateOrder.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDcmVhdGVPcmRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Views/Product/Index.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Views/Product/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Views/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Views/Shared/Error.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Views/_ViewImports.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Views/_ViewStart.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-sukvruq4uj
 
-[C:/Users/Admin/Documents/GitHub/OnlineSuperMarket/OnlineSuperMarket/Views/Shared/_Layout.cshtml]
+[C:/Users/Admin/source/repos/OnlineSuperMarket/OnlineSuperMarket/OnlineSuperMarket/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-1avzt5rk9s

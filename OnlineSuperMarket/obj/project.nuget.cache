@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "T5cJayG1NJ8XXLWAz/LBJdOlPy/dXMSeVdIkuhsv2IOKC2McovUJLIeeAx9VNfjdNDYDTVVmVWvud97l51Vlsg==",
+  "dgSpecHash": "6SUqrtpOknoEMjLX70S7o5oQ4hR/XM9zxGbADWy5Jykw9/clWOoE8MNLDjmWN5T2V1B1lqvVi0jO7SHDK/WpTA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Documents\\GitHub\\OnlineSuperMarket\\OnlineSuperMarket\\OnlineSuperMarket.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\OnlineSuperMarket\\OnlineSuperMarket\\OnlineSuperMarket\\OnlineSuperMarket.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\aspnetcorehero.toastnotification\\1.1.0\\aspnetcorehero.toastnotification.1.1.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
