@@ -5,61 +5,58 @@
 }
 
 
-<div class="mainContent">
-    <div class="leftBar">
-        <div class="leftBar--heading">
-            <div class="avatarImg">
-                <img src="~/ClientAssets/img/avt.jpg" alt="avatar circle">
+<div class="profileContainer">
+    <div class="mainContent">
+        <div class="leftBar">
+            <div class="leftBar--heading">
+                <div class="avatarImg">
+                    <img src="~/ClientAssets/img/default.jpg" alt="avatar circle">
+                </div>
+                <div class="nameUser">
+                    <p>BoongDev</p>
+                    <div class="editIcon">
+                        <i class="fa-solid fa-pen" style="color: #77797e;"></i><span>Edit Profile</span>
+                    </div>
+                </div>
             </div>
-            <div class="nameUser">
-                <p>BoongDev</p>
-                <div class="editIcon">
-                    <i class="fa-solid fa-pen" style="color: #77797e;"></i><span>Edit Profile</span>
+            <div class="leftBar--content">
+                <div class="leftBar--content--items">
+                    <i class="fa-light fa-user iconProfile"></i><a asp-action="Profile" asp-controller="Account">My Account</a>
+                    <p class="active"><i class="fa-light fa-note iconOrder"></i><a asp-action="MyOrder" asp-controller="Account">My Order</a></p>
                 </div>
             </div>
         </div>
-        <div class="leftBar--content">
-            <div class="leftBar--content--items">
-                <i class="fa-light fa-user iconProfile"></i>My Account
+        <div class="rightContent">
+            <div class="rightNavbar">
                 <ul>
-                    <li class="info">Profile</li>
-                    <li class="password">Change password</li>
+                    <li class="rightNavbarItem1 active">All</li>
+                    <li class="rightNavbarItem2">Accepted</li>
+                    <li class="rightNavbarItem3">Pending</li>
+                    <li class="rightNavbarItem4">Declined</li>
+                    <li class="rightNavbarItem5">Finished</li>
                 </ul>
             </div>
-        </div>
-    </div>
-    <div class="rightContent">
-        <div class="rightNavbar">
-            <ul>
-                <li class="rightNavbarItem1 active">All</li>
-                <li class="rightNavbarItem2">Processing</li>
-                <li class="rightNavbarItem3">Pending</li>
-                <li class="rightNavbarItem4">Canceled</li>
-                <li class="rightNavbarItem5">Completed</li>
-            </ul>
-        </div>
-        <div class="order--rightContent--heading rightContent--heading">
-            <i class="searchIcon--order fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="You can search by shop's name, order's ID or product name">
-        </div>
+            <div class="order--rightContent--heading rightContent--heading">
+                <i class="searchIcon--order fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="You can search by shop's name, order's ID or product name">
+            </div>
 
 
-        <div id="all" class="order--rightContent--bottom--information">
-            <!-- Đổ dữ liệu các đơn hàng có cùng status  -->
-
-            <div class="myOrder">
+            <div id="all" class="order--rightContent--bottom--information">
+                <!-- Đổ dữ liệu các đơn hàng có cùng status  -->
                 @foreach (var item in Model.orders)
                 {
+                <div class="myOrder">
                     <div class="myOrder--items">
                         <div class="myOrder--items--heading">
                             <div class="space"> </div>
                             <div class="items--heading--right">
                                 <div class="items--heading--right--status">
-                                    <i class="fa-thin fa-truck"></i><span>@item.purchaseDate</span>
+                                        <i class="fa-thin fa-truck"></i><span> @item.purchaseDate</span>
                                 </div>
                                 <div class="verticalLine"></div>
                                 <div class="items--heading--right--tag">
-                                    <p>@item.orderStatus</p>
+                                        <p>@item.orderStatus</p>
                                 </div>
                             </div>
                         </div>
@@ -67,25 +64,28 @@
                         @foreach (var orderItem in item.OrderDetails)
                         {
                             var totalPrice = orderItem.Product.unitCost * orderItem.Amount;
-                            <div class="myOrder--items--body">
-                                <div class="myOrder--items--body--left">
-                                    <img src="~/ClientAssets/img/@orderItem.Product.productImages.FirstOrDefault().productImage" width="12%">
-                                    <div class="myOrder--items--body--left--description">
-                                        <h5>@orderItem.Product.productName</h5>
-                                        <p>Color: @orderItem.Product.color</p>
-                                        <p>x @orderItem.Amount</p>
+
+
+                                <div class="myOrder--items--body">
+                                    <div class="myOrder--items--body--left">
+                                        <img src="~/ClientAssets/img/@orderItem.Product.productImages.FirstOrDefault().productImage" width="12%">
+                                        <div class="myOrder--items--body--left--description">
+                                            <h5>@orderItem.Product.productName</h5>
+                                            <p>Color: @orderItem.Product.color</p>
+                                            <p>x @orderItem.Amount</p>
+                                        </div>
+                                    </div>
+                                    <div class="myOrder--items--body--right">
+                                        <p>$@totalPrice</p>
                                     </div>
                                 </div>
-                                <div class="myOrder--items--body--right">
-                                    <p>$@totalPrice</p>
-                                </div>
-                            </div>
-                        }
 
+
+                        }
                         <!-- End đổ tất cả sản phẩm -->
                         <div class="myOrder--items--bottom">
                             <div class="myOrder--items--bottom--content">
-                                <h4>Total: $@item.total</h4>
+                                <h4>Total: Price</h4>
                                 <div class="myOrder--items--bottom--content--groupBtn">
                                     <button class="buyAgain">Buy Again</button>
                                     <button class="orderContact">Contact</button>
@@ -93,17 +93,14 @@
                             </div>
                         </div>
                     </div>
+                </div>
                 }
             </div>
+            
+            <!-- End đổ tất cả đơn hàng  -->
 
 
-        </div>
-        <!-- End đổ tất cả đơn hàng  -->
-        @*order status của anh là ["Pending", "Processing", "Completed", "Canceled"] *@
-
-        <div id="declined" class="order--rightContent--bottom--information">
-
-            <div class="myOrder">
+            <div id="declined" class="order--rightContent--bottom--information">
                 @foreach (var item in Model.orderCanceled)
                 {
                     <div class="myOrder--items">
@@ -119,10 +116,11 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Đổ dữ liệu các sản phẩm của cùng 1 đơn hàng  -->
-                        @foreach (var orderItem in item.OrderDetails)
-                        {
-                            var totalPrice = orderItem.Product.unitCost * orderItem.Amount;
+                            @foreach (var orderItem in item.OrderDetails)
+                            {
+                                var totalPrice = orderItem.Product.unitCost * orderItem.Amount;
+
+
                             <div class="myOrder--items--body">
                                 <div class="myOrder--items--body--left">
                                     <img src="~/ClientAssets/img/@orderItem.Product.productImages.FirstOrDefault().productImage" width="12%">
@@ -136,12 +134,11 @@
                                     <p>$@totalPrice</p>
                                 </div>
                             </div>
-                        }
 
-                        <!-- End đổ tất cả sản phẩm -->
+                        }
                         <div class="myOrder--items--bottom">
                             <div class="myOrder--items--bottom--content">
-                                <h4>Total: $@item.total</h4>
+                                <h4>Total: Price</h4>
                                 <div class="myOrder--items--bottom--content--groupBtn">
                                     <button class="buyAgain">Buy Again</button>
                                     <button class="orderContact">Contact</button>
@@ -152,12 +149,7 @@
                 }
             </div>
 
-
-        </div>
-
-        <div id="finished" class="order--rightContent--bottom--information">
-
-            <div class="myOrder">
+            <div id="finished" class="order--rightContent--bottom--information">
                 @foreach (var item in Model.orderCompleted)
                 {
                     <div class="myOrder--items">
@@ -206,11 +198,8 @@
                 }
             </div>
 
-        </div>
 
-        <div id="pending" class="order--rightContent--bottom--information">
-
-            <div class="myOrder">
+            <div id="pending" class="order--rightContent--bottom--information">
                 @foreach (var item in Model.orderPending)
                 {
                     <div class="myOrder--items">
@@ -256,15 +245,12 @@
                             </div>
                         </div>
                     </div>
-
                 }
             </div>
 
-        </div>
 
-        <div id="accepted" class="order--rightContent--bottom--information">
 
-            <div class="myOrder">
+            <div id="accepted" class="order--rightContent--bottom--information">
                 @foreach (var item in Model.orderProcessing)
                 {
                     <div class="myOrder--items">
@@ -314,5 +300,7 @@
             </div>
 
 
+
         </div>
     </div>
+</div>
