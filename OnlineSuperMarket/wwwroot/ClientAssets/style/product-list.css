@@ -109,8 +109,13 @@
     margin-right: 8px;
 }
 
+.productList--filter form{
+    text-align: left;
+}
+
 .productList--filter ul {
     display: none;
+    padding: 0;
 }
 
 .productList--filter--category ul{
@@ -122,9 +127,10 @@
     text-align: left;
 }
 
-.productList--filter--category h3 {
+.productList--filter h3 {
     font-size: 16px;
     font-weight: 500;
+    margin: 0;
 }
 
 .productList--filter h2 {
@@ -132,6 +138,12 @@
     font-size: 16px;
     font-weight: 700;
     margin-top: 32px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.productList--filter ul li{
+    list-style-type: none;
 }
 
 .productList--filter--category h2 {
@@ -150,6 +162,22 @@
 .productList--filter--others {
     border-bottom: 1px solid #c4c5c1;
     padding-bottom: 20px;
+}
+
+    .productList--filter--brand h2{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .productList--filter--brand ul li{
+        list-style-type: none;
+        text-align: left;
+    }
+
+    .productList--filter--refine {
+        border-bottom: 1px solid rgb(196, 197, 193);
+        padding-bottom: 20px;
+    }
 }
 
 .productList--filter--custom p {
@@ -175,7 +203,7 @@
 .productList--list {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    /*grid-template-rows: 430px;*/
+    grid-template-rows: 430px;
     margin-left: 12px;
     margin-top: 32px;
     height: auto;
@@ -203,7 +231,8 @@
 }
 
 .topBrand {
-    margin-top: 60px;
+    max-width: 1400px;
+    margin: 60px auto;
     display: flex;
 }
 

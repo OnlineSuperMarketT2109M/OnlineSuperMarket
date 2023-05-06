@@ -58,7 +58,7 @@
                     <ul class="ul1">
 
                     @foreach (var item in categories)
-                    {
+                    { 
                         <li>
                             <div class="productList--item productList--filter--category--appliances">
                                 <div class="productList--item--title">
@@ -72,7 +72,7 @@
                 </div>
 
                 <script>
-                    $('.productList--filter--category').click(function () {
+                    $('.productList--filter--category h2').click(function () {
 
                         $(".ul1").slideToggle(500);
                         $(".iconPlus1").toggleClass("fa-plus");
@@ -80,53 +80,103 @@
                     })
                 </script>
 
+                <div class="productList--filter--refine">
+                    <h2>Refined by</h2>
+                    <div class="productList--item">
+                        <p>No filters applied</p>
+                    </div>
+                </div>
 
                 <div class="productList--filter--brand">
-                    <div class="productList--item--title">
-                        <h2>Brand</h2>
-                        <i class="iconPlus5 fa-solid fa-plus"></i>
-                    </div>
+                    
+                        <h2>Brand <span><i class="iconPlus2 fa-solid fa-plus"></i></span></h2>
+                        <ul class="ul2">
+                    
                     @foreach (var item in brands)
                     {
+                        <li>
                         <div class="productList--item">
-                            <label for="brands">@item.brandName</label>
+                                    <div class="productList--item--title">
                             <input type="checkbox" name="brands" value="@item.brandName" />
+                                        <label for="brands"><h3>@item.brandName</h3></label>
+                            </div>
                         </div>
+                        </li>
                     }
 
+                    </ul>
                 </div>
+
+                <script>
+                    $('.productList--filter--brand h2').click(function () {
+
+                        $(".ul2").slideToggle(500);
+                        $(".iconPlus2").toggleClass("fa-plus");
+                        $(".iconPlus2").toggleClass("fa-minus");
+                    })
+                </script>
+
                 <div class="productList--filter--color">
-                    <div class="productList--item--title">
-                        <h2>Color</h2>
-                        <i class="iconPlus6 fa-solid fa-plus"></i>
-                    </div>
+                    
+                        <h2>Color<span><i class="iconPlus3 fa-solid fa-plus"></i></span></h2>
+                        
+                    <ul class="ul3">
                     @foreach (var item in colors)
                     {
+                        <li>
                         <div class="productList--item">
-                            <label for="colors">@item.ToString()</label>
+                            <div class="productList--item--title">
                             <input type="checkbox" name="colors" value="@item" />
+                            <label for="colors"><h3>@item.ToString()</h3></label>
+                            </div>
                         </div>
+                        </li>
                     }
+                    </ul>
+
+                    <script>
+                        $('.productList--filter--color h2').click(function () {
+
+                            $(".ul3").slideToggle(500);
+                            $(".iconPlus3").toggleClass("fa-plus");
+                            $(".iconPlus3").toggleClass("fa-minus");
+                        })
+                    </script>
 
                 </div>
                 <div class="productList--filter--size">
-                    <div class="productList--item--title">
-                        <h2>Size</h2>
-                        <i class="iconPlus7 fa-solid fa-plus"></i>
-                    </div>
+
+                    <h2>Size<span><i class="iconPlus4 fa-solid fa-plus"></i></span></h2>
+                        
+                    
+                    <ul class="ul4">
                     @foreach (var item in sizes)
                     {
+                        <li>
                         <div class="productList--item">
-                            <label for="sizes">@item.ToString()</label>
+                            <div class="productList--item--title">
                             <input type="checkbox" name="sizes" value="@item" />
+                            <label for="sizes"><h3>@item.ToString()</h3></label>
+                            </div>
                         </div>
+                        </li>
                     }
+                    </ul>
 
+                    <script>
+                        $('.productList--filter--size h2').click(function () {
+
+                            $(".ul4").slideToggle(500);
+                            $(".iconPlus4").toggleClass("fa-plus");
+                            $(".iconPlus4").toggleClass("fa-minus");
+                        })
+                    </script>
                 </div>
+
                 <button type="submit">Filter</button>
             </form>
-
-        </div>
+            </div>
+  
         <div class="productList--right">
             <div class="productList--list">
                 @if (Model.Count > 0)
@@ -183,6 +233,7 @@
             </div>
 
         </div>
+    </div>
     </div>
     <div class="topBrand">
         <div class="topBrand--banner">
