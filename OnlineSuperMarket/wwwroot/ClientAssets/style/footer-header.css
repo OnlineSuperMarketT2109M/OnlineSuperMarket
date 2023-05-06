@@ -228,8 +228,17 @@ a {
   font-size: 15px;
 }
 
+    .header--headerBottom--navbar--navbarItem a {
+        cursor: pointer;
+        color: #fff;
+    }
+
+        .header--headerBottom--navbar--navbarItem a:hover {
+            border-bottom: 1px solid #fff;
+        }
+
 .navbarItem {
-  margin-top: 20px;
+    margin-top: 20px;
 }
 
 .header--headerBottom--help {
@@ -561,7 +570,17 @@ footer ul li {
 
 .hiddenNavbar--left ul li {
   margin-right: 28px;
+  cursor: pointer;
 }
+
+    .hiddenNavbar--left ul li a {
+        color: #fff;
+    }
+
+        .hiddenNavbar--left ul li a:hover {
+            border-bottom: 1px solid #fff;
+        }
+
 
 .hiddenNavbar--right {
   display: flex;

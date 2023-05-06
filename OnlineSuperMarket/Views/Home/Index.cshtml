@@ -128,8 +128,7 @@
                                             <p class="price">$@item.unitCost</p>
                                         </div>
                                         <div class="cardBottom">
-                                            <button class="choose"><a asp-action="Details" asp-controller="Product" asp-route-id="@item.productId">Choose Options</a></button>
-                                            
+                                            <a asp-action="Details" asp-controller="Product" asp-route-id="@item.productId"><button class="choose">Choose Options</button></a>
                                             <div class="heart"><i class="fa-thin fa-heart"></i></div>
                                         </div>
                                     </div>
@@ -232,8 +231,7 @@
                                                 <p class="price">$@item.unitCost</p>
                                             </div>
                                             <div class="cardBottom">
-                                                <button class="choose"><a asp-action="Details" asp-controller="Product" asp-route-id="@item.productId">Choose Options</a></button>
-
+                                                <a asp-action="Details" asp-controller="Product" asp-route-id="@item.productId"><button class="choose">Choose Options</button></a>
                                                 <div class="heart"><i class="fa-thin fa-heart"></i></div>
                                             </div>
                                         </div>

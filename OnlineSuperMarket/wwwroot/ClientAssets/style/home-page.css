@@ -139,9 +139,17 @@
   overflow-x: hidden;
 }
 
+    .productItem a {
+        color: black;
+    }
+
+        .productItem a:hover {
+            color: #fff;
+        }
+
 .swiper1 {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .swiper-slide1 {
