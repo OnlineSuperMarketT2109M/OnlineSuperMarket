@@ -34,6 +34,8 @@
     <link rel="stylesheet" href="~/ClientAssets/style/cart.css"/>
     <link rel="stylesheet" href="~/ClientAssets/style/product-list.css"/>
     <link rel="stylesheet" href="~/ClientAssets/style/product-details.css"/>
+    <link rel="stylesheet" href="~/ClientAssets/style/my-order.css"/>
+    <link rel="stylesheet" href="~/ClientAssets/style/profile.css"/>
     
 </head>
 
@@ -138,7 +140,7 @@
                             <img class="avatarUser" src="~/ClientAssets/img/default.jpg">
                             <div class="dropdown-test">
                                 <ul>
-                                    <li>My Order</li>
+                                    <li><a asp-action="MyOrder" asp-controller="Account">My Order</a></li>
                                     <li><a asp-action="Profile" asp-controller="Account">My Profile</a></li>
                                     <li>
                                         <a asp-action="Logout" asp-controller="Account">
@@ -335,6 +337,7 @@
         </div>
     </footer>
     <!-- Footer End  -->
+    <script src="~/ClientAssets/js/my-order.js"></script>
     <script src="~/ClientAssets/js/updateCart.js"></script>
     <script src="~/ClientAssets/js/slide-toggle.js"></script>
 @*    <script src="~/ClientAssets/js/product-details.js"></script>*@

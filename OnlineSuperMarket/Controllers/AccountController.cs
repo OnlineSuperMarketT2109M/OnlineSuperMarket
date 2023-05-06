@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MimeKit;
+using OnlineSuperMarket.Areas.Admin.Models.ViewModel;
 using OnlineSuperMarket.Data;
 using OnlineSuperMarket.Models;
 using OnlineSuperMarket.Models.ViewModel;
@@ -18,16 +19,19 @@ namespace OnlineSuperMarket.Controllers
         private RoleManager<IdentityRole> _roleManager;
         private SignInManager<User> _signInManager;
         private INotyfService _notifyService;
+        private readonly OnlineSuperMarketDbContext _context;
 
         public AccountController(UserManager<User> userManager,
             RoleManager<IdentityRole> roleManager,
             SignInManager<User> signInManager,
-            INotyfService notyfService)
+            INotyfService notyfService,
+            OnlineSuperMarketDbContext context)
         {
             this._userManager = userManager;
             this._roleManager = roleManager;
             this._signInManager = signInManager;
             this._notifyService= notyfService;
+            _context= context;
         }
 
         public async Task<ActionResult> Login([FromForm] string email, string password)
@@ -165,6 +169,44 @@ namespace OnlineSuperMarket.Controllers
         public IActionResult Profile()
         {
             return View();
+        }
+
+        public async Task<IActionResult> MyOrder()
+        {
+            var userId = _userManager.GetUserId(User);
+            if(userId == null)
+            {
+                return NotFound();
+            }
+            var orders = _context.Orders
+                        .Include(o => o.User)
+                        .Include(o => o.OrderDetails)
+                            .ThenInclude(o => o.Product)
+                                .ThenInclude(o => o.productImages)
+                        .Include(o => o.OrderDetails)
+                            .ThenInclude(o => o.Product)
+                                .ThenInclude(o => o.Brand)
+                        .Include(o => o.OrderDetails)
+                            .ThenInclude(o => o.Product)
+                                .ThenInclude(o => o.Category)
+                        .Where(o => o.User.Id == userId)
+                        .ToList();
+           
+            var orderPending = orders.Where(o => o.orderStatus == "Pending").ToList();
+            var orderProcessing = orders.Where(o => o.orderStatus == "Processing").ToList();
+            var orderCompleted = orders.Where(o => o.orderStatus == "Completed").ToList();
+            var orderCanceled = orders.Where(o => o.orderStatus == "Canceled").ToList();
+
+            MyOrderViewModel model = new MyOrderViewModel()
+            {
+                orders= orders,
+                orderPending= orderPending,
+                orderProcessing= orderProcessing,
+                orderCompleted= orderCompleted,
+                orderCanceled= orderCanceled,
+            };
+
+            return View(model);
         }
     }
 }

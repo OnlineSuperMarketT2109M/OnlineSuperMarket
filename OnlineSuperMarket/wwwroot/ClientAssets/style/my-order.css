@@ -1,0 +1,153 @@
+.rightNavbar ul {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.displayNone {
+  display: none !important;
+}
+
+.rightContent {
+  padding: 0;
+}
+
+.iconOrder {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  color: #0a6cdc;
+}
+
+.rightNavbar ul li {
+  width: 20%;
+  text-align: center;
+  padding-bottom: 12px;
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.rightNavbar ul li.active {
+  border-bottom: 1px solid #0a6cdc;
+}
+
+.order--rightContent--heading input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: #eee;
+  font-size: 14px;
+  padding: 12px 0;
+  margin: 12px 0;
+}
+
+.order--rightContent--heading {
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon--order {
+  font-size: 16px;
+  padding: 12px;
+  background: #eee;
+}
+
+.order--rightContent--heading {
+  border: none;
+}
+
+.myOrder--items {
+  padding: 0 24px;
+}
+
+.myOrder--items--heading {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}
+
+.items--heading--right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 32%;
+}
+
+.fa-truck,
+.items--heading--right--status span {
+  color: #26aa99;
+}
+
+.items--heading--right--tag {
+  color: #0a6cdc;
+}
+
+.verticalLine {
+  width: 1px;
+  background: #c4c5c1;
+  height: 18px;
+}
+
+.myOrder--items--body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 12px;
+}
+
+.myOrder--items--body--left {
+  display: flex;
+  align-items: center;
+}
+
+.myOrder--items--body--left--description p {
+  font-size: 14px;
+  padding: 0;
+  margin: 0;
+}
+
+.myOrder--items--body--left--description h5 {
+  margin: 0;
+  margin-bottom: 12px;
+}
+
+.myOrder--items--body--right {
+  color: #0a6cdc;
+}
+
+.myOrder--items--bottom--content {
+  text-align: right;
+  padding-bottom: 20px;
+}
+
+.myOrder--items--bottom--content--groupBtn .buyAgain,
+.myOrder--items--bottom--content--groupBtn .orderContact {
+  padding: 12px 24px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.myOrder--items--bottom--content--groupBtn .buyAgain {
+  background: #0a6cdc;
+  border: 1px solid #0a6cdc;
+  color: #fff;
+}
+
+.myOrder--items--bottom--content--groupBtn .buyAgain:hover {
+  border: 1px solid #161880;
+  background-color: #161880;
+  transition: ease-in-out 0.25s;
+}
+
+.myOrder--items--bottom--content--groupBtn .orderContact {
+  background: #fff;
+  border: 1px solid #505050;
+}
+
+.myOrder--items--bottom--content--groupBtn .orderContact:hover {
+  background: #f3f3f3;
+  transition: ease-in-out 0.2s;
+}

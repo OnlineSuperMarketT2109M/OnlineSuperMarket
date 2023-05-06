@@ -319,6 +319,8 @@ namespace OnlineSuperMarket.Controllers
 
                     string paymentVnPayUrl = Payment.getPaymentUrl(order);
 
+                    ClearCart();
+
                     return Redirect(paymentVnPayUrl);
                 }
 
