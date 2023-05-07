@@ -9,6 +9,7 @@ using System.Linq;
 
 namespace OnlineSuperMarket.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -20,7 +21,7 @@ namespace OnlineSuperMarket.Controllers
             _context = context;
         }
 
-        [AllowAnonymous]
+        [Authorize(Policy = "Customer")]
         public IActionResult Index()
         {
 

@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using OnlineSuperMarket.Data;
 using OnlineSuperMarket.Data.SeedData;
-using OnlineSuperMarket.Mail;
 using OnlineSuperMarket.Models;
 using System.Configuration;
 
@@ -53,8 +52,13 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.User.RequireUniqueEmail = true;
 });
 builder.Services.AddAuthorization(options =>
-            options.AddPolicy("Admin",
-                policy => policy.RequireClaim(claimType: System.Security.Claims.ClaimTypes.Role, "Admin")));
+{
+    options.AddPolicy("Admin",
+            policy => policy.RequireClaim(claimType: System.Security.Claims.ClaimTypes.Role, "Admin"));
+    options.AddPolicy("Customer",
+            policy => policy.RequireClaim(claimType: System.Security.Claims.ClaimTypes.Role, "Customer"));
+});
+            
 
 
 builder.Services.AddControllersWithViews();
@@ -93,21 +97,53 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseSession();
+
+app.Use(async (context, next) =>
+{
+    var user = context.User;
+    if (user.Identity.IsAuthenticated && user.IsInRole("Admin") && context.Request.Path.StartsWithSegments("/"))
+    {
+        context.Response.Redirect("/Admin"); // redirect to admin area
+        return;
+    }
+
+    await next.Invoke(); // Cho phép request tiếp tục được xử lý bởi middleware khác trong pipeline.
+});
+
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
-       name: "areas",
-       pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-     );
-    endpoints.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+        name: "admin",
+        pattern: "admin/{controller=Home}/{action=Index}/{id?}",
+        defaults: new { area = "Admin" },
+        constraints: new { role = "Admin" }
+    );
 
-    endpoints.MapAreaControllerRoute(
-                         name: "Admin",
-                         areaName: "Admin",
-                         pattern: "Admin/{controller=Home}/{action=Index}"
-                     );
+    endpoints.MapControllerRoute(
+        name: "areas",
+        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+    );
+
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}"
+    );
 });
+//app.UseEndpoints(endpoints =>
+//{
+//    endpoints.MapControllerRoute(
+//       name: "areas",
+//       pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+//     );
+//    endpoints.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+//    endpoints.MapAreaControllerRoute(
+//                         name: "Admin",
+//                         areaName: "Admin",
+//                         pattern: "Admin/{controller=Home}/{action=Index}"
+//                     );
+//});
 
 app.Run();

@@ -55,9 +55,9 @@
         <div class="hiddenNavbar">
             <div class="hiddenNavbar--left">
                 <ul>
-                    <li><a asp-action="Index" asp-controller=""><img src="~/ClientAssets/img/superkart-logo-white-n-yellow_1631269889__17681.original.png" width="120px;"></a></li>
+                    <li><a asp-action="Index" asp-controller="Home"><img src="~/ClientAssets/img/superkart-logo-white-n-yellow_1631269889__17681.original.png" width="120px;"></a></li>
                     <li><a>Appliances</a></li>
-                    <li><a>Category</a></li>
+                    <li><a asp-action="Index" asp-controller="Product">Product</a></li>
                     <li><a>About Us</a></li>
                     <li><a>Contact</a></li>
                     <li><a>Registered Brand</a></li>
@@ -192,7 +192,7 @@
                     <div class="header--headerBottom--navbar--navbarItem">
                         <div class="space"></div>
                         <div class="navbarItem">
-                            Category
+                            <a asp-action="Index" asp-controller="Product">Product</a>
                         </div>
                     </div>
                     <div class="header--headerBottom--navbar--navbarItem">

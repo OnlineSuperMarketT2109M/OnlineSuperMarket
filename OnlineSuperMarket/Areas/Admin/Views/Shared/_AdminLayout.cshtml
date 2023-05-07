@@ -267,7 +267,7 @@
                 <a class="dropdown-item" href="javascript:void(0)"><i class="mdi mdi-settings me-1 ms-1"></i> Account
                   Setting</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-power-off me-1 ms-1"></i> Logout</a>
+                <a class="dropdown-item" asp-action="Logout" asp-controller="Account" asp-area=""><i class="fa fa-power-off me-1 ms-1"></i> Logout</a>
                 <div class="dropdown-divider"></div>
                 <div class="ps-4 p-10">
                   <a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded text-white">View Profile</a>
@@ -313,12 +313,12 @@
                   class="hide-menu">Category</span></a>
             </li>
             <li class="sidebar-item">
-              <a asp-action="Index" asp-area="Admin" asp-controller="Calendar" class="sidebar-link"><i
-                  class="navIcon fa-duotone fa-calendar-days"></i><span class="hide-menu"> Calendar </span></a>
+              <a asp-action="Index" asp-area="Admin" asp-controller="Brand" class="sidebar-link"><i
+                  class="navIcon fa-duotone fa-calendar-days"></i><span class="hide-menu"> Brand </span></a>
             </li>
             <li class="sidebar-item">
-              <a href="pages-invoice.html" class="sidebar-link"><i class="navIcon fa-solid fa-file-invoice"></i><span
-                  class="hide-menu"> Invoice </span></a>
+              <a asp-action="Index" asp-controller="Order" asp-area="Admin" class="sidebar-link"><i class="navIcon fa-solid fa-file-invoice"></i><span
+                  class="hide-menu"> Order </span></a>
             </li>
             <li class="sidebar-item">
               <a href="pages-chat.html" class="sidebar-link"><i class="navIcon fa-solid fa-comments"></i><span

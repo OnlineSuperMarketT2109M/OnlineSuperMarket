@@ -58,7 +58,6 @@ namespace OnlineSuperMarket.Controllers
 
             if (result.Succeeded)
             {
-                _notifyService.Success("Signin Successfully!");
                 if (role.FirstOrDefault() == "Admin")
                 {
                     return RedirectToAction("Index", "Home", new { area = "Admin" });

@@ -168,7 +168,27 @@ namespace OnlineSuperMarket.Controllers
 
         public IActionResult Details(int id)
         {
-            if(id == null)
+            dynamic productsOnSale = _context.Products
+                                    .Where(p => p.status.Contains("sale"))
+                                    .Include(p => p.productImages)
+                                    .Select(p => new ProductViewModel
+                                    {
+                                        productId = p.productId,
+                                        productName = p.productName,
+                                        productImage = p.productImages.FirstOrDefault().productImage,
+                                        unitCost = p.unitCost * 90 / 100,
+                                        brandName = p.Brand.brandName,
+                                        categoryName = p.Category.categoryName,
+                                        status= p.status,
+                                        size= p.size,
+                                        color= p.color,
+                                        quantity= p.quantity,
+                                        totalAmount=p.totalAmount
+                                    })
+                                    .Take(10)
+                                    .OrderByDescending(p => p.productId)
+                                    .ToList();
+            if (id == null)
             {
                 return NotFound();
             }
@@ -193,7 +213,7 @@ namespace OnlineSuperMarket.Controllers
                 quantity = product.quantity,
                 totalAmount = product.totalAmount,
             };
-
+            ViewBag.productOnSaleSlides = productsOnSale;
             return View(model);
         }
 

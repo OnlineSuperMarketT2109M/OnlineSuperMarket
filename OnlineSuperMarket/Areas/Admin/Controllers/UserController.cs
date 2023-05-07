@@ -16,6 +16,7 @@ namespace OnlineSuperMarket.Areas.Admin.Controllers
     {
         private readonly OnlineSuperMarketDbContext _context;
         private UserManager<User> _userManager;
+        private SignInManager<User> _signInManager;
         private INotyfService _notifyService;
         private readonly IWebHostEnvironment _hostEnvironment;
         private RoleManager<IdentityRole> _roleManager;
@@ -23,13 +24,15 @@ namespace OnlineSuperMarket.Areas.Admin.Controllers
             INotyfService notyfService,
             OnlineSuperMarketDbContext context,
             IWebHostEnvironment hostEnvironment,
-            RoleManager<IdentityRole> roleManager)
+            RoleManager<IdentityRole> roleManager,
+            SignInManager<User> signInManager)
         {
             _userManager = userManager;
             _notifyService = notyfService;
             _context = context;
             _hostEnvironment = hostEnvironment;
             _roleManager= roleManager;
+            _signInManager=signInManager;
         }
         [Authorize(Roles = "Admin")]
         public IActionResult Index()
