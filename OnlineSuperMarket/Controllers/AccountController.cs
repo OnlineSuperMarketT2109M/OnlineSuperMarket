@@ -102,7 +102,8 @@ namespace OnlineSuperMarket.Controllers
                     PhoneNumber = model.PhoneNumber,
                     PasswordHash = hasher.HashPassword(null, model.Password),
                     Address = model.Address,
-                    EmailConfirmed = true
+                    EmailConfirmed = true,
+                    Avatar = "default-avatar.webp"
                 };
 
                 var result = await _userManager.CreateAsync(user);
