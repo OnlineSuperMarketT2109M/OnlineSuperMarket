@@ -137,7 +137,19 @@
                         }
 
                         <div class="item headerTop--list--signin">
-                            <img class="avatarUser" src="~/ClientAssets/img/default.jpg">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                var user = await UserManager.GetUserAsync(User);
+                                if (user != null)
+                                {
+                                    var imagePath = user.Avatar;
+                                    if (!string.IsNullOrEmpty(imagePath))
+                                    {
+                                        <img class="avatarUser" src="~/ClientAssets/img/@imagePath">
+                                    }
+                                }
+                            }
+                            @*<img class="avatarUser" src="~/ClientAssets/img/default.jpg">*@
                             <div class="dropdown-test">
                                 <ul>
                                     <li><a asp-action="MyOrder" asp-controller="Account">My Order</a></li>

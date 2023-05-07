@@ -1,5 +1,10 @@
 ﻿@using OnlineSuperMarket.Areas.Admin.Models.ViewModel;
 @model MyOrderViewModel;
+﻿@using Microsoft.AspNetCore.Identity;
+@using OnlineSuperMarket.Areas.Admin.Models.ViewModel;
+@using OnlineSuperMarket.Models;
+@inject SignInManager<User> SignInManager;
+@inject UserManager<User> UserManager;
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -9,7 +14,33 @@
     <div class="mainContent">
         <div class="leftBar">
             <div class="leftBar--heading">
-                <div class="avatarImg">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    var user = await UserManager.GetUserAsync(User);
+                    if (user != null)
+                    {
+                        var imagePath = user.Avatar;
+                        var userName = user.UserName;
+                        if (!string.IsNullOrEmpty(imagePath))
+                        {
+                            <div class="avatarImg">
+                                <img class="avatarUser" src="~/ClientAssets/img/@imagePath">
+                            </div>
+                        }
+                        if (!string.IsNullOrEmpty(userName))
+                        {
+                            <div class="nameUser">
+                                <p>@userName</p>
+                                <div class="editIcon">
+                                    <i class="fa-solid fa-pen" style="color: #77797e;"></i><span>Edit Profile</span>
+                                </div>
+                            </div>
+                        }
+                    }
+
+
+                }
+               @* <div class="avatarImg">
                     <img src="~/ClientAssets/img/default.jpg" alt="avatar circle">
                 </div>
                 <div class="nameUser">
@@ -18,6 +49,7 @@
                         <i class="fa-solid fa-pen" style="color: #77797e;"></i><span>Edit Profile</span>
                     </div>
                 </div>
+            </div>*@
             </div>
             <div class="leftBar--content">
                 <div class="leftBar--content--items">
