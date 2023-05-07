@@ -13,6 +13,18 @@ var all = document.querySelector("#all");
 var allStatus = document.querySelectorAll(".order--rightContent--bottom--information");
 
 
+function autoRender() {
+    navItems.forEach(navItem => {
+        navItem.classList.remove("active");
+    });
+    navItem1.classList.add("active");
+    allStatus.forEach(allSta => {
+        allSta.classList.add("displayNone");
+    });
+    all.classList.remove("displayNone");
+}
+
+autoRender();
 
 navItem1.onclick = function () {
     navItems.forEach(navItem => {
@@ -20,8 +32,9 @@ navItem1.onclick = function () {
     });
     navItem1.classList.add("active");
     allStatus.forEach(allSta => {
-        allSta.classList.remove("displayNone");
+        allSta.classList.add("displayNone");
     });
+    all.classList.remove("displayNone");
 }
 
 navItem2.onclick = function () {

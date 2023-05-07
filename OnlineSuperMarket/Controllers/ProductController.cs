@@ -152,7 +152,7 @@ namespace OnlineSuperMarket.Controllers
                     break;
             }
             var pageNumber = page ?? 1;
-            var pageSize = 15;
+            var pageSize = 16;
 
             ViewData["CurrentCategories"] = categories;
             ViewData["CurrentBrands"] = brands;

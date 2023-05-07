@@ -103,10 +103,18 @@
   align-items: center;
 }
 
+    .myOrder--items--body--left img{
+        width: 24% !important;
+    }
+
+.myOrder--items--body--left--description{
+    width: 48%;
+}
+
 .myOrder--items--body--left--description p {
-  font-size: 14px;
-  padding: 0;
-  margin: 0;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
 }
 
 .myOrder--items--body--left--description h5 {
