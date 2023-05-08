@@ -70,6 +70,7 @@
     .contactUs--left--groupInput--textarea label {
         margin-top: 20px;
         margin-bottom: 12px;
+        text-align: left;
     }
 
     .contactUs--left--groupInput--textarea textarea {

@@ -6,12 +6,16 @@
 .cartBody {
   background-color: #fff;
 }
-.updatecartitem {
-    background: #fff;
-    padding: 4px 9px 4px;
-    border: 1px solid #c4c5c1;
-    cursor: pointer;
+
+.shipping--form p {
+    text-align: left;
 }
+    .updatecartitem {
+        background: #fff;
+        padding: 4px 9px 4px;
+        border: 1px solid #c4c5c1;
+        cursor: pointer;
+    }
 a {
     text-decoration: none;
 
@@ -163,6 +167,7 @@ table {
   text-transform: uppercase;
   font-size: 18px;
   font-weight: 700;
+  text-align: left;
 }
 
 .couponCode {
