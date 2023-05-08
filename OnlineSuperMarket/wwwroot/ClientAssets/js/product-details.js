@@ -1,4 +1,4 @@
-var overlayProduct = document.querySelector(".overlayProduct");
+﻿var overlayProduct = document.querySelector(".overlayProduct");
 var createProductForm = document.querySelector(".createProduct");
 var editProductBtn = document.querySelector(".editBtn");
 var miniCart = document.querySelector(".miniCart");

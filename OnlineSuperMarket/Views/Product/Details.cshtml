@@ -1,7 +1,13 @@
-﻿@using OnlineSuperMarket.Models.ViewModel;
+﻿@using Microsoft.AspNetCore.Identity;
+@using OnlineSuperMarket.Models.ViewModel;
+@using OnlineSuperMarket.Models;
 @model ProductViewModel;
+@inject SignInManager<User> SignInManager;
+@inject UserManager<User> UserManager;
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var comments = ViewBag.comments;
+    var commentscount = Enumerable.Count(ViewBag.comments);
 }
 
 <link href="~/ClientAssets/style/product-details.css" rel="stylesheet" />
@@ -15,12 +21,12 @@
         <p>@Model.productName</p>
     </div>
     <div class="miniCart--right">
-            @if (Model.status != null)
-            {
-                double priceOnSale = Model.unitCost * 90 / 100;
+        @if (Model.status != null)
+        {
+            double priceOnSale = Model.unitCost * 90 / 100;
 
             <p class="truePrice">$@priceOnSale</p>
-            }
+        }
         <p class="nopePrice">$@Model.unitCost</p>
         <input type="number" value="1">
         <a id="add-to-cart-btn1" class="choose" asp-route="addcart" asp-route-productid="@Model.productId" asp-route-quantity="">
@@ -104,9 +110,10 @@
                     <p>Quantity: @Model.quantity</p>
                     <div class="addToCart">
 
-                        <input id="addProductQty" name="quantity" type="number" min="1" max="@Model.quantity">
+                        <input id="addProductQty" name="quantity" type="number" min="1" max="@Model.quantity" value="1">
                         <a id="add-to-cart-btn2" class="choose" asp-route="addcart" asp-route-productid="@Model.productId" asp-route-quantity="">
-                            Add to cart </a>
+                            Add to cart
+                        </a>
 
 
                     </div>
@@ -120,94 +127,89 @@
 
 
 <div style="height: 2px;" class="lineEnd"></div>
-  <div class="productComment">
+<div class="productComment">
     <div class="productComment--heading">
-      <h2>Customer Reviews</h2>
-      <p>0 reviews</p>
-      <a><button>Write a Review</button></a>
+        <h2>Customer Reviews</h2>
+        <p>@commentscount reviews</p>
+        <a><button>Write a Review</button></a>
     </div>
 
 
 
     <!-- Product Comment Form  -->
     <div class="productCommentForm">
-      <div class="productCommentForm--heading">
-        <div class="space"> </div>
-        <h2>Write a review</h2>
-        <p class="productCommentForm--heading--close">X</p>
-      </div>
-      <div class="productCommentForm--body">
-        <div class="productCommentForm--body--left">
-          <img src="~/ClientAssets/img/product-4-1__64128(1).jpg">
-          <p class="productCommentForm--body--left--productBrand">Apple</p>
-          <p class="productCommentForm--body--left--productName">Iphone XS Max</p>
+        <div class="productCommentForm--heading">
+            <div class="space"> </div>
+            <h2>Write a review</h2>
+            <p class="productCommentForm--heading--close">X</p>
         </div>
-        <div class="productCommentForm--body--right">
-          <form>
-            <label>Rating</label>
-            <select>
-              <option>1 star</option>
-              <option>2 stars</option>
-              <option>3 stars</option>
-              <option>4 stars</option>
-              <option>5 stars</option>
-            </select>
-            <label>Name</label>
-            <input type="text">
-            <label>Title</label>
-            <input type="text">
-            <label>Comments</label>
-            <textarea></textarea>
-            <button type="submit">Submit</button>
-          </form>
+        <div class="productCommentForm--body">
+            <div class="productCommentForm--body--left">
+                <img src="~/ClientAssets/img/@Model.productImage">
+                <p class="productCommentForm--body--left--productBrand">@Model.brandName</p>
+                <p class="productCommentForm--body--left--productName">@Model.productName</p>
+            </div>
+            <div class="productCommentForm--body--right">
+
+                <form id="productCommentForm" method="post">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        var user = await UserManager.GetUserAsync(User);
+
+                        <input id="userId" type="hidden" value="@user.Id" />
+                        <input id="productId" type="hidden" value="@Model.productId" />
+                        <label for="rating">Rating</label>
+                        <select id="rating" name="rating">
+                            <option value="1">1 star</option>
+                            <option value="2">2 stars</option>
+                            <option value="3">3 stars</option>
+                            <option value="4">4 stars</option>
+                            <option value="5">5 stars</option>
+                        </select>
+                        <label>Name</label>
+                        <input type="text" value="@user.UserName" disabled>
+                        <label for="title">Title</label>
+                        <input id="title" type="text" name="title">
+                        <label for="comment">Comments</label>
+                        <textarea id="comment" name="comment"></textarea>
+                        <button type="submit">Submit</button>
+                    }
+
+                </form>
+            </div>
         </div>
-      </div>
     </div>
     <!-- End  -->
+    @foreach (var item in ViewBag.comments)
+    {
+        <div class="productComment--contain">
 
+            <div class="productComment--comment">
+                <div class="productComment--comment--avatar">
+                    <img src="~/ClientAssets/img/@item.User.Avatar">
+                </div>
+                <div class="name--rate">
+                    <div class="name--rate--heading">
+                        <p class="name--rate--heading--userName">@item.User.UserName</p>
+                        <div class="star">
+                            @for (int i = 0; i < item.rating; i++)
+                            {
+                                <p><i class="fa-solid fa-star"></i></p>
+                            }
 
-    <div class="productComment--contain">
-      <div class="productComment--comment">
-        <div class="productComment--comment--avatar">
-          <img src="~/ClientAssets/img/avt.jpg">
-        </div>
-        <div class="name--rate">
-          <div class="name--rate--heading">
-            <p class="name--rate--heading--userName">BoongDev</p>
-            <div class="star">
-              <p><i class="fa-solid fa-star"></i></p>
-              <p><i class="fa-solid fa-star"></i></p>
-              <p><i class="fa-solid fa-star"></i></p>
+                            @*<p><i class="fa-solid fa-star"></i></p>
+                        <p><i class="fa-solid fa-star"></i></p>*@
+                        </div>
+                    </div>
+                    <p class="name--rate--title"><span>Title: </span>@item.title</p>
+                    <p class="name--rate--content">@item.message</p>
+                </div>
             </div>
-          </div>
-          <p class="name--rate--title"><span>Title: </span>Good!</p>
-          <p class="name--rate--content">This product is very good, i bought it was three times</p>
-        </div>
-      </div>
-    </div>
 
-
-    <div class="productComment--contain">
-      <div class="productComment--comment">
-        <div class="productComment--comment--avatar">
-          <img src="~/ClientAssets/img/avt.jpg">
         </div>
-        <div class="name--rate">
-          <div class="name--rate--heading">
-            <p class="name--rate--heading--userName">BoongDev</p>
-            <div class="star">
-              <p><i class="fa-solid fa-star"></i></p>
-              <p><i class="fa-solid fa-star"></i></p>
-              <p><i class="fa-solid fa-star"></i></p>
-            </div>
-          </div>
-          <p class="name--rate--title"><span>Title: </span>Good!</p>
-          <p class="name--rate--content">This product is very good, i bought it was three times</p>
-        </div>
-      </div>
-    </div>
+    }
 
-  </div>
+</div>
 <div style="height: 2px;" class="lineEnd"></div>
 
 <div class="productDetails--productItem">
@@ -261,10 +263,10 @@
                 type: "POST",
                 url: url,
                 success: function (data) {
-               
+
                 },
                 error: function (xhr, status, error) {
-                    
+
                 }
             });
         });
@@ -288,5 +290,29 @@
             });
         });
     });
+
+    $('#productCommentForm').submit(function (e) {
+        e.preventDefault(); // ngăn chặn sự kiện mặc định của form
+        // Code xử lý AJAX sẽ được thêm vào đây
+        var formData = {
+            userId: $('#userId').val(),
+            productId: $('#productId').val(),
+            rating: $('#rating').val(),
+            title: $('#title').val(),
+            message: $('#comment').val()
+        };
+
+        console.log(formData);
+        $.ajax({
+            url: '/Product/AddComment',
+            type: 'POST',
+            data: formData,
+            success: function (result) {
+                // Code xử lý khi gửi comment thành công sẽ được thêm vào đây
+                window.location.reload();
+            }
+        });
+    });
+
 </script>
 <script src="~/ClientAssets/js/product-details.js"></script>

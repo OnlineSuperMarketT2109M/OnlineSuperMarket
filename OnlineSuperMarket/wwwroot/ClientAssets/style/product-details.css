@@ -275,9 +275,12 @@ select {
 
 .productComment--comment {
     display: flex;
-    width: 34%;
     justify-content: space-evenly;
     margin-top: 28px;
+}
+
+.productComment--comment--avatar {
+    margin-right: 20px;
 }
 
 .productComment--comment--avatar img {

@@ -213,8 +213,36 @@ namespace OnlineSuperMarket.Controllers
                 quantity = product.quantity,
                 totalAmount = product.totalAmount,
             };
+            
             ViewBag.productOnSaleSlides = productsOnSale;
+            var comments = _context.ProductComments
+                            .Include(c => c.User)
+                            .Include(c => c.Product)
+                            .Where(c => c.productId== id)
+                            .ToList();
+            ViewBag.comments = comments;
             return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddComment(string userId, int rating, string title, string message, int productId)
+        {
+            // Lưu bình luận vào CSDL
+            ProductComment comment = new ProductComment()
+            {
+                productId = productId,
+                Id = userId,
+                title = title,
+                message= message,
+                rating= rating,
+            };
+            _context.ProductComments.Add(comment);
+            await _context.SaveChangesAsync();
+
+            // Truy xuất lại danh sách bình luận của sản phẩm và trả về PartialView chứa danh sách đó dưới dạng HTML
+
+            return Ok();
+        
         }
 
 

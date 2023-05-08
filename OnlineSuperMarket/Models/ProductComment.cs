@@ -14,11 +14,13 @@ namespace OnlineSuperMarket.Models
         [ForeignKey("productId")]
         public virtual Product? Product { get; set; }
 
-        [Column("userId")]
-        public string userId { get; set; }
+        [Column("Id")]
+        public string Id { get; set; }
 
         [ForeignKey("Id")]
         public virtual User? User { get; set; }
+
+        public string? title { get; set; }
 
         [StringLength(1000)]
         public string message { get; set; }
