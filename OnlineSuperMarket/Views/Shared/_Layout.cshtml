@@ -56,12 +56,12 @@
             <div class="hiddenNavbar--left">
                 <ul>
                     <li><a asp-action="Index" asp-controller="Home"><img src="~/ClientAssets/img/superkart-logo-white-n-yellow_1631269889__17681.original.png" width="120px;"></a></li>
-                    <li><a>Appliances</a></li>
-                    <li><a asp-action="Index" asp-controller="Product">Product</a></li>
-                    <li><a>About Us</a></li>
-                    <li><a>Contact</a></li>
-                    <li><a>Registered Brand</a></li>
-                    <li><a>Registration Shop</a></li>
+                    <li><a asp-action="Index" asp-controller="Product">Category</a></li>
+                    <li><a href="#">Appliances</a></li>
+                    <li><a asp-action="AboutUs" asp-controller="Home">About Us</a></li>
+                    <li><a asp-action="ContactUs" asp-controller="Home">Contact Us</a></li>
+                    <li><a href="#">Registered Brand</a></li>
+                    <li><a href="#">Registration Shop</a></li>
                 </ul>
             </div>
             <div class="hiddenNavbar--right">
@@ -198,37 +198,37 @@
                     <div class="header--headerBottom--navbar--navbarItem">
                         <div class="new">New</div>
                         <div class="navbarItem">
-                            Appliances
+                            <a asp-action="Index" asp-controller="">Category</a>
                         </div>
                     </div>
                     <div class="header--headerBottom--navbar--navbarItem">
                         <div class="space"></div>
                         <div class="navbarItem">
-                            <a asp-action="Index" asp-controller="Product">Product</a>
+                            <a href="#">Appliances</a>
                         </div>
                     </div>
                     <div class="header--headerBottom--navbar--navbarItem">
                         <div class="sale">Sale</div>
                         <div class="navbarItem">
-                            About Us
+                            <a asp-action="AboutUs" asp-controller="Home">About Us</a>
                         </div>
                     </div>
                     <div class="header--headerBottom--navbar--navbarItem">
                         <div class="space"></div>
                         <div class="navbarItem">
-                            Contact
+                            <a asp-action="ContactUs" asp-controller="Home">Contact Us</a>
                         </div>
                     </div>
                     <div class="header--headerBottom--navbar--navbarItem">
-                        <div class="sp[ac]"></div>
+                        <div class="space"></div>
                         <div class="navbarItem">
-                            Registered Brand
+                            <a href="#">Registered Brand</a>
                         </div>
                     </div>
                     <div class="header--headerBottom--navbar--navbarItem">
                         <div class="hot">Hot</div>
                         <div class="navbarItem">
-                            Registration Shop
+                            <a href="#">Registration Shop</a>
                         </div>
                     </div>
                 </div>
@@ -350,10 +350,10 @@
     </footer>
     <!-- Footer End  -->
     <script src="~/ClientAssets/js/ProfileUpdateAjax.js"></script>
-    <script src="~/ClientAssets/js/my-order.js"></script>
+
     <script src="~/ClientAssets/js/updateCart.js"></script>
     <script src="~/ClientAssets/js/slide-toggle.js"></script>
-    <script src="~/ClientAssets/js/product-details.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="~/ClientAssets/js/swipper.js"></script>
     <script src="~/ClientAssets/js/main.js"></script>

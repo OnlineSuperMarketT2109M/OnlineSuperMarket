@@ -1,0 +1,95 @@
+﻿.aboutUs .breadcrumb ol {
+    padding: 0 !important;
+}
+
+.aboutUs h1 {
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.aboutUs p {
+    color: #505050;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.contactUs--container {
+    max-width: 1400px;
+    marign: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contactUs--left {
+    width: 60%;
+}
+
+    .contactUs--left form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        /* margin-right: 20px; */
+    }
+
+.contactUs--left--groupInput {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contactUs--left--groupInput--item {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    margin-right: 20px;
+}
+
+    .contactUs--left--groupInput--item input {
+        padding: 10px 16px;
+        width: 100%;
+        border-radius: 40px;
+        margin-top: 12px;
+        height: 26px;
+        border: 1px solid #c4c5c1;
+        outline: none;
+    }
+
+    .contactUs--left--groupInput--item label {
+        margin-top: 20px;
+        text-align:left;
+    }
+
+.contactUs--right {
+    width: 35%;
+}
+
+.contactUs--left--groupInput--textarea {
+    display: flex;
+    flex-direction: column;
+}
+
+    .contactUs--left--groupInput--textarea label {
+        margin-top: 20px;
+        margin-bottom: 12px;
+    }
+
+    .contactUs--left--groupInput--textarea textarea {
+        width: 100%;
+        height: 160px;
+        border-radius: 4px;
+    }
+
+.contactUs--right p {
+    margin: 28px 0;
+}
+
+.contactUs--right button {
+    padding: 10px 16px;
+    border-radius: 40px;
+    border: 0.3px solid #black;
+    background: #fff;
+    width: 200px;
+    height: 48px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}

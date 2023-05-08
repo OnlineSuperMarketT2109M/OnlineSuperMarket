@@ -663,8 +663,13 @@ footer ul li {
   flex-direction: column;
 }
 
+.loginForm--formInput label{
+    text-align: left;
+    color: black;
+}
+
 .loginForm--content {
-  margin: 32px;
+    margin: 32px;
 }
 
 #closeLoginForm {
@@ -750,22 +755,27 @@ footer ul li {
   border-radius: 40px;
   border: 1px solid #ddd;
   width: 100%;
+  cursor: pointer;
 }
 
 .loginForm--createNew button:hover {
-  background: #0a6cdc;
+  background: #f5f5f5;
   transition: ease-in-out 0.25s;
   color: #fff;
 }
 
+    .loginForm--createNew a {
+        color: black;
+    }
+
 #closeLoginForm {
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #505050;
-  border-radius: 4px;
-  color: #fff;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #505050;
+    border-radius: 4px;
+    color: #fff;
 }
 /* End  */

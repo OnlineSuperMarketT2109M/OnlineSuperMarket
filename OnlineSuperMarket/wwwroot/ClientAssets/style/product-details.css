@@ -230,3 +230,203 @@ select {
             transition: ease-in-out 0.15s;
             color: #fff;
         }
+
+
+/* Product Comment  */
+.productComment {
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-top: 24px;
+}
+
+.productComment--heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 41%;
+}
+
+    .productComment--heading p {
+        color: #505050;
+        font-size: 16px;
+        font-weight: 400;
+        padding: 10px 30px;
+        border-radius: 40px;
+        border: 1px solid #f0f0f0;
+        background: #f0f0f0;
+    }
+
+    .productComment--heading button {
+        background: #0a6cdc;
+        padding: 10px 30px;
+        border-radius: 40px;
+        border: 1px solid #0a6cdc;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        cursor: pointer;
+    }
+
+.productComment--contain {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+}
+
+.productComment--comment {
+    display: flex;
+    width: 34%;
+    justify-content: space-evenly;
+    margin-top: 28px;
+}
+
+.productComment--comment--avatar img {
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+}
+
+.name--rate--heading p {
+    margin: 0;
+}
+
+.name--rate--title span {
+    color: #505050;
+}
+
+.star {
+    display: flex;
+    color: #ee4d2d;
+}
+
+/* Product Comment Form  */
+.productCommentForm {
+    position: fixed;
+    top: 60px;
+    bottom: 60px;
+    left: 300px;
+    right: 300px;
+    background: #fff;
+    z-index: 9999;
+    padding: 24px;
+    display: none;
+    padding: 0;
+}
+
+.productCommentForm--heading {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    background: #eee;
+}
+
+.productCommentForm--body {
+    display: flex;
+}
+
+.productCommentForm--body--left {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.productCommentForm--body--left--productName {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.productCommentForm--body--left--productBrand {
+    font-size: 16px;
+    color: #505050;
+    text-transform: uppercase;
+}
+
+.productCommentForm--body--right {
+    width: 42%;
+}
+
+.productCommentForm--heading--close {
+    border: 1px solid #c4c5c1;
+    background: #c4c5c1;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 12px;
+}
+
+.productCommentForm--body--right form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 36px;
+}
+
+.productCommentForm--body--right label {
+    margin: 12px 0;
+    text-align:left;
+}
+
+.productCommentForm--body--right input {
+    padding: 14px 0;
+    border-radius: 40px;
+    border: 1px solid #c4c5c1;
+    outline: none;
+}
+
+.productCommentForm--body--right textarea {
+    height: 120px;
+    border: 1px solid #c4c5c1;
+    border-radius: 4px;
+    outline: none;
+}
+
+.productCommentForm--body--right button {
+    padding: 12px;
+    width: 100px;
+    margin-top: 20px;
+    background: #0a6cdc;
+    border: 1px solid #0a6cdc;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+}
+
+    .productCommentForm--body--right button:hover {
+        background: #161880;
+        border: 1px solid #161880;
+    }
+
+.productCommentForm--body--left img {
+    width: 400px;
+    margin: 0 40px;
+}
+
+.productCommentForm.visible {
+    display: block;
+}
+
+#overlay.active {
+    visible: visibility;
+    opacity: 1;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: 0.25s;
+    visible: hidden;
+    z-index: 1000;
+}
+
+/* End  */

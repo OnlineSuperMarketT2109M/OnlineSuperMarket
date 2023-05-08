@@ -4,6 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<link href="~/ClientAssets/style/product-details.css" rel="stylesheet" />
+
 
 <!-- mini cart sticky  -->
 
@@ -110,15 +112,103 @@
                     </div>
 
                 </div>
-                <img src="~/ClientAssets/img/trust-image.jpg">
+                <img style="margin-top: 32px;" src="~/ClientAssets/img/trust-image.jpg">
             </div>
         </div>
     </div>
 </div>
 
 
-<div class="lineEnd"></div>
+<div style="height: 2px;" class="lineEnd"></div>
+  <div class="productComment">
+    <div class="productComment--heading">
+      <h2>Customer Reviews</h2>
+      <p>0 reviews</p>
+      <a><button>Write a Review</button></a>
+    </div>
 
+
+
+    <!-- Product Comment Form  -->
+    <div class="productCommentForm">
+      <div class="productCommentForm--heading">
+        <div class="space"> </div>
+        <h2>Write a review</h2>
+        <p class="productCommentForm--heading--close">X</p>
+      </div>
+      <div class="productCommentForm--body">
+        <div class="productCommentForm--body--left">
+          <img src="~/ClientAssets/img/product-4-1__64128(1).jpg">
+          <p class="productCommentForm--body--left--productBrand">Apple</p>
+          <p class="productCommentForm--body--left--productName">Iphone XS Max</p>
+        </div>
+        <div class="productCommentForm--body--right">
+          <form>
+            <label>Rating</label>
+            <select>
+              <option>1 star</option>
+              <option>2 stars</option>
+              <option>3 stars</option>
+              <option>4 stars</option>
+              <option>5 stars</option>
+            </select>
+            <label>Name</label>
+            <input type="text">
+            <label>Title</label>
+            <input type="text">
+            <label>Comments</label>
+            <textarea></textarea>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- End  -->
+
+
+    <div class="productComment--contain">
+      <div class="productComment--comment">
+        <div class="productComment--comment--avatar">
+          <img src="~/ClientAssets/img/avt.jpg">
+        </div>
+        <div class="name--rate">
+          <div class="name--rate--heading">
+            <p class="name--rate--heading--userName">BoongDev</p>
+            <div class="star">
+              <p><i class="fa-solid fa-star"></i></p>
+              <p><i class="fa-solid fa-star"></i></p>
+              <p><i class="fa-solid fa-star"></i></p>
+            </div>
+          </div>
+          <p class="name--rate--title"><span>Title: </span>Good!</p>
+          <p class="name--rate--content">This product is very good, i bought it was three times</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="productComment--contain">
+      <div class="productComment--comment">
+        <div class="productComment--comment--avatar">
+          <img src="~/ClientAssets/img/avt.jpg">
+        </div>
+        <div class="name--rate">
+          <div class="name--rate--heading">
+            <p class="name--rate--heading--userName">BoongDev</p>
+            <div class="star">
+              <p><i class="fa-solid fa-star"></i></p>
+              <p><i class="fa-solid fa-star"></i></p>
+              <p><i class="fa-solid fa-star"></i></p>
+            </div>
+          </div>
+          <p class="name--rate--title"><span>Title: </span>Good!</p>
+          <p class="name--rate--content">This product is very good, i bought it was three times</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+<div style="height: 2px;" class="lineEnd"></div>
 
 <div class="productDetails--productItem">
     <div class="productDetails--productItem--heading">
@@ -199,3 +289,4 @@
         });
     });
 </script>
+<script src="~/ClientAssets/js/product-details.js"></script>

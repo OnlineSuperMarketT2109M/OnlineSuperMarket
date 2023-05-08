@@ -1,0 +1,14 @@
+﻿.aboutUs .breadcrumb ol {
+    padding: 0 !important;
+}
+
+.aboutUs h1 {
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.aboutUs p {
+    color: #505050;
+    font-size: 14px;
+    line-height: 22px;
+}
