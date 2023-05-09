@@ -385,9 +385,6 @@ namespace OnlineSuperMarket.Migrations
                     b.Property<string>("status")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("totalAmount")
-                        .HasColumnType("int");
-
                     b.Property<double>("unitCost")
                         .HasColumnType("float");
 
@@ -409,7 +406,9 @@ namespace OnlineSuperMarket.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("productCommentId"));
 
                     b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)")
+                        .HasColumnName("Id");
 
                     b.Property<string>("message")
                         .IsRequired()
@@ -423,10 +422,8 @@ namespace OnlineSuperMarket.Migrations
                     b.Property<int>("rating")
                         .HasColumnType("int");
 
-                    b.Property<string>("userId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("userId");
+                    b.Property<string>("title")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("productCommentId");
 
@@ -556,8 +553,8 @@ namespace OnlineSuperMarket.Migrations
                             Id = "1",
                             AccessFailedCount = 0,
                             Address = "Ninh Binh",
-                            Avatar = "default.jpg",
-                            ConcurrencyStamp = "ad68dacb-9492-42a5-84cc-eb4e0cb22b25",
+                            Avatar = "default-avatar.webp",
+                            ConcurrencyStamp = "38ab078b-83d6-4c32-9f4c-dc5003b8433f",
                             Email = "anhdqth2109005@fpt.edu.vn",
                             EmailConfirmed = true,
                             FirstName = "Dinh",
@@ -566,10 +563,10 @@ namespace OnlineSuperMarket.Migrations
                             MiddleName = "Quang",
                             NormalizedEmail = "ANHDQTH2109005@FPT.EDU.VN",
                             NormalizedUserName = "anhdinh",
-                            PasswordHash = "AQAAAAIAAYagAAAAED3jV/xvWVpDEXpbEy+H+NKnumwE2n7312CSUr2Rac70H0LATw19jrThhGndRr4G9Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDhl0nhb/PgfchdSe1PDbj2BvCKCSjbOoTRgcLKcNP6+tLZitTGZ+jtkmq6pv/diKw==",
                             PhoneNumber = "0395100761",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "6b41fac5-b915-47e4-b96e-bcc540e8fcc3",
+                            SecurityStamp = "f58f21e1-847f-4b83-b898-3c9ea2255bb8",
                             TwoFactorEnabled = false,
                             UserName = "AnhDinh"
                         },
@@ -579,7 +576,7 @@ namespace OnlineSuperMarket.Migrations
                             AccessFailedCount = 0,
                             Address = "Ha Noi",
                             Avatar = "default.jpg",
-                            ConcurrencyStamp = "287a641a-d951-4456-880d-83e6b2c007ff",
+                            ConcurrencyStamp = "2a142307-4a38-4e9c-930a-a5b26a340449",
                             Email = "khanhnb08112003@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Nguyen",
@@ -588,10 +585,10 @@ namespace OnlineSuperMarket.Migrations
                             MiddleName = "Ba",
                             NormalizedEmail = "KHANHNB08112003@GMAIL.COM",
                             NormalizedUserName = "khanhnguyen",
-                            PasswordHash = "AQAAAAIAAYagAAAAEA3k0hjunsracZEK9oa9KtkoxUYL8Oi9YsJWnccl0eie1L1KHq4zbP9nN+/RpwSIeA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPfJmBxihG7KPVvuuewdkp7XctjMcJ1NymQxNG+7D+8QXos4er7vG+MbvoH+aR/f9g==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2317c1a0-3480-483f-aaf4-63b9ef0fbc41",
+                            SecurityStamp = "4c4677d0-a5bf-49a1-9a0f-e7b04fcde39e",
                             TwoFactorEnabled = false,
                             UserName = "KhanhNguyen"
                         },
@@ -600,8 +597,8 @@ namespace OnlineSuperMarket.Migrations
                             Id = "3",
                             AccessFailedCount = 0,
                             Address = "Ha Long",
-                            Avatar = "default.jpg",
-                            ConcurrencyStamp = "a82b44d4-5f55-4a06-97f5-6b0722982676",
+                            Avatar = "default-avatar.webp",
+                            ConcurrencyStamp = "9590cc4b-74b8-4b74-8481-2549c0f4b129",
                             Email = "hoanglt123@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Luong",
@@ -610,10 +607,10 @@ namespace OnlineSuperMarket.Migrations
                             MiddleName = "Viet",
                             NormalizedEmail = "HOANGLT123@GMAIL.COM",
                             NormalizedUserName = "hoangluong",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPXd+j6+e0JQoFfTwF4rbGNGwLqiPf8/3oiGt2x8l9EgBOWERFgpSsxo17oS3iIdGw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAkK0JPOrmmStwnngDXut9iNKEP4AxkxhvTW+JfSB81dLIHnIaqoBa5pVt843X5a+g==",
                             PhoneNumber = "1234567890",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ccd6aa41-4ea4-404a-b4f5-8f8d91941538",
+                            SecurityStamp = "5a09d551-245f-48fb-8b2a-91c58976f1e9",
                             TwoFactorEnabled = false,
                             UserName = "HoangLuong"
                         });
@@ -738,7 +735,9 @@ namespace OnlineSuperMarket.Migrations
                 {
                     b.HasOne("OnlineSuperMarket.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("Id");
+                        .HasForeignKey("Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("OnlineSuperMarket.Models.Product", "Product")
                         .WithMany()
