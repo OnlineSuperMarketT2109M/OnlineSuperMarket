@@ -71,10 +71,6 @@
                             <label asp-for="quantity">Quantity: </label>
                             <input type="text" asp-for="quantity" value="@product.quantity">
                         </div>
-                        <div class="quantity">
-                            <label asp-for="totalAmount">Total Amount: </label>
-                            <input type="text" asp-for="totalAmount" value="@product.totalAmount">
-                        </div>
                         <div class="category">
                             @Html.DropDownListFor(m => m.categoryId, (IEnumerable<SelectListItem>) ViewBag.Categories, "Select Category")
                         </div>

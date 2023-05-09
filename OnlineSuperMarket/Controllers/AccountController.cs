@@ -71,10 +71,12 @@ namespace OnlineSuperMarket.Controllers
             {
                 // user is locked out
                 _notifyService.Error("Your account is locked out!");
+                return RedirectToAction("Index", "Home");
             }
             else if (result.IsNotAllowed)
             {
                 _notifyService.Error("Your account is not verified!");
+                return RedirectToAction("Index", "Home");
             }
             else
             {
@@ -93,7 +95,6 @@ namespace OnlineSuperMarket.Controllers
                 User user = new User()
                 {
                     FirstName = model.FirstName,
-                    MiddleName = model.MiddleName,
                     LastName = model.LastName,
                     Email = model.Email,
                     NormalizedEmail = model.Email.Normalize(),

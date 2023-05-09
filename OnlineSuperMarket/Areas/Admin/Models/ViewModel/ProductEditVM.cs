@@ -12,8 +12,6 @@ namespace OnlineSuperMarket.Areas.Admin.Models.ViewModel
 
         public int? quantity { get; set; }
 
-        public int? totalAmount { get; set; }
-
         public string? status { get; set; }
 
         [StringLength(5000)]

@@ -16,9 +16,7 @@ namespace OnlineSuperMarket.Models
 
         public double unitCost { get; set; }
 
-        public int quantity { get; set; }
-
-        public int totalAmount { get; set; }    
+        public int quantity { get; set; }   
 
         public string? status { get; set; }
         public string? color { get; set; }

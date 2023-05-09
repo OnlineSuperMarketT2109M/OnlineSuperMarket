@@ -40,7 +40,7 @@ namespace OnlineSuperMarket.Controllers
                                         size= p.size,
                                         color= p.color,
                                         quantity= p.quantity,
-                                        totalAmount=p.totalAmount
+    
                                     })
                                     .Take(10)
                                     .OrderByDescending(p => p.productId)
@@ -59,8 +59,7 @@ namespace OnlineSuperMarket.Controllers
                                         status= p.status,
                                         size= p.size,
                                         color= p.color,
-                                        quantity= p.quantity,
-                                        totalAmount=p.totalAmount
+                                        quantity= p.quantity
                                     })
                                     .Take(10)
                                     .OrderByDescending(p => p.productId)

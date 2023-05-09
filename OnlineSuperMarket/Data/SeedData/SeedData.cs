@@ -81,9 +81,9 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "Stainless steel kitchen stand",
-                        unitCost = 5,
+                        unitCost = 50000,
                         quantity = 186,
-                        totalAmount = 2320,
+                        
                         status = "sale 10%",
                         
                         brandId = brands.Single(brand => brand.brandName == "Chefman").brandId,
@@ -92,9 +92,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "WOODEN TABLE BRUSH",
-                        unitCost = 2,
+                        unitCost = 20000,
                         quantity = 186,
-                        totalAmount = 2320,
                         status = "sale 10%",
                         brandId = brands.Single(brand => brand.brandName == "Goldsun").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Houseware").categoryId
@@ -102,9 +101,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "STAINLESS ALUMINIUM 3-LAYER STEEL SAUCEPOT",
-                        unitCost = 15.99,
+                        unitCost = 160000,
                         quantity = 186,
-                        totalAmount = 2320,
                         status = "sale 10%",
                         brandId = brands.Single(brand => brand.brandName == "Sunhouse").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Houseware").categoryId
@@ -114,9 +112,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "ULTRABOOST LIGHT SHOES",
-                        unitCost = 199,
-                        quantity = 53,
-                        totalAmount = 890,
+                        unitCost = 1990000,
+                        quantity = 53,  
                         status = "sale 10%",
                          size = "42",
                         color = "White",
@@ -126,9 +123,9 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "ULTRA ADIDAS 4D SHOES",
-                        unitCost = 199,
+                        unitCost = 1990000,
                         quantity = 53,
-                        totalAmount = 890,
+        
                          size = "44",
                         color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Adidas").brandId,
@@ -137,9 +134,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "STAN SMITH SHOES",
-                        unitCost = 199,
+                        unitCost = 1990000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                          size = "48",
                         color = "Black",
@@ -150,9 +146,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "Air Jordan 1 Elevate Low",
-                        unitCost = 199,
+                        unitCost = 1990000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                          size = "43",
                         color = "White",
@@ -162,9 +157,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "Nike Dunk Low Retro SE",
-                        unitCost = 199,
+                        unitCost = 1990000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                          size = "42",
                         color = "Blue",
@@ -174,9 +168,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "Nike Free Metcon 4 Premium",
-                        unitCost = 199,
+                        unitCost = 1990000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                          size = "41",
                         color = "White",
@@ -187,9 +180,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "574 Core",
-                        unitCost = 199,
+                        unitCost = 1990000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "41",
                         color = "White",
@@ -199,9 +191,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "Fresh Foam X 1080v12",
-                        unitCost = 199,
-                        quantity = 53,
-                        totalAmount = 890,
+                        unitCost = 1990000,
+                        quantity = 53,  
                         status = "sale 10%",
                         size = "41",
                         color = "White",
@@ -211,9 +202,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "MX608V5",
-                        unitCost = 199,
+                        unitCost = 1990000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "41",
                         color = "White",
@@ -224,9 +214,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "Converse Chuck Taylor All Star Low Top",
-                        unitCost = 199,
+                        unitCost = 1990000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "41",
                         color = "White",
@@ -236,9 +225,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "Converse Chuck Taylor All Star High Top",
-                        unitCost = 199,
+                        unitCost = 1990000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "41",
                         color = "Black",
@@ -248,9 +236,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "Chuck 70",
-                        unitCost = 199,
-                        quantity = 53,
-                        totalAmount = 890,
+                        unitCost = 1990000,
+                        quantity = 53,  
                         status = "sale 10%",
                         size = "41",
                         color = "Blue",
@@ -262,9 +249,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "New Latitude 7640",
-                        unitCost = 199,
+                        unitCost = 19900000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "512GB",
                         color = "White",
@@ -274,9 +260,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "New Latitude 7340 Laptop or 2-in-1",
-                        unitCost = 199,
+                        unitCost = 19900000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "512GB",
                         color = "Black",
@@ -286,9 +271,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "New Latitude 5340 Laptop or 2-in-1",
-                        unitCost = 199,
+                        unitCost = 19900000,
                         quantity = 53,
-                        totalAmount = 890,
                         size = "512GB",
                         color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Dell").brandId,
@@ -298,9 +282,9 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "Asus TUF Gaming FX506LHB-HN188W i5 10300H",
-                        unitCost = 950,
+                        unitCost = 9500000,
                         quantity = 53,
-                        totalAmount = 890,
+        
                         status = "sale 10%",
                         size = "512GB",
                         color = "Gray",
@@ -310,9 +294,9 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "Asus TUF Gaming FX506HC-HN144W i5 11400H",
-                        unitCost = 999,
+                        unitCost = 9990000,
                         quantity = 53,
-                        totalAmount = 890,
+    
                         status = "sale 10%",
                         size = "512GB",
                         color = "Black",
@@ -322,9 +306,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "Asus Vivobook M1403QA-LY022W R5 5600H",
-                        unitCost = 759,
+                        unitCost = 75900000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "1TB",
                         color = "Black",
@@ -335,9 +318,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "HP Pavilion 14-dv2035TU i5 1235U/6K771PA",
-                        unitCost = 650,
+                        unitCost = 65000000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "512GB",
                         color = "Gray",
@@ -347,9 +329,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "Laptop HP Gaming Victus 16-e1107AX R5-6600H",
-                        unitCost = 769,
+                        unitCost = 7690000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "512GB",
                         color = "White",
@@ -360,9 +341,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "MacBook Pro M2 2022 13 inch 8CPU 10GPU 8GB 256GB",
-                        unitCost = 1299,
+                        unitCost = 12990000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "256GB",
                         color = "White",
@@ -374,7 +354,6 @@ namespace OnlineSuperMarket.Data.SeedData
                         productName = "MacBook Pro 14 2023 M2 Pro 10CPU 16GPU 16GB/512GB",
                         unitCost = 2500,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "512GB",
                         color = "White",
@@ -384,9 +363,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "MacBook Pro 14 2023 M2 Pro 12CPU 19GPU 16GB/1TB",
-                        unitCost = 2999,
+                        unitCost = 29990000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "1TB",
                         color = "White",
@@ -398,9 +376,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "iPhone 14 Pro Max 128GB",
-                        unitCost = 1200,
+                        unitCost = 12000000,
                         quantity = 53,
-                        totalAmount = 890,
                         size = "128GB",
                         color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Apple").brandId,
@@ -409,9 +386,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "iPhone 14 Pro Max 256GB",
-                        unitCost = 1350,
+                        unitCost = 13500000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "256GB",
                         color = "White",
@@ -421,9 +397,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "iPhone 13 Pro 1TB",
-                        unitCost = 1250,
+                        unitCost = 12500000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "1TB",
                         color = "White",
@@ -434,9 +409,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "Samsung Galaxy S23 Ultra 5G",
-                        unitCost = 1250,
+                        unitCost = 12500000,
                         quantity = 53,
-                        totalAmount = 890,
                         size = "128GB",
                         color = "White",
                         brandId = brands.Single(brand => brand.brandName == "Samsung").brandId,
@@ -445,9 +419,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "Samsung Galaxy S23 5G",
-                        unitCost = 950,
+                        unitCost = 95000000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "128GB",
                         color = "Black",
@@ -457,9 +430,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "Samsung Galaxy Z Fold4 5G",
-                        unitCost = 1550,
+                        unitCost = 15500000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "128GB",
                         color = "White",
@@ -471,9 +443,9 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "PowerShot G5 X Mark II",
-                        unitCost = 1550,
+                        unitCost = 15500000,
                         quantity = 53,
-                        totalAmount = 890,
+         
                         status = "sale 10%",
                         brandId = brands.Single(brand => brand.brandName == "Canon").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Cameras").categoryId
@@ -481,9 +453,9 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "PowerShot G9 X Mark II",
-                        unitCost = 1750,
+                        unitCost = 17500000,
                         quantity = 53,
-                        totalAmount = 890,
+    
                         status = "sale 10%",
                         brandId = brands.Single(brand => brand.brandName == "Canon").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Cameras").categoryId
@@ -492,9 +464,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "KODAK PIXPRO WPZ2 Digital Camera",
-                        unitCost = 1150,
+                        unitCost = 11500000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         brandId = brands.Single(brand => brand.brandName == "Kodak").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Cameras").categoryId
@@ -502,9 +473,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "KODAK PIXPRO ORBIT360 4K VR Camera",
-                        unitCost = 1350,
+                        unitCost = 13500000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         brandId = brands.Single(brand => brand.brandName == "Kodak").brandId,
                         categoryId = categories.Single(category => category.categoryName == "Cameras").categoryId
@@ -514,9 +484,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "Ultra HD Smart TV",
-                        unitCost = 950,
+                        unitCost = 9500000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "58 inches",
                         color = "Black",
@@ -526,9 +495,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "Ultra HD Android TV",
-                        unitCost = 1250,
+                        unitCost = 12500000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "58 inches",
                         color = "Black",
@@ -539,9 +507,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "Z9J Series",
-                        unitCost = 2550,
+                        unitCost = 25500000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "58 inches",
                         color = "Black",
@@ -551,9 +518,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "X95K Series",
-                        unitCost = 1550,
+                        unitCost = 15500000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "65 inches",
                         color = "Black",
@@ -564,9 +530,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "65 inch Neo QLED 8K QN800C",
-                        unitCost = 3750,
+                        unitCost = 37500000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "65 inches",
                         color = "Black",
@@ -578,9 +543,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "GR-RS508WE-PMI",
-                        unitCost = 3750,
+                        unitCost = 37500000,
                         quantity = 53,
-                        totalAmount = 890,
                         size = "220l",
                         color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Toshiba").brandId,
@@ -589,9 +553,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "GR-AG66INA(GG)",
-                        unitCost = 4250,
+                        unitCost = 42500000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "280l",
                         color = "Black",
@@ -602,9 +565,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "SER-240TS",
-                        unitCost = 2250,
+                        unitCost = 22500000,
                         quantity = 53,
-                        totalAmount = 890,
                         size = "210l",
                         color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Sony").brandId,
@@ -613,9 +575,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "SER-305TS",
-                        unitCost = 3250,
+                        unitCost = 32500000,
                         quantity = 53,
-                        totalAmount = 890,
                         size = "240l",
                         color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Sony").brandId,
@@ -625,9 +586,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "Bespoke 4-Door French Door Refrigerator (29 cu. ft.) with Beverage Center™ in White Glass",
-                        unitCost = 3250,
+                        unitCost = 32500000,
                         quantity = 53,
-                        totalAmount = 890,
                         status = "sale 10%",
                         size = "280l",
                         color = "Black",
@@ -637,9 +597,8 @@ namespace OnlineSuperMarket.Data.SeedData
                     new Product
                     {
                         productName = "Bespoke 4-Door French Door Refrigerator (23 cu. ft.) with Beverage Center™ in Stainless Steel",
-                        unitCost = 4250,
+                        unitCost = 42500000,
                         quantity = 53,
-                        totalAmount = 890,
                         size = "280l",
                         color = "Black",
                         brandId = brands.Single(brand => brand.brandName == "Samsung").brandId,

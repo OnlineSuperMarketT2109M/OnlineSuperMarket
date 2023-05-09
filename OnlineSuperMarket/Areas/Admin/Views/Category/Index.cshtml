@@ -92,11 +92,7 @@
                                             <td scope="row">@Html.DisplayFor(model => item.categoryId)</td>
                                             <td>@Html.DisplayFor(model => item.categoryName)</td>
                                             <td class="actBtn align-center">
-                                                <a asp-action="Edit" asp-route-id="@item.categoryId">
-                                                    <button type="button" class="btn btn-cyan btn-sm text-white">
-                                                        Edit
-                                                    </button>
-                                                </a>
+                                               
                                                 <a asp-action="Delete" asp-route-id="@item.categoryId">
                                                     <button type="button" class="btn btn-danger btn-sm text-white">
                                                         Delete

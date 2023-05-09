@@ -183,7 +183,6 @@ namespace OnlineSuperMarket.Controllers
                                         size= p.size,
                                         color= p.color,
                                         quantity= p.quantity,
-                                        totalAmount=p.totalAmount
                                     })
                                     .Take(10)
                                     .OrderByDescending(p => p.productId)
@@ -211,7 +210,6 @@ namespace OnlineSuperMarket.Controllers
                 color= product.color,
                 status= product.status,
                 quantity = product.quantity,
-                totalAmount = product.totalAmount,
             };
             
             ViewBag.productOnSaleSlides = productsOnSale;

@@ -135,7 +135,6 @@ namespace OnlineSuperMarket.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-
             var userrole = _context.UserRoles.Where(r => r.UserId == user.Id).FirstOrDefault();
             var role = _context.Roles.Where(n => n.Id == userrole.RoleId).FirstOrDefault();
             ViewBag.user = user;

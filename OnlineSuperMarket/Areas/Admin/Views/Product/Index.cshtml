@@ -84,7 +84,6 @@
                                         
                                         <th scope="col">Name</th>
                                         <th scope="col">Price</th>
-                                        <th scope="col">Total Amount</th>
                                         <th scope="col">Category</th>
                                         <th scope="col">Brand</th>
                                         <th scope="col">Actions</th>
@@ -97,7 +96,6 @@
                                             
                                             <td>@Html.DisplayFor(model => item.productName)</td>
                                             <td>@Html.DisplayFor(model => item.unitCost)$</td>
-                                            <td>@Html.DisplayFor(model => item.totalAmount)</td>
                                             <td>@Html.DisplayFor(model => item.Category.categoryName)</td>
                                             <td>@Html.DisplayFor(model => item.Brand.brandName)</td>
                                             <td class="actBtn align-center">
@@ -123,7 +121,7 @@
                                     <tr>
                                         <th scope="col">Name</th>
                                         <th scope="col">Price</th>
-                                        <th scope="col">Total Amount</th>
+                                        
                                         <th scope="col">Category</th>
                                         <th scope="col">Brand</th>
                                         <th scope="col">Actions</th>

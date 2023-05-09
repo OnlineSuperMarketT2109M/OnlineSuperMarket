@@ -93,11 +93,7 @@
                                     <td scope="row">@Html.DisplayFor(model => item.brandId)</td>
                                     <td>@Html.DisplayFor(model => item.brandName)</td>
                                         <td class="actBtn align-center">
-                                        <a asp-action="Edit" asp-route-id="@item.brandId">
-                                                    <button type="button" class="btn btn-cyan btn-sm text-white">
-                                                        Edit
-                                                    </button>
-                                                </a>
+                                        
                                         <a asp-action="Delete" asp-route-id="@item.brandId">
                                                     <button type="button" class="btn btn-danger btn-sm text-white">
                                                         Delete

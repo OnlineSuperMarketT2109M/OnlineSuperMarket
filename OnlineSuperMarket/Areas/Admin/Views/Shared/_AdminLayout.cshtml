@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity;
+@using OnlineSuperMarket.Models;
+@inject UserManager<User> UserManager
+
+
+<!DOCTYPE html>
 <html dir="ltr" lang="en">
 
 <head>
@@ -248,14 +253,20 @@
             <!-- User profile and search -->
             <!-- ============================================================== -->
             <li class="nav-item dropdown">
-              <a class="
-                    nav-link
-                    dropdown-toggle
-                    text-muted
-                    waves-effect waves-dark
-                    pro-pic
-                  " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="~/ClientAssets/img/avt231329769.jpg" alt="user" class="rounded-circle" width="31" />
+              <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    var user = await UserManager.GetUserAsync(User);
+                                    if (user != null)
+                                    {
+                                        var imagePath = user.Avatar;
+                                        if (!string.IsNullOrEmpty(imagePath))
+                                        {
+                                            <img src="~/ClientAssets/img/@imagePath" alt="user" class="rounded-circle" width="33px" height="33px"/>
+                                        }
+                                    }
+                                }
+                
               </a>
               <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="javascript:void(0)"><i class="mdi mdi-account me-1 ms-1"></i> My

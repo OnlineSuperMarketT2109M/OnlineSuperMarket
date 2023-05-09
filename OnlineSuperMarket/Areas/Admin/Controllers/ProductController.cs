@@ -77,7 +77,6 @@ namespace OnlineSuperMarket.Areas.Admin.Controllers
                     unitCost = model.unitCost,
                     description= model.description,
                     quantity= model.quantity,
-                    totalAmount= model.totalAmount,
                     categoryId= model.categoryId,
                     brandId= model.brandId,
                     size= model.size,
@@ -145,7 +144,6 @@ namespace OnlineSuperMarket.Areas.Admin.Controllers
                 product.productName = model.Name ?? product.productName;
                 product.description = model.description ?? product.description;
                 product.quantity = model.quantity ?? product.quantity;
-                product.totalAmount = model.totalAmount ?? product.totalAmount;
                 product.unitCost = model.unitCost ?? product.unitCost;
                 product.brandId = model.brandId ?? product.brandId;
                 product.categoryId = model.categoryId?? product.categoryId;

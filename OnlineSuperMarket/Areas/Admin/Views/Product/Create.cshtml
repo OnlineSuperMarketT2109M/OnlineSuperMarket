@@ -68,10 +68,6 @@
                             <label asp-for="quantity">Quantity: </label>
                             <input type="text" asp-for="quantity">
                         </div>
-                        <div class="quantity">
-                            <label asp-for="totalAmount">Total Amount: </label>
-                            <input type="text" asp-for="totalAmount">
-                        </div>
                         <div class="category">
                             @Html.DropDownListFor(m => m.categoryId, (IEnumerable<SelectListItem>) ViewBag.Categories, "Select Category")
                         </div>
