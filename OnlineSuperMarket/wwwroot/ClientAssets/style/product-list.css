@@ -202,8 +202,8 @@
 
 .productList--list {
     display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-template-rows: 430px;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 25% 25% 25% 25%;
     margin-left: 12px;
     margin-top: 32px;
     height: auto;
@@ -212,6 +212,7 @@
 
 .productList--right {
     width: 80%;
+/*    height: 1760px;*/
     display: flex;
     flex-direction: column;
     justify-content: space-between;

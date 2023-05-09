@@ -20,14 +20,14 @@
         <img src="~/ClientAssets/img/@Model.productImage">
         <p>@Model.productName</p>
     </div>
-    <div class="miniCart--right">
+    <div style="width: 36%;" class="miniCart--right">
         @if (Model.status != null)
         {
             double priceOnSale = Model.unitCost * 90 / 100;
 
-            <p class="truePrice">$@priceOnSale</p>
+            <p class="truePrice">₫@priceOnSale</p>
         }
-        <p class="nopePrice">$@Model.unitCost</p>
+        <p class="nopePrice">₫@Model.unitCost</p>
         <input type="number" value="1">
         <a id="add-to-cart-btn1" class="choose" asp-route="addcart" asp-route-productid="@Model.productId" asp-route-quantity="">
             Add to cart
@@ -90,10 +90,10 @@
                         {
                             double priceOnSale = Model.unitCost * 90 / 100;
 
-                            <p class="truePrice">$@priceOnSale</p>
+                            <p class="truePrice">₫@priceOnSale</p>
                         }
 
-                        <p class="nopePrice">$@Model.unitCost</p>
+                        <p class="nopePrice">₫@Model.unitCost</p>
                     </div>
                     <div class="rightProductDetails-description">
                         <p>
@@ -235,7 +235,7 @@
                             <div class="cardBody">
                                 <p class="subtitle">@item.brandName</p>
                                 <p class="productName">@item.productName</p>
-                                <p class="price">$@item.unitCost</p>
+                                <p class="price">₫@item.unitCost</p>
                             </div>
                             <div class="cardBottom">
                                 <a asp-action="Details" asp-controller="Product" asp-route-id="@item.productId"><button class="choose">Choose Options</button></a>
@@ -252,12 +252,12 @@
 <div class="lineEnd"></div>
 
 <script>
-    $(document).ready(function () {
-        $("#add-to-cart-btn1").click(function () {
-            var quantity = $("#addProductQty").val();
+    ₫(document).ready(function () {
+        ₫("#add-to-cart-btn1").click(function () {
+            var quantity = ₫("#addProductQty").val();
             var url = '@Url.RouteUrl("addcart", new { productid = Model.productId, quantity = "__QUANTITY__" })';
             url = url.replace('__QUANTITY__', quantity);
-            $.ajax({
+            ₫.ajax({
                 type: "POST",
                 url: url,
                 success: function (data) {
@@ -271,12 +271,12 @@
     });
 
 
-    $(document).ready(function () {
-        $("#add-to-cart-btn2").click(function () {
-            var quantity = $("#addProductQty").val();
+    ₫(document).ready(function () {
+        ₫("#add-to-cart-btn2").click(function () {
+            var quantity = ₫("#addProductQty").val();
             var url = '@Url.RouteUrl("addcart", new { productid = Model.productId, quantity = "__QUANTITY__" })';
             url = url.replace('__QUANTITY__', quantity);
-            $.ajax({
+            ₫.ajax({
                 type: "POST",
                 url: url,
                 success: function (data) {
@@ -289,19 +289,19 @@
         });
     });
 
-    $('#productCommentForm').submit(function (e) {
+    ₫('#productCommentForm').submit(function (e) {
         e.preventDefault(); // ngăn chặn sự kiện mặc định của form
         // Code xử lý AJAX sẽ được thêm vào đây
         var formData = {
-            userId: $('#userId').val(),
-            productId: $('#productId').val(),
-            rating: $('#rating').val(),
-            title: $('#title').val(),
-            message: $('#comment').val()
+            userId: ₫('#userId').val(),
+            productId: ₫('#productId').val(),
+            rating: ₫('#rating').val(),
+            title: ₫('#title').val(),
+            message: ₫('#comment').val()
         };
 
         console.log(formData);
-        $.ajax({
+        ₫.ajax({
             url: '/Product/AddComment',
             type: 'POST',
             data: formData,

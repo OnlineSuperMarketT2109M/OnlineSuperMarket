@@ -14,8 +14,10 @@
     List<string> colors = new List<string> { "White", "Black", "Gray", "Blue", "Green", "Yellow", "Red", "Brown" };
 }
 
-<div class="productList container">
-    <img class="productList--img" src="~/ClientAssets/img/category-banner-top-layout-2.jpg">
+@await Html.PartialAsync("~/Views/Account/Login.cshtml")
+
+<div style="padding: 0;" class="productList container">
+    <img style="width: 100%;" class="productList--img" src="~/ClientAssets/img/category-banner-top-layout-2.jpg">
     <div class="productList--banner">
         <h1>Category</h1>
     </div>
@@ -72,11 +74,11 @@
                 </div>
 
                 <script>
-                    $('.productList--filter--category h2').click(function () {
+                    ₫('.productList--filter--category h2').click(function () {
 
-                        $(".ul1").slideToggle(500);
-                        $(".iconPlus1").toggleClass("fa-plus");
-                        $(".iconPlus1").toggleClass("fa-minus");
+                        ₫(".ul1").slideToggle(500);
+                        ₫(".iconPlus1").toggleClass("fa-plus");
+                        ₫(".iconPlus1").toggleClass("fa-minus");
                     })
                 </script>
 
@@ -108,11 +110,11 @@
                 </div>
 
                 <script>
-                    $('.productList--filter--brand h2').click(function () {
+                    ₫('.productList--filter--brand h2').click(function () {
 
-                        $(".ul2").slideToggle(500);
-                        $(".iconPlus2").toggleClass("fa-plus");
-                        $(".iconPlus2").toggleClass("fa-minus");
+                        ₫(".ul2").slideToggle(500);
+                        ₫(".iconPlus2").toggleClass("fa-plus");
+                        ₫(".iconPlus2").toggleClass("fa-minus");
                     })
                 </script>
 
@@ -135,11 +137,11 @@
                     </ul>
 
                     <script>
-                        $('.productList--filter--color h2').click(function () {
+                        ₫('.productList--filter--color h2').click(function () {
 
-                            $(".ul3").slideToggle(500);
-                            $(".iconPlus3").toggleClass("fa-plus");
-                            $(".iconPlus3").toggleClass("fa-minus");
+                            ₫(".ul3").slideToggle(500);
+                            ₫(".iconPlus3").toggleClass("fa-plus");
+                            ₫(".iconPlus3").toggleClass("fa-minus");
                         })
                     </script>
 
@@ -164,11 +166,11 @@
                     </ul>
 
                     <script>
-                        $('.productList--filter--size h2').click(function () {
+                        ₫('.productList--filter--size h2').click(function () {
 
-                            $(".ul4").slideToggle(500);
-                            $(".iconPlus4").toggleClass("fa-plus");
-                            $(".iconPlus4").toggleClass("fa-minus");
+                            ₫(".ul4").slideToggle(500);
+                            ₫(".iconPlus4").toggleClass("fa-plus");
+                            ₫(".iconPlus4").toggleClass("fa-minus");
                         })
                     </script>
                 </div>
@@ -200,11 +202,11 @@
                                     @if (item.status != null)
                                     {
                                         var priceonsale = item.unitCost * 90 / 100;
-                                        <p class="price">$@priceonsale <span class="priceNot">$@item.unitCost</span></p>
+                                        <p class="price">₫@priceonsale <span class="priceNot">₫@item.unitCost</span></p>
                                     }
                                     else
                                     {
-                                        <p class="price">$@item.unitCost</p>
+                                        <p class="price">₫@item.unitCost</p>
                                     }
                                 </div>
                                 <div class="cardBottom">

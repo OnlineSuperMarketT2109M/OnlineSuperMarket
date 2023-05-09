@@ -48,13 +48,13 @@
                                     <p class="cart--item--color">Color: <span>@item.product.color</span></p>
                                     <p class="cart--item--size">Size: <span>@item.product.size</span></p>
                                 </td>
-                                <td>$@item.product.unitCost</td>
+                                <td>₫@item.product.unitCost</td>
                                 <td>
                                     <button class="quantity__minus updatecartitem" data-productid="@item.product.productId" data-route-cartIndex="@Url.RouteUrl("cart")" data-route-updateCart="@Url.RouteUrl("updatecart")">-</button>
-                                    <input class="cart--item--quantity" asp-for="@item.quantity" id="@($"quantity-{item.product.productId}")" type="number" data-productid="@item.product.productId" data-route-cartIndex="@Url.RouteUrl("cart")" data-route-updateCart="@Url.RouteUrl("updatecart")">
+                                    <input class="cart--item--quantity" asp-for="@item.quantity" id="@("quantity-{item.product.productId}")" type="number" data-productid="@item.product.productId" data-route-cartIndex="@Url.RouteUrl("cart")" data-route-updateCart="@Url.RouteUrl("updatecart")">
                                     <button class="quantity__plus updatecartitem" data-productid="@item.product.productId" data-route-cartIndex="@Url.RouteUrl("cart")" data-route-updateCart="@Url.RouteUrl("updatecart")">+</button>
                                     </td>
-                                <td>$@item.TotalMoney</td>
+                                <td>₫@item.TotalMoney</td>
                                 <td>
                                     <a asp-route="removecart" asp-route-productid="@item.product.productId"><i class="fa-solid fa-xmark"></i></a>
                                 </td>
@@ -80,7 +80,7 @@
                     <div class="line"></div>
                     <div class="order--grandTotal">
                         <p>Grand total:</p>
-                        <p>$@total</p>
+                        <p>₫@total</p>
                     </div>
                     <div class="order--form">
                         <a asp-action="CreateOrder" asp-controller="Product"><button class="order--button">Check Out</button></a>
@@ -125,7 +125,7 @@
                             <div class="cardBody">
                                 <p class="subtitle">Arm & Hammer</p>
                                 <p class="productName">Homuir mollis pharetras praneu</p>
-                                <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
+                                <p class="price">₫43.60 <span class="priceNot">₫129.00</span></p>
                             </div>
                             <div class="cardBottom">
                                 <button class="choose" type="button">Choose Options</button>
@@ -143,7 +143,7 @@
                             <div class="cardBody">
                                 <p class="subtitle">Arm & Hammer</p>
                                 <p class="productName">Homuir mollis pharetras praneu</p>
-                                <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
+                                <p class="price">₫43.60 <span class="priceNot">₫129.00</span></p>
                             </div>
                             <div class="cardBottom">
                                 <button class="choose" type="button">Choose Options</button>
@@ -161,7 +161,7 @@
                             <div class="cardBody">
                                 <p class="subtitle">Arm & Hammer</p>
                                 <p class="productName">Homuir mollis pharetras praneu</p>
-                                <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
+                                <p class="price">₫43.60 <span class="priceNot">₫129.00</span></p>
                             </div>
                             <div class="cardBottom">
                                 <button class="choose" type="button">Choose Options</button>
@@ -179,7 +179,7 @@
                             <div class="cardBody">
                                 <p class="subtitle">Arm & Hammer</p>
                                 <p class="productName">Homuir mollis pharetras praneu</p>
-                                <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
+                                <p class="price">₫43.60 <span class="priceNot">₫129.00</span></p>
                             </div>
                             <div class="cardBottom">
                                 <button class="choose" type="button">Choose Options</button>
@@ -197,7 +197,7 @@
                             <div class="cardBody">
                                 <p class="subtitle">Arm & Hammer</p>
                                 <p class="productName">Homuir mollis pharetras praneu</p>
-                                <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
+                                <p class="price">₫43.60 <span class="priceNot">₫129.00</span></p>
                             </div>
                             <div class="cardBottom">
                                 <button class="choose" type="button">Choose Options</button>
@@ -215,7 +215,7 @@
                             <div class="cardBody">
                                 <p class="subtitle">Arm & Hammer</p>
                                 <p class="productName">Homuir mollis pharetras praneu</p>
-                                <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
+                                <p class="price">₫43.60 <span class="priceNot">₫129.00</span></p>
                             </div>
                             <div class="cardBottom">
                                 <button class="choose" type="button">Choose Options</button>
@@ -233,7 +233,7 @@
                             <div class="cardBody">
                                 <p class="subtitle">Arm & Hammer</p>
                                 <p class="productName">Homuir mollis pharetras praneu</p>
-                                <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
+                                <p class="price">₫43.60 <span class="priceNot">₫129.00</span></p>
                             </div>
                             <div class="cardBottom">
                                 <button class="choose" type="button">Choose Options</button>
@@ -251,7 +251,7 @@
                             <div class="cardBody">
                                 <p class="subtitle">Arm & Hammer</p>
                                 <p class="productName">Homuir mollis pharetras praneu</p>
-                                <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
+                                <p class="price">₫43.60 <span class="priceNot">₫129.00</span></p>
                             </div>
                             <div class="cardBottom">
                                 <button class="choose" type="button">Choose Options</button>
@@ -269,7 +269,7 @@
                             <div class="cardBody">
                                 <p class="subtitle">Arm & Hammer</p>
                                 <p class="productName">Homuir mollis pharetras praneu</p>
-                                <p class="price">$43.60 <span class="priceNot">$129.00</span></p>
+                                <p class="price">₫43.60 <span class="priceNot">₫129.00</span></p>
                             </div>
                             <div class="cardBottom">
                                 <button class="choose" type="button">Choose Options</button>
