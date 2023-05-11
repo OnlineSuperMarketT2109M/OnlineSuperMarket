@@ -9,8 +9,7 @@
         if (parseInt(quantity) > 1) {
             var quantity = quantity - 1;
         }
-        
-        console.log(productid, quantity, routeUpdate, routeCartIndex);
+        console.log(quantity);
         $.ajax({
             type: "POST",
             url: routeUpdate,
@@ -30,10 +29,10 @@
         var productid = $(this).attr("data-productid");
         var routeUpdate = $(this).attr("data-route-updateCart");
         var routeCartIndex = $(this).attr("data-route-cartIndex");
-        
+
         var quantity = $("#quantity-" + productid).val();
         quantity = parseInt(quantity) + 1;
-        console.log(productid, quantity, routeUpdate, routeCartIndex);
+        console.log(quantity);
         $.ajax({
             type: "POST",
             url: routeUpdate,
@@ -55,7 +54,7 @@
         var routeCartIndex = $(this).attr("data-route-cartIndex");
 
         var quantity = $("#quantity-" + productid).val();
-        console.log(productid, quantity, routeUpdate, routeCartIndex);
+        console.log(quantity);
         $.ajax({
             type: "POST",
             url: routeUpdate,

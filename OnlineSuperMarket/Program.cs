@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using OnlineSuperMarket.Data;
 using OnlineSuperMarket.Data.SeedData;
+using OnlineSuperMarket.Mail;
 using OnlineSuperMarket.Models;
 using System.Configuration;
 
@@ -62,7 +63,10 @@ builder.Services.AddAuthorization(options =>
 
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddNotyf(config => { config.DurationInSeconds = 3; config.IsDismissable = true; config.Position = NotyfPosition.TopRight; });
+builder.Services.AddNotyf(config => { config.DurationInSeconds = 1; config.IsDismissable = true; config.Position = NotyfPosition.TopRight; });
+builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
+builder.Services.AddTransient<ISendMailService, SendMailService>();
+
 
 var app = builder.Build();
 

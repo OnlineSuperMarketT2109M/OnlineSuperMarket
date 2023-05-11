@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using OnlineSuperMarket.Data;
+using OnlineSuperMarket.Mail;
 using OnlineSuperMarket.Models;
 using OnlineSuperMarket.Models.ViewModel;
 using OnlineSuperMarket.Services.VnPay;
+using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using X.PagedList;
 
@@ -281,6 +283,27 @@ namespace OnlineSuperMarket.Controllers
         [Route("/cart", Name = "cart")]
         public IActionResult Cart()
         {
+            dynamic productsOnSale = _context.Products
+                                    .Where(p => p.status.Contains("sale"))
+                                    .Include(p => p.productImages)
+                                    .Select(p => new ProductViewModel
+                                    {
+                                        productId = p.productId,
+                                        productName = p.productName,
+                                        productImage = p.productImages.FirstOrDefault().productImage,
+                                        unitCost = p.unitCost * 90 / 100,
+                                        brandName = p.Brand.brandName,
+                                        categoryName = p.Category.categoryName,
+                                        status = p.status,
+                                        size = p.size,
+                                        color = p.color,
+                                        quantity = p.quantity,
+
+                                    })
+                                    .Take(10)
+                                    .OrderByDescending(p => p.productId)
+                                    .ToList();
+            ViewBag.productOnSaleSlides = productsOnSale;
             return View(GetCartItems());
         }
 
@@ -327,7 +350,7 @@ namespace OnlineSuperMarket.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult CreateOrder(CheckoutViewModel model)
+        public async Task<IActionResult> CreateOrderAsync(CheckoutViewModel model)
         {
             if(ModelState.IsValid)
             {
@@ -366,7 +389,17 @@ namespace OnlineSuperMarket.Controllers
                     string paymentVnPayUrl = Payment.getPaymentUrl(order);
 
                     ClearCart();
-
+                    var emailSender = HttpContext.RequestServices.GetService<ISendMailService>();
+                    var urlMyOrder = "<a href=\"https://localhost:7245/Account/MyOrder\">Check your order</a>";
+                    var message = new MailContent()
+                    {
+                        To = order.User.Email,
+                        Subject = "Successful order notification",
+                        Body = $"Hi {order.User.UserName}, <br>Thank for your order. Your order was received and pending. <br>" +
+                        $"Your order information: <br>Email: {order.User.Email} <br>Total price: ₫{order.total} <br>Address: {order.Address} <br>Purchase date: {order.purchaseDate} <br>" +
+                        $"{urlMyOrder}"
+                    };
+                    await emailSender.SendMailAsync(message.To, message.Subject, message.Body);
                     return Redirect(paymentVnPayUrl);
                 }
 

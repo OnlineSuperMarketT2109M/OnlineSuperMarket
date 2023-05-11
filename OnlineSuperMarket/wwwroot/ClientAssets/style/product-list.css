@@ -10,11 +10,27 @@
   display: flex;
 } */
 
-.productList--img {
-    position: absolute;
-    z-index: 0;
-    max-width: 1400px;
+#filterBtn {
+    margin-top: 20px;
+    padding: 12px 32px;
+    background: #0a6cdc;
+    border: 1px solid #0a6cdc;
+    cursor: pointer;
+    color: #fff;
+    font-size: 14px;
 }
+
+    #filterBtn:hover {
+        background: #161880;
+        transition: ease-in-out 0.25s;
+        border: 1px solid #161880;
+    }
+
+    .productList--img {
+        position: absolute;
+        z-index: 0;
+        max-width: 1400px;
+    }
 
 .productList--banner h1 {
     position: relative;

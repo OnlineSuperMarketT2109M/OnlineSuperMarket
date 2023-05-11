@@ -203,7 +203,13 @@ namespace OnlineSuperMarket.Areas.Admin.Controllers
             
             var product = _context.Products.Where(p => p.productId == id).FirstOrDefault();
             var productImage = _context.ProductImages.Where(s => s.productId == id).FirstOrDefault();
+            var productInOrder = _context.OrderDetails.Where(p => p.ProductId == id);
 
+            if (productInOrder != null)
+            {
+                _notifyService.Error("Cannot use this action!");
+                return RedirectToAction("Index");
+            }
 
             _context.ProductImages.Remove(productImage);
 ;

@@ -26,7 +26,7 @@ namespace OnlineSuperMarket.Data
         public virtual DbSet<Product> Products { get; set; }
 
         public virtual DbSet<Order> Orders { get; set; }
-
+        public virtual DbSet<OrderDetails> OrderDetails { get; set; }
         public virtual DbSet<ProductComment> ProductComments { get; set; }
 
         public virtual DbSet<ProductImage> ProductImages { get; set; }

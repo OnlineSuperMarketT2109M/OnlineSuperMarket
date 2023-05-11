@@ -4,69 +4,69 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-    <!-- Cart  -->
-    <div class="container">
-        <ol class="breadcrumb">
-            <li><a href="~/ClientAssets/index.html">Home</a></li>
-            <li>/</li>
-            <li><a href="~/ClientAssets/pages/cart.html">Your Cart</a></li>
-        </ol>
+<!-- Cart  -->
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="~/ClientAssets/index.html">Home</a></li>
+        <li>/</li>
+        <li><a href="~/ClientAssets/pages/cart.html">Your Cart</a></li>
+    </ol>
 
-        <div class="cartTitle">
-            <h1>
-                Your Cart <span>
-                    (@Model.Count())
-                </span>
-            </h1>
-        </div>
-        @if (Model.Count > 0)
-        {
-            double total = 0;
-            <div class="tableOrder cartContainer">
-                <table>
-                    <thead class="tableOrder--header">
-                        <tr>
-                            <th class="cart--header--item cartItem" colspan="2">Item</th>
-                            <th class="cart--header--item">Price</th>
-                            <th class="cart--header--item">Quantity</th>
-                            <th class="cart--header--item">Total</th>
-                            <th class="cart--header--item"></th>
+    <div class="cartTitle">
+        <h1>
+            Your Cart <span>
+                (@Model.Count())
+            </span>
+        </h1>
+    </div>
+    @if (Model.Count > 0)
+    {
+        double total = 0;
+        <div class="tableOrder cartContainer">
+            <table>
+                <thead class="tableOrder--header">
+                    <tr>
+                        <th class="cart--header--item cartItem" colspan="2">Item</th>
+                        <th class="cart--header--item">Price</th>
+                        <th class="cart--header--item">Quantity</th>
+                        <th class="cart--header--item">Total</th>
+                        <th class="cart--header--item"></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+
+                        total += item.TotalMoney;
+
+                        <tr class="cart--item">
+                            <td class="cart--item--figure"><img src="~/ClientAssets/img/@item.productImage.productImage"></td>
+                            <td class="cart--item--title">
+                                <p class="cart--item--brand">@item.product.Brand.brandName</p>
+                                <h2 class="cart--item--name">@item.product.productName</h2>
+                                <p class="cart--item--color">Color: <span>@item.product.color</span></p>
+                                <p class="cart--item--size">Size: <span>@item.product.size</span></p>
+                            </td>
+                            <td>₫@item.product.unitCost</td>
+                            <td>
+                                <button class="quantity__minus updatecartitem" data-productid="@item.product.productId" data-route-cartIndex="@Url.RouteUrl("cart")" data-route-updateCart="@Url.RouteUrl("updatecart")">-</button>
+                                <input class="cart--item--quantity" asp-for="@item.quantity" id="@($"quantity-{item.product.productId}")" type="number" data-productid="@item.product.productId" data-route-cartIndex="@Url.RouteUrl("cart")" data-route-updateCart="@Url.RouteUrl("updatecart")">
+                                <button class="quantity__plus updatecartitem" data-productid="@item.product.productId" data-route-cartIndex="@Url.RouteUrl("cart")" data-route-updateCart="@Url.RouteUrl("updatecart")">+</button>
+                            </td>
+                            <td>₫@item.TotalMoney</td>
+                            <td>
+                                <a asp-route="removecart" asp-route-productid="@item.product.productId"><i class="fa-solid fa-xmark"></i></a>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
 
-                        @foreach (var item in Model)
-                        {
-                            
-                            total += item.TotalMoney;
-
-                            <tr class="cart--item">
-                                <td class="cart--item--figure"><img src="~/ClientAssets/img/@item.productImage.productImage"></td>
-                                <td class="cart--item--title">
-                                    <p class="cart--item--brand">@item.product.Brand.brandName</p>
-                                    <h2 class="cart--item--name">@item.product.productName</h2>
-                                    <p class="cart--item--color">Color: <span>@item.product.color</span></p>
-                                    <p class="cart--item--size">Size: <span>@item.product.size</span></p>
-                                </td>
-                                <td>₫@item.product.unitCost</td>
-                                <td>
-                                    <button class="quantity__minus updatecartitem" data-productid="@item.product.productId" data-route-cartIndex="@Url.RouteUrl("cart")" data-route-updateCart="@Url.RouteUrl("updatecart")">-</button>
-                                    <input class="cart--item--quantity" asp-for="@item.quantity" id="@("quantity-{item.product.productId}")" type="number" data-productid="@item.product.productId" data-route-cartIndex="@Url.RouteUrl("cart")" data-route-updateCart="@Url.RouteUrl("updatecart")">
-                                    <button class="quantity__plus updatecartitem" data-productid="@item.product.productId" data-route-cartIndex="@Url.RouteUrl("cart")" data-route-updateCart="@Url.RouteUrl("updatecart")">+</button>
-                                    </td>
-                                <td>₫@item.TotalMoney</td>
-                                <td>
-                                    <a asp-route="removecart" asp-route-productid="@item.product.productId"><i class="fa-solid fa-xmark"></i></a>
-                                </td>
-                            </tr>
-
-                        }
+                    }
 
 
-                    </tbody>
-                </table>
+                </tbody>
+            </table>
 
-            </div>
+        </div>
         <div class="cartContainer paymentContainer">
             <div class="cartContainer--right">
                 <div class="order">
@@ -76,7 +76,7 @@
                         </h2>
                     </div>
 
-                   
+
                     <div class="line"></div>
                     <div class="order--grandTotal">
                         <p>Grand total:</p>
@@ -105,179 +105,45 @@
                 </div>
             </div>
         </div>
-        }
-        else
-        {
-            <p class="alert alert-danger">Your shopping cart is empty!</p>
-            <a asp-action="Index" asp-controller="Home">Shop now</a>
-        }
-        
-        <div class="productItem">
-            <div class="swiper1 mySwiper1">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="cardTop">
-                                <div class="tag">Sale</div>
-                                <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                                <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
-                            </div>
-                            <div class="cardBody">
-                                <p class="subtitle">Arm & Hammer</p>
-                                <p class="productName">Homuir mollis pharetras praneu</p>
-                                <p class="price">₫43.60 <span class="priceNot">₫129.00</span></p>
-                            </div>
-                            <div class="cardBottom">
-                                <button class="choose" type="button">Choose Options</button>
-                                <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="cardTop">
-                                <div class="tag">Sale</div>
-                                <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                                <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
-                            </div>
-                            <div class="cardBody">
-                                <p class="subtitle">Arm & Hammer</p>
-                                <p class="productName">Homuir mollis pharetras praneu</p>
-                                <p class="price">₫43.60 <span class="priceNot">₫129.00</span></p>
-                            </div>
-                            <div class="cardBottom">
-                                <button class="choose" type="button">Choose Options</button>
-                                <div class="heart"><i class="fa-thin fa-heart"></i></div>
+    }
+    else
+    {
+        <p class="alert alert-danger">Your shopping cart is empty!</p>
+        <a asp-action="Index" asp-controller="Home">Shop now</a>
+    }
+
+    <div class="productItem">
+        <div class="swiper1 mySwiper1">
+            <div class="swiper-wrapper">
+                @foreach (ProductViewModel item in ViewBag.productOnSaleSlides)
+                {
+                    if (item != null)
+                    {
+
+                        <div class="swiper-slide">
+                            <div class="card">
+                                <div class="cardTop">
+                                    @if (item.status != null)
+                                    {
+                                        <div class="tag">Sale</div>
+                                    }
+                                    <img class="img1" src="~/ClientAssets/img/@item.productImage">
+                                    <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
+                                </div>
+                                <div class="cardBody">
+                                    <p class="subtitle">@item.brandName</p>
+                                    <p class="productName">@item.productName</p>
+                                    <p class="price">₫@item.unitCost</p>
+                                </div>
+                                <div class="cardBottom">
+                                    <a asp-action="Details" asp-controller="Product" asp-route-id="@item.productId"><button class="choose">Choose Options</button></a>
+                                    <div class="heart"><i class="fa-thin fa-heart"></i></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="cardTop">
-                                <div class="tag">Sale</div>
-                                <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                                <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
-                            </div>
-                            <div class="cardBody">
-                                <p class="subtitle">Arm & Hammer</p>
-                                <p class="productName">Homuir mollis pharetras praneu</p>
-                                <p class="price">₫43.60 <span class="priceNot">₫129.00</span></p>
-                            </div>
-                            <div class="cardBottom">
-                                <button class="choose" type="button">Choose Options</button>
-                                <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="cardTop">
-                                <div class="tag">Sale</div>
-                                <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                                <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
-                            </div>
-                            <div class="cardBody">
-                                <p class="subtitle">Arm & Hammer</p>
-                                <p class="productName">Homuir mollis pharetras praneu</p>
-                                <p class="price">₫43.60 <span class="priceNot">₫129.00</span></p>
-                            </div>
-                            <div class="cardBottom">
-                                <button class="choose" type="button">Choose Options</button>
-                                <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="cardTop">
-                                <div class="tag">Sale</div>
-                                <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                                <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
-                            </div>
-                            <div class="cardBody">
-                                <p class="subtitle">Arm & Hammer</p>
-                                <p class="productName">Homuir mollis pharetras praneu</p>
-                                <p class="price">₫43.60 <span class="priceNot">₫129.00</span></p>
-                            </div>
-                            <div class="cardBottom">
-                                <button class="choose" type="button">Choose Options</button>
-                                <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="cardTop">
-                                <div class="tag">Sale</div>
-                                <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                                <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
-                            </div>
-                            <div class="cardBody">
-                                <p class="subtitle">Arm & Hammer</p>
-                                <p class="productName">Homuir mollis pharetras praneu</p>
-                                <p class="price">₫43.60 <span class="priceNot">₫129.00</span></p>
-                            </div>
-                            <div class="cardBottom">
-                                <button class="choose" type="button">Choose Options</button>
-                                <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="cardTop">
-                                <div class="tag">Sale</div>
-                                <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                                <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
-                            </div>
-                            <div class="cardBody">
-                                <p class="subtitle">Arm & Hammer</p>
-                                <p class="productName">Homuir mollis pharetras praneu</p>
-                                <p class="price">₫43.60 <span class="priceNot">₫129.00</span></p>
-                            </div>
-                            <div class="cardBottom">
-                                <button class="choose" type="button">Choose Options</button>
-                                <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="cardTop">
-                                <div class="tag">Sale</div>
-                                <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                                <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
-                            </div>
-                            <div class="cardBody">
-                                <p class="subtitle">Arm & Hammer</p>
-                                <p class="productName">Homuir mollis pharetras praneu</p>
-                                <p class="price">₫43.60 <span class="priceNot">₫129.00</span></p>
-                            </div>
-                            <div class="cardBottom">
-                                <button class="choose" type="button">Choose Options</button>
-                                <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card">
-                            <div class="cardTop">
-                                <div class="tag">Sale</div>
-                                <img class="img1" src="~/ClientAssets/img/product-4-4__71826.jpg">
-                                <!-- <img class="imgHover" src="./img/product-4-1__64128.jpg"> -->
-                            </div>
-                            <div class="cardBody">
-                                <p class="subtitle">Arm & Hammer</p>
-                                <p class="productName">Homuir mollis pharetras praneu</p>
-                                <p class="price">₫43.60 <span class="priceNot">₫129.00</span></p>
-                            </div>
-                            <div class="cardBottom">
-                                <button class="choose" type="button">Choose Options</button>
-                                <div class="heart"><i class="fa-thin fa-heart"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    }
+
+                }
             </div>
         </div>
     </div>

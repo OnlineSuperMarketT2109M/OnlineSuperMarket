@@ -41,6 +41,7 @@ namespace OnlineSuperMarket.Areas.Admin.Controllers
             var model = _context.Orders
                         .Include(o => o.User)
                         .Include(o => o.OrderDetails)
+                        .OrderByDescending(o => o.purchaseDate)
                         .AsNoTracking();
             return View(model.Where(m => m.orderStatus.Contains(search) || search == null).ToPagedList(pageNumber, pageSize));
         }
@@ -84,6 +85,22 @@ namespace OnlineSuperMarket.Areas.Admin.Controllers
             _context.Update(order);
             _context.SaveChanges();
             return Ok();
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var order = _context.Orders.Where(o => o.orderId == id).FirstOrDefault();
+            var orderDetails = _context.OrderDetails.Where(od => od.OrderId == id).ToList();
+
+            foreach(var item in orderDetails)
+            {
+                _context.Remove(item);
+            }
+
+            _context.Remove(order);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }
